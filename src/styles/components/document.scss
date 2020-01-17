@@ -1,0 +1,51 @@
+.document{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $colorBlack;
+  &._blue{
+    .document__name{
+      color: $colorBlue;
+    }
+    .document__icon{
+      min-width: auto;
+      margin-right: 8px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  &._small{
+    .document__name{
+      @include p3($colorBlue);
+    }
+    .document__icon{
+      margin-right: 10px;
+      min-width: auto;
+    }
+  }
+  &:hover{
+    color: $colorBlack;
+    text-decoration: none;
+    .document__name{
+      color: $colorBlue;
+    }
+  }
+  &__name{
+    @include p2;
+    color: $colorBlack;
+    transition: $transitionSpeed;
+    margin-top: 3px;
+  }
+  &__icon{
+    margin-right: 18px;
+    min-width: 36px;
+  }
+  &__date{
+    @include p2;
+    color: $colorNavGrey;
+    margin-left: 8px;
+  }
+  &__content{
+    display: flex;
+  }
+}

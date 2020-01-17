@@ -1,0 +1,38 @@
+mixin document-blue(data, options)
+  //- data = { type: string, name: string, date: string, link: string, style: string }
+  //- options = { type: string }
+  - options = options || {}
+  if data.link
+    a.document._blue(href=data.link class=options.type && '_'+options.type)
+      .document__content
+        if data.type === 'pdf'
+          .document__icon
+            img(src='common/images/i-doc-pdf-blue.svg' alt='pdf icon')
+        else if data.type === 'zip'
+          .document__icon
+            img(src='common/images/i-doc-zip-blue.svg' alt='zip icon')
+        else if data.type === 'png'
+          .document__icon
+            img(src='common/images/i-doc-png-blue.svg' alt='png icon')
+        .document__name
+          span= data.name
+      if data.date
+        .document__date
+          span= data.date
+  else
+    .document._blue(class=options.type && '_'+options.type)
+      .document__content
+        if data.type === 'pdf'
+          .document__icon
+            img(src='common/images/i-doc-pdf-blue.svg' alt='pdf icon')
+        else if data.type === 'zip'
+          .document__icon
+            img(src='common/images/i-doc-zip-blue.svg' alt='zip icon')
+        else if data.type === 'png'
+          .document__icon
+            img(src='common/images/i-doc-png-blue.svg' alt='png icon')
+        .document__name
+          span= data.name
+      if data.date
+        .document__date
+          span= data.date

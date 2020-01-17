@@ -1,0 +1,264 @@
+extends components/layout-inner
+include components/menu
+include components/banner
+include components/tab
+include components/share-button
+include components/gallery-category
+
+block title
+  | Галерея
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          linkName: 'Галерея'
+        }
+      ],
+      image: 'common/images/banner__bg-gallery.jpg',
+      title: 'Галерея'
+    }
+    var cats = [
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-1.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-2.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-3.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-4.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-5.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-6.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-7.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-8.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-9.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-10.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-1.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-2.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-3.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-4.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-5.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-6.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-7.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-8.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-9.jpg',
+        link: '#'
+      },
+      {
+        date: '09.03.2019',
+        photosCount: 100,
+        title: '',
+        image: 'common/images/gallery-outer__item-10.jpg',
+        link: '#'
+      }
+    ]
+    var galleryTabs = [
+      {
+        tab: 'Новости'
+      },
+      {
+        tab: 'Предприятия'
+      },
+      {
+        tab: 'Мероприятия'
+      }
+    ]
+    var galleryCallendar = {
+      months: [
+        {
+          text: 'Все месяцы',
+          value: '0'
+        },
+        {
+          text: 'Январь',
+          value: '1'
+        },
+        {
+          text: 'Февраль',
+          value: '2'
+        },
+        {
+          text: 'Март',
+          value: '3'
+        },
+        {
+          text: 'Апрель',
+          value: '4'
+        },
+        {
+          text: 'Май',
+          value: '5'
+        },
+        {
+          text: 'Июнь',
+          value: '6'
+        },
+        {
+          text: 'Июль',
+          value: '7'
+        },
+        {
+          text: 'Август',
+          value: '8'
+        },
+        {
+          text: 'Сентябрь',
+          value: '9'
+        },
+        {
+          text: 'Октябрь',
+          value: '10'
+        },
+        {
+          text: 'Ноябрь',
+          value: '11'
+        },
+        {
+          text: 'Декабрь',
+          value: '12'
+        }
+      ]
+    }
+block content
+  +menu
+  .inner.gallery(data-tabs)
+    +banner(bannerData)
+      +share-button
+    .gallery__wrapper
+      .container
+        .row
+          .col-12
+            .gallery__top
+              .gallery__tabs
+                each tab, index in galleryTabs
+                  .gallery__tab
+                    +tab({ name: tab.tab, isActive: index === 0 })&attributes({ 'data-tab-id': index + 1 })
+              .gallery__filters
+                .filter-select.gallery__filter
+                  select(data-placeholder='test' data-chosen-select-content-fit).filter-select-native
+                    each item in galleryCallendar.months
+                      option(value=item.value)=item.text
+        .gallery__categories
+          - var counter = 0
+          while counter <= galleryTabs.length - 1
+            .gallery__block(data-tab-block=counter class={
+              '_active': counter === 0
+            })
+              .row
+                each cat in cats
+                  .col-4
+                    .gallery__category
+                      +gallery-category(cat)
+            - counter += 1;

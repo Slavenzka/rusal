@@ -1,0 +1,10 @@
+mixin inner-menu(data)
+  //- data = [{ link: string, linkName: string }]
+  .inner-menu
+    .container
+      .row
+        .col-12
+          .inner-menu__wrapper
+            each item in data
+              .inner-menu__item
+                a.inner-menu__link(href=item.link)= item.linkName

@@ -1,0 +1,22 @@
+extends components/layout-inner
+include components/backlink
+include components/search-input
+include components/tag
+
+block title
+  | Поиск
+block vars
+
+block content
+  .search
+    .container
+      .row
+        .col-12
+          .search__wrapper
+            +backlink('#', 'Назад', 'dark')
+          .search__field
+            +search-input({ placeholder: 'Поиск по сайту', value: 'Производствво' })
+      .row
+        .col-12
+          .search__empty
+            p По этому запросу ничего не найдено.

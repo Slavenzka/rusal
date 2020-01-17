@@ -1,0 +1,78 @@
+.button{
+  @include p2;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 9px 32px;
+  box-sizing: border-box;
+  color: #fff;
+  text-decoration: none;
+  background-color: $colorBlue;
+  transition: $transitionSpeed;
+  border: 1px solid transparent;
+  text-align: center;
+  &._low{
+    padding: 5px 32px;
+  }
+  &._high {
+    padding: 13px 30px;
+    width: 100%;
+  }
+  &._light{
+    color: $colorLightGrey;
+  }
+  &:hover{
+    text-decoration: none;
+    color: #fff;
+    background-color: $colorDarkBlue;
+    cursor: pointer;
+  }
+  &._secondary{
+    background-color: transparent;
+    border-color: rgba(63, 145, 205, 0.4);
+    color: $colorBlue;
+    &:hover{
+      background-color: $colorBlue;
+      color: $colorWhite;
+    }
+  }
+  &._light{
+    background-color: transparent;
+    border-color: $colorLightGrey;
+    color: $colorLightGrey;
+    &:hover{
+      background-color: $colorLightGrey;
+      color: $colorBlack;
+    }
+  }
+  &._white{
+    background-color: $colorWhite;
+    color: $colorBlack;
+    border-color: $colorBlue;
+    &:hover{
+      background-color: $colorBlue;
+      color: $colorWhite;
+    }
+  }
+  &._white-grey{
+    background-color: #fff;
+    color: $colorBlack;
+    &:hover{
+      background-color: $colorLightGrey;
+    }
+  }
+  &._white-grey-bordered{
+    background-color: #fff;
+    color: $colorBlack;
+    border-color: #ebebeb;
+    &:hover{
+      background-color: $colorLightGrey;
+      border-color: transparent;
+    }
+  }
+  &[disabled]{
+    background-color: $colorDisabled;
+    border-color: $colorDisabled;
+    color: $colorNavGrey;
+    pointer-events: none;
+  }
+}

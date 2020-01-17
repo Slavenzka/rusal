@@ -1,0 +1,56 @@
+.vacancy-card{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba($colorBlack, .1);
+  &:hover{
+    .vacancy-card__title{
+      color: $colorBlue;
+    }
+    .vacancy-card__text{
+      color: $colorBlue;
+    }
+  }
+  &:not(:first-child){
+    padding-top: 32px;
+  }
+  &__title{
+    @include h4;
+    margin-bottom: 12px;
+    transition: $transitionSpeed;
+  }
+  &__text{
+    @include p2;
+    transition: $transitionSpeed;
+  }
+  &__location{
+    display: flex;
+    &-icon{
+      min-width: 20px;
+    }
+  }
+  &__city{
+    @include p2;
+    @include fontMedium;
+  }
+  &__address{
+    color: $colorNavGrey;
+  }
+  &__details{
+    width: 752px;
+  }
+  &__info{
+    display: flex;
+  }
+  &__location{
+    margin-left: 123px;
+    &-content{
+      margin-left: 12px;
+      min-width: 160px;
+    }
+  }
+  &__experience{
+    white-space: nowrap;
+    color: $colorBlack;
+  }
+}

@@ -1,0 +1,33 @@
+.inner-menu{
+  background-color: #ffffff;
+  &__wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  &__item{
+    position: relative;
+    &:not(:first-child){
+      margin-left: 28px;
+      &:before{
+        position: absolute;
+        content: '';
+        left: -28px;
+        height: 12px;
+        width: 1px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba($colorBlack, .2);
+      }
+    }
+    &:not(:last-child){
+      margin-right: 28px;
+    }
+  }
+  &__link{
+    @include p2;
+    color: $colorBlue;
+  }
+}

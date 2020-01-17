@@ -1,0 +1,24 @@
+mixin document(data)
+  //- data = { type: string, name: string, date: string, link: string }
+  if data.link
+    a.document(href=data.link)
+      .document__content
+        if data.type === 'pdf'
+          .document__icon
+            img(src='common/images/i-doc-pdf.svg' alt='pdf icon')
+        .document__name
+          span= data.name
+      if data.date
+        .document__date
+          span= data.date
+  else
+    .document(href=data.link)
+      .document__content
+        if data.type === 'pdf'
+          .document__icon
+            img(src='common/images/i-doc-pdf.svg' alt='pdf icon')
+        .document__name
+          span= data.name
+      if data.date
+        .document__date
+          span= data.date

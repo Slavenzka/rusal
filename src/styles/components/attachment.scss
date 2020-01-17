@@ -1,0 +1,12 @@
+.attachment{
+  &__link{
+    display: flex;
+    align-items: center;
+    @include p2($colorBlack);
+  }
+  &__ico{
+    width: 36px;
+    height: 36px;
+    margin-right: 4px;
+  }
+}

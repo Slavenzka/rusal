@@ -1,0 +1,101 @@
+@mixin addFont($fontFamily: 'Gilroy', $fontWeight: 400){
+  font-family: $fontFamily;
+  font-weight: $fontWeight;
+}
+@mixin h1($color: $colorBlack){
+  @include addFont($fontWeight: 700);
+  color: $color;
+  font-size: 64px;
+  line-height: 64px;
+}
+@mixin h2($color: $colorBlack){
+  @include addFont($fontWeight: 700);
+  color: $color;
+  font-size: 56px;
+  line-height: 56px;
+}
+@mixin h2-m($color: $colorBlack){
+  @include addFont($fontWeight: 700);
+  color: $color;
+  font-size: 28px;
+  line-height: 32px;
+}
+@mixin h3($color: $colorBlack){
+  @include addFont($fontWeight: 700);
+  color: $color;
+  font-size: 32px;
+  line-height: 40px;
+}
+@mixin h4($color: $colorBlack){
+  @include addFont($fontWeight: 700);
+  color: $color;
+  font-size: 20px;
+  line-height: 28px;
+}
+@mixin h4-m($color: $colorBlack){
+  @include addFont($fontWeight: 700);
+  color: $color;
+  font-size: 16px;
+  line-height: 24px;
+}
+@mixin p1($color: $colorBlack){
+  @include addFont($fontWeight: 500);
+  color: $color;
+  font-size: 18px;
+  line-height: 32px;
+}
+@mixin p2($color: $colorBlack){
+  @include addFont($fontWeight: 500);
+  color: $color;
+  font-size: 15px;
+  line-height: 28px;
+}
+@mixin p2-m($color: $colorBlack){
+  @include addFont($fontWeight: 500);
+  color: $color;
+  font-size: 15px;
+  line-height: 24px;
+}
+@mixin p2-navig($color: $colorBlack){
+  @include addFont($fontWeight: 500);
+  color: $color;
+  font-size: 14px;
+  line-height: 28px;
+}
+@mixin p2-date($color: $colorLightGrey){
+  @include addFont($fontWeight: 500);
+  color: $color;
+  font-size: 15px;
+  line-height: 20px;
+}
+@mixin p3($color: $colorBlack){
+  @include addFont($fontWeight: 600);
+  color: $color;
+  font-size: 12px;
+  line-height: 20px;
+}
+@mixin p3-small($color: $colorBlack){
+  @include addFont($fontWeight: 600);
+  color: $color;
+  font-size: 12px;
+  line-height: 16px;
+}
+@mixin quote($color: $colorBlack){
+  font-family: 'Times New Roman, sans-serif';
+  font-style: italic;
+  color: $color;
+  font-size: 28px;
+  line-height: 40px;
+}
+@mixin fontNormal{
+  font-weight: 400;
+}
+@mixin fontBold{
+  font-weight: 700;
+}
+@mixin fontMedium{
+  font-weight: 500;
+}
+@mixin fontSemibold{
+  font-weight: 600;
+}

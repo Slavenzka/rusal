@@ -1,0 +1,28 @@
+extends components/layout-inner
+include components/menu
+include components/backlink
+include components/dropdown
+include elements/button
+
+block title
+  | Финансовая отчетность
+block vars
+  - var lang = 'en'
+block content
+  +menu
+  .inner.financial-inner
+    .financial-inner__content
+      .container
+        .row
+          .col-2
+            +backlink('#', 'Go Back', 'dark')
+          .col-6.wysiwyg
+              h4 Not for release, publication or&nbsp;distribution, directly or&nbsp;indirectly, in&nbsp;whole or&nbsp;in&nbsp;part, in&nbsp;or&nbsp;into the united states of&nbsp;america (except to&nbsp;qualified institutional buyers), australia, canada, japan or&nbsp;any other jurisdiction where to&nbsp;do&nbsp;so&nbsp;would be&nbsp;unlawful.
+              p The information included in this section is restricted due to applicable securities laws in your country of residence. The information in this section of the website is, therefore, not available to persons located in your country of residence
+    .financial-inner__bottom
+      .container
+        .row
+          .col-6.offset-2
+            .financial-inner__bottom-wrapper._step-3
+              .financial-inner__bottom-button
+                +button({tag: 'button', name: 'На страницу «Инвесторам»'})

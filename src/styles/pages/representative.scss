@@ -1,0 +1,78 @@
+.representative {
+  background-color: #e8e8e8;
+
+  &__wrapper {
+    padding-top: 60px;
+    padding-bottom: 120px;
+  }
+
+  &__content {
+    padding: 56px 112px;
+    background-color: white;
+  }
+
+  &__table {
+    display: block;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__heading {
+    @include p2;
+    @include fontBold;
+    padding-bottom: 23px;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.4);
+
+    &:first-of-type {
+      width: 224px;
+    }
+
+    &:nth-of-type(2) {
+      width: 416px;
+    }
+
+    &:nth-of-type(3) {
+      padding-left: 48px;
+      width: 180px;
+    }
+
+    &:last-of-type {
+      padding-left: 80px;
+    }
+  }
+
+  &__row {
+    @include p2;
+    vertical-align: top;
+  }
+
+  &__item {
+    padding-top: 48px;
+  }
+
+  &__item--country {
+    display: flex;
+    align-items: center;
+  }
+
+  &__flag {
+    display: inline-block;
+    width: 40px;
+    height: 28px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__name {
+    margin-left: 20px;
+  }
+
+  &__item--phones {
+    padding-left: 48px;
+  }
+
+  &__item--fax {
+    padding-left: 80px;
+  }
+}

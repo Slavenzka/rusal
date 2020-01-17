@@ -1,0 +1,17 @@
+mixin button(data)
+  //- data = { name: string, link: string, tag: string, style: string, height: oneOf[low], disabled: bool }
+  -
+    if (data.tag && data.tag !== 'button') {
+      attributes.href = data.link;
+    }
+    attributes.class = data.style && '_'+data.style;
+    if(data.height){
+      attributes.class += ' _'+data.height;
+    }
+  if data.tag && data.tag === 'button'
+    button.button(disabled=data.disabled)&attributes(attributes)= data.name
+  else if data.tag && data.tag === 'div'
+    .button&attributes(attributes)
+      span= data.name
+  else
+    a(href=data.link || '#').button&attributes(attributes)= data.name

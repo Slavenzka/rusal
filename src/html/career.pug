@@ -1,0 +1,136 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/career-card
+
+block title
+  | Карьера в РУСАЛе
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          linkName: 'Клиентам'
+        }
+      ],
+      text: 'Команда РУСАЛа — это 64 000 профессионалов самых разных направлений и специальностей. Сотрудники отличаются высоким уровнем квалификации и профессиональной подготовки.',
+      title: 'Клиентам',
+      style: 'transparent',
+      buttons: [
+        {
+          name: 'Смотреть вакансии',
+          link: '#'
+        },
+        {
+          name: 'Узнать подробнее',
+          link: '#',
+          style: 'secondary'
+        }
+      ]
+    }
+    var careerImages = [
+      'common/images/career__bg-1.jpg',
+      'common/images/career__bg-2.jpg',
+      'common/images/career__bg-3.jpg',
+      'common/images/career__bg-4.jpg',
+      'common/images/career__bg-5.jpg'
+    ]
+    var careerBlocks = [
+      {
+        name: 'Вакансии компании',
+        text: 'Выбирая РУСАЛ, вы попадаете в компанию, где каждый сотрудник является полноценным партнером.',
+        image: 'common/images/career__card-1.jpg',
+        link: '#'
+      },
+      {
+        name: 'Студентам',
+        text: 'Мы верим, что сегодняшние выпускники — будущие лидеры, которые достигнут самых амбициозных целей',
+        image: 'common/images/career__card-2.jpg',
+        link: '#'
+      },
+      {
+        name: 'Молодым специалистам',
+        text: 'C 2017 года в РУСАЛе успешно функционирует программа стажировок «Новое поколение»',
+        image: 'common/images/career__card-3.jpg',
+        link: '#'
+      },
+      {
+        name: 'Кадровый резерв',
+        text: 'Для РУСАЛа люди являются самым ценным активом о развитии и сохранении которого мы постоянно заботимся',
+        image: 'common/images/career__card-4.jpg',
+        link: '#'
+      },
+      {
+        name: 'Абитуриентам и школьникам',
+        text: 'Формируем принцип«образование в течение всей жизни».',
+        image: 'common/images/career__card-5.jpg',
+        link: '#'
+      },
+      {
+        name: 'Корпоративный университет',
+        text: 'Уделяем повышенное внимание развитию и обучению персонала',
+        image: 'common/images/career__card-6.jpg',
+        link: '#'
+      }
+    ]
+block content
+  +menu
+  .inner.career
+    .career__banner
+      +banner(bannerData)
+    .career__content
+      .container
+        .career__images(data-career-images)
+          .career__images-inner(data-career-images-inner)
+            each image, index in careerImages
+              .career__images-item(data-career-images-item)
+                img(src=image alt=index)
+    .career__company
+      .container
+        .row
+          .col-7
+            .career__company-title
+              p О компании
+            .career__company-text
+              p Компания РУСАЛ образовалась в 2000 году, объединив активы СИБАЛа и Millhouse Capital. Компания вошла в тройку крупнейших в мире алюминиевых компаний и выдавала ¾ российского производства алюминия. В современном виде компания создана в 2007 году путём слияния алюминиевых и глинозёмных активов российских компаний «Русский алюминий», СУАЛ и алюминиевых активов швейцарского сырьевого трейдера Glencore.
+            .career__company-contacts
+              .career__company-subtitle
+                p Контакты отдела кадров
+              .career__company-contacts-links
+                a.career__company-contacts-link(href='tel:+74957205170') +7 495 720 51 70
+                a.career__company-contacts-link(href='mailto:resume@rusal.com') resume@rusal.com
+          .col-4.offset-1
+            .career__metric
+              .career__metric-row
+                .career__metric-block
+                  .career__metric-value
+                    span 64 000+
+                  .career__metric-description
+                    p человек трудятся на предприятиях РУСАЛа
+              .career__metric-row
+                .career__metric-block
+                  .career__metric-value
+                    span 47
+                  .career__metric-description
+                    p Заводов
+                .career__metric-block
+                  .career__metric-value
+                    span 5
+                  .career__metric-description
+                    p Континентов
+                .career__metric-block
+                  .career__metric-value
+                    span 20
+                  .career__metric-description
+                    p стран
+    .career__cards
+      .container
+        .row
+          each card in careerBlocks
+            .col-6
+              .career__card
+                +career-card(card)

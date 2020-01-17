@@ -1,0 +1,114 @@
+extends components/layout-inner
+include components/banner
+include elements/button
+include components/invest-card
+include components/menu
+include components/share-button
+
+block title
+  | Пресс-центр
+block vars
+  -
+    var bannerData = {
+    breadcrumbs: [
+    {
+    link: '#',
+    linkName: 'Главная'
+    },
+    {
+    link: '#',
+    linkName: 'Пресс-центр'
+    },
+    {
+    link: '#',
+    linkName: 'Медиатека'
+    },
+    {
+    linkName: 'Пресс-релизы'
+    }
+    ],
+    image: 'common/images/banner__bg-press.jpg',
+    title: 'Пресс-релизы'
+    }
+    var bannerButton = {
+    name: 'Показать ещё',
+    link: '#',
+    style: 'secondary',
+    tag: 'button'
+    }
+    var investData = [
+    {
+    name: 'РУСАЛ успешно разместил третий в 2019 году транш рублевых облигаций',
+    type: 'press',
+    content: 'РУСАЛ сообщает о&nbsp;закрытии книги заявок третьего транша 10-летних облигаций с&nbsp;офертой через 3&nbsp;года на&nbsp;Московской бирже номинальным объемом 15&nbsp;млрд рублей.',
+    date: '05.09.19',
+    link: '/press-detail.html'
+    },
+    {
+    name: 'РУСАЛ успешно разместил третий в 2019 году транш рублевых облигаций',
+    type: 'press',
+    content: 'РУСАЛ сообщает о&nbsp;закрытии книги заявок третьего транша 10-летних облигаций с&nbsp;офертой через 3&nbsp;года на&nbsp;Московской бирже номинальным объемом 15&nbsp;млрд рублей.',
+    date: '05.09.19',
+    link: '/press-detail.html'
+    },
+    {
+    name: 'РУСАЛ успешно разместил третий в 2019 году транш рублевых облигаций',
+    type: 'press',
+    content: 'РУСАЛ сообщает о&nbsp;закрытии книги заявок третьего транша 10-летних облигаций с&nbsp;офертой через 3&nbsp;года на&nbsp;Московской бирже номинальным объемом 15&nbsp;млрд рублей.',
+    date: '05.09.19',
+    link: '/press-detail.html'
+    },
+    {
+    name: 'РУСАЛ успешно разместил третий в 2019 году транш рублевых облигаций',
+    type: 'press',
+    content: 'РУСАЛ сообщает о&nbsp;закрытии книги заявок третьего транша 10-летних облигаций с&nbsp;офертой через 3&nbsp;года на&nbsp;Московской бирже номинальным объемом 15&nbsp;млрд рублей.',
+    date: '05.09.19',
+    link: '/press-detail.html'
+    },
+    {
+    name: 'РУСАЛ успешно разместил третий в 2019 году транш рублевых облигаций',
+    type: 'press',
+    content: 'РУСАЛ сообщает о&nbsp;закрытии книги заявок третьего транша 10-летних облигаций с&nbsp;офертой через 3&nbsp;года на&nbsp;Московской бирже номинальным объемом 15&nbsp;млрд рублей.',
+    date: '05.09.19',
+    link: '/press-detail.html'
+    },
+    {
+    name: 'РУСАЛ успешно разместил третий в 2019 году транш рублевых облигаций',
+    type: 'press',
+    content: 'РУСАЛ сообщает о&nbsp;закрытии книги заявок третьего транша 10-летних облигаций с&nbsp;офертой через 3&nbsp;года на&nbsp;Московской бирже номинальным объемом 15&nbsp;млрд рублей.',
+    date: '05.09.19',
+    link: '/press-detail.html'
+    }
+    ]
+block content
+  +menu
+  .inner.press.pb-120
+    +banner(bannerData)
+      .press__share
+        +share-button
+    .press__cards.pt-64
+      .container
+        .row
+          .col-12
+            .press__top
+              a(href="#subscribe-news-popup" data-open-popup) Подписаться на рассылку
+              .press__filter
+                .filter-select
+                  select.filter-select-native(data-chosen-select-content-fit)
+                    option(value='2019' selected) 2019
+                    option(value='2018') 2018
+                    option(value='2017') 2017
+                    option(value='2016') 2016
+                .filter-select
+                  select.filter-select-native(data-chosen-select-content-fit)
+                    option(value='Все месяцы' selected) Все месяцы
+                    option(value='январь') январь
+                    option(value='февраль') февраль
+                    option(value='март') март
+        .row.mb-16
+          each card in investData
+            .col-4.mb-32
+              +invest-card(card)
+        .row
+          .col-12.d-flex.justify-content-center
+            +button(bannerButton)

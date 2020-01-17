@@ -1,0 +1,135 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/tab
+include components/contacts-card
+include components/contacts-map
+include components/contacts-signal
+
+block title
+  | Контакты
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          linkName: 'Контакты'
+        }
+      ],
+      image: 'common/images/banner__bg-contacts.jpg',
+      title: 'Контакты'
+    }
+    var contacts = [
+      {
+        tab: 'Контактная информация',
+        options: {
+          style: 'map-page'
+        },
+        content: {
+          phones: [
+            {
+              number: '+7 495 720-51-70'
+            },
+            {
+              number: '+7 495 720-51-71'
+            },
+            {
+              number: '+7 495 745-70-46',
+              hint: '(для приема факсограмм)'
+            }
+          ],
+          email: [
+            {
+              address: 'documents@rusal.com'
+            }
+          ],
+          address: 'Россия, 121096, г. Москва ул. Василисы Кожиной, д.1',
+          link: {
+            text: 'Открыть в Яндекс.Картах',
+            url: 'maps.yandex.ru'
+          }
+        }
+      },
+      {
+        tab: 'Служба доверия СигнаL',
+        options: {
+          style: 'signal-page'
+        },
+        content: {
+          phones: [
+            {
+              number: '+7 800 234-56-40',
+              hint: '(бесплатно по России)'
+            },
+            {
+              number: '+7 495 221-33-72',
+              hint: '(для звонков из-за рубежа)'
+            },
+            {
+              number: '+7 915 224-56-40',
+              hint: '(WhatsApp, Telegram, Messenger, Viber)'
+            }
+          ],
+          email: [
+            {
+              address: 'signal@rusal.com'
+            }
+          ],
+          address: 'Россия, 121096, г. Москва, ул. Олеко Дундича, д.7, корпус 1, а/я №55'
+        }
+      }
+    ]
+
+    var signal = {
+      content: `
+        <img src="common/images/contacts__signal-logo.jpg" alt="Логотип" />
+        <p>В РУСАЛе действует служба, которая помогает выявлять и предотвращать случаи недобросовестных действий контрагентов и сотрудников Компании – служба доверия «СигнAL».</p>
+        <b>Служба доверия «СигнAL» принимает сообщения о:</b>
+        <ul>
+          <li>незаконном присвоении активов Компании;</li>
+          <li>мошенничестве при закупках товаров, работ и услуг;</li>
+          <li>мошенничестве при реализации продукции покупателям;</li>
+          <li>взяточничестве и коррупции;</li>
+          <li>недобросовестных действиях, совершенных контрагентами Компании;</li>
+          <li>манипулировании данными бухгалтерского, складского, производственного учета;</li>
+          <li>случаях конфликта интересов у сотрудников Компании;</li>
+          <li>действиях сотрудников, противоречащих Кодексу корпоративной этики Компании;</li>
+          <li>недобросовестных действиях в сфере управления персоналом;</li>
+          <li>случаях разглашения коммерческой тайны;</li>
+          <li>других действиях, которые могут привести к финансовому и/или репутационному ущербу Компании.</li>
+        </ul>
+        <b>Не подлежат рассмотрению:</b>
+        <ul>
+          <li>массовые рассылки или рекламные сообщения (спам);</li>
+          <li>обращения, содержащие нечитаемые символы</li>
+          <li>обращения, касающиеся кадрового трудоустройства;</li>
+          <li>обращения, касающиеся получения конфиденциальных сведений;</li>
+          <li>обращения, не относящиеся к сфере деятельности и компетенции Компании.</li>
+        </ul>
+      `
+    }
+
+block content
+  +menu
+  .inner.contacts
+    +banner(bannerData)
+    .contacts__content(data-tabs)
+      .container
+        .row
+          .col-12
+            .contacts__tabs
+              each tab, index in contacts
+                +tab({name: tab.tab, isActive: index === 0})&attributes({'data-tab-id': index+1})
+        .contacts__blocks
+          each block, index in contacts
+            .contacts__block(class=index === 0 && '_active', class=block.options.style === 'map-page' && '_activeMap')&attributes({'data-tab-block': index + 1})
+              +contacts-card(block.options, block.content)
+              .contacts__right
+                if block.options.style === 'map-page'
+                  +contacts-map
+                if block.options.style === 'signal-page'
+                  +contacts-signal(signal)

@@ -1,0 +1,10 @@
+include ../components/vacancy-form
+
+mixin vacancy-popup
+  #vacancy-popup.vacancy-popup.mfp-hide
+    .container
+      .row
+        .col-4.offset-4
+          .vacancy-popup__content
+            .vacancy-popup__close.mfp-close
+            +vacancy-form

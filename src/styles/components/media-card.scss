@@ -1,0 +1,26 @@
+.media-card{
+  padding-bottom: 28px;
+  box-sizing: border-box;
+  display: block;
+  &:hover{
+    .media-card__title{
+      color: $colorBlue;
+    }
+  }
+  &__date{
+    @include p2-date($colorNavGrey);
+    margin-bottom: 8px;
+  }
+  &__title{
+    @include h4;
+    margin-bottom: 8px;
+    transition: $transitionSpeed;
+  }
+  &__text{
+    @include p2($colorNavGrey);
+    margin-bottom: 12px;
+  }
+  &__more{
+    @include p2;
+  }
+}

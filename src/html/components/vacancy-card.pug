@@ -1,0 +1,22 @@
+mixin vacancy-card(data)
+  //- data = { title: string, text: string, city: string, address: string, exp: string, link: string }
+  a.vacancy-card(href=data.link)
+    .vacancy-card__info
+      .vacancy-card__details
+        .vacancy-card__title
+          p= data.title
+        .vacancy-card__text
+          p= data.text
+      .vacancy-card__location
+        .vacancy-card__location-icon
+          img(src='common/images/i-location.svg' alt='Местоположение')
+        .vacancy-card__location-content
+          if data.city
+            .vacancy-card__city
+              p= data.city
+          if data.address
+            .vacancy-card__address
+              p= data.address
+    if data.exp
+      .vacancy-card__experience
+        p= data.exp

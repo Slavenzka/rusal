@@ -1,0 +1,190 @@
+.menu{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background-color: $colorBlack;
+  box-sizing: border-box;
+  display: block;
+  transform: translateX(100%);
+
+  .header__select,
+  .header__contacts,
+  .header__language {
+    display: none;
+  }
+
+  &._active{
+    transform: translateX(0);
+    &._close{
+      & > * {
+        display: none!important;
+      }
+    }
+  }
+  &__wrapper{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $colorBlack;
+    z-index: 51;
+  }
+  &__content{
+    overflow-y: auto;
+    max-height: 568px;
+    padding-top: calc(96px + 64px);
+    box-sizing: border-box;
+  }
+  &__nav{
+    &-item{
+      position: relative;
+      &:before{
+        content: '';
+        background-color: $colorRed;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        position: absolute;
+        left: -24px;
+        top: 50%;
+        margin-top: -4.5px;
+        opacity: 0;
+        visibility: hidden;
+        transition: $transitionSpeed;
+      }
+      &:not(:last-child){
+        margin-bottom: 24px;
+      }
+      &._active,
+      &:hover{
+        .menu__nav-link{
+          color: $colorWhite;
+        }
+        &:before{
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    &-link{
+      @include fontBold;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: 0.01em;
+      color: $colorNavGrey;
+      transition: $transitionSpeed;
+      display: block;
+      overflow: hidden;
+    }
+  }
+  &__subnavs{
+    position: relative;
+  }
+  &__subnav{
+    transition: $transitionSpeed;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &._active{
+      display: block;
+      &._close{
+        .fadeInUp{
+          -webkit-animation-name: fadeInUpBack;
+          animation-name: fadeInUpBack;
+        }
+      }
+    }
+    &-item{
+      width: 100%;
+      &:not(:last-child){
+        margin-bottom: 4px;
+      }
+    }
+    &-link{
+      @include fontMedium;
+      font-size: 18px;
+      line-height: 32px;
+      color: $colorWhite;
+      display: block;
+      width: 100%;
+      &:hover{
+        text-decoration: none;
+        color: $colorWhite;
+      }
+    }
+  }
+  &__left{
+    position: relative;
+  }
+  &__cols{
+    display: flex;
+  }
+  &__list{
+    &._col{
+      &:not(:first-child){
+        margin-left: 94px;
+      }
+    }
+    &._row{
+      display: flex;
+    }
+    &-item{
+      &._col{
+        margin-bottom: 4px;
+      }
+      &._row{
+        &:not(:first-child){
+          margin-left: 44px;
+        }
+      }
+    }
+    &-link{
+      @include p2;
+      color: $colorNavGrey;
+      transition: $transitionSpeed;
+      display: block;
+      &:hover{
+        text-decoration: none;
+        color: $colorWhite;
+      }
+    }
+  }
+  &__bottom{
+    padding-bottom: 52px;
+    overflow: hidden;
+  }
+  &__separator{
+    width: 100%;
+    position: relative;
+    height: 1px;
+    margin-bottom: 40px;
+    animation-duration: 0.8s;
+    &-inner{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100vw;
+      background-color: rgba(#f7f7f7, .1);
+    }
+  }
+}
+.menu-mobile{
+  max-height: 100vh;
+  overflow-y: auto;
+  &__header{
+    margin-bottom: 42px;
+  }
+}

@@ -1,0 +1,86 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/share-button
+include components/sidebar-card/sidebar-card-provider
+
+block title
+  | Поставщикам
+block vars
+  -
+    var providerBannerData = {
+      breadcrumbs: [
+        {
+          link: '#',
+          linkName: 'Главная'
+        },
+        {
+          link: '#',
+          linkName: 'Поставщикам'
+        }
+      ],
+      image: 'common/images/banner__bg-provider.jpg',
+      title: 'Поставщикам'
+    }
+    var providerLists = [
+      {
+        title: 'Основные принципы сотрудничества',
+        list: [
+          'взаимное доверие, уважение и ответственность',
+          'повышение качества продукции, совершенствование технологий, создание новых видов продукции',
+          'постоянное совершенствование процессов'
+        ]
+      },
+      {
+        title: 'Ключевые ориентиры при осуществлении закупок',
+        list: [
+          'качество',
+          'своевременность поставок',
+          'стоимость',
+          'эффективность'
+        ]
+      }
+    ]
+    var sidebarCard = {
+      title: 'Конкурсные отборы',
+      content: `
+              <p>Конкурсные отборы проводятся в пяти различных направлениях:</p>
+              <ul>
+                <li>Материально-технические ресурсы</li>
+                <li>ЖД, авиа, авто, контейнерные перевозки</li>
+                <li>Фрахт</li>
+                <li>Строительно-монтажные и ремонтные работы</li>
+                <li>Прочие услуги</li>
+              </ul>
+            `,
+      link: {
+        link: '#',
+        linkName: 'Смотреть конкурсные отборы'
+      }
+    }
+block content
+  +menu
+  .inner.provider
+    +banner(providerBannerData)
+      +share-button
+    .provider__content
+      .container
+        .row
+          .col-8
+            .provider__wrapper
+              .provider__title.mb-24
+                p Основная цель РУСАЛа
+              .provider__text.wysiwyg.mb-40
+                p Основная цель производственной стратегии РУСАЛа&nbsp;&mdash; увеличение выпуска и&nbsp;ассортимента продукции с&nbsp;высокой добавленной стоимостью, качество, свойства  и&nbsp;характеристики которой должны отвечать потребностям и&nbsp;ожиданиям потребителей. Достижение данной цели возможно только в&nbsp;сотрудничестве с&nbsp;надежными, высокопрофессиональными компаниями-поставщиками. РУСАЛ, крупнейший в&nbsp;мире производитель алюминия, высоко ценит партнерские отношения с&nbsp;поставщиками и&nbsp;подрядными организациями.
+                p РУСАЛ открыт к&nbsp;сотрудничеству на&nbsp;долгосрочной основе с&nbsp;поставщиками, которые разделяют приверженность компании высоким стандартам в&nbsp;области деловой этики, качества и&nbsp;эффективности производства.
+                p С&nbsp;целью наиболее эффективного управления закупочной деятельностью, снижения издержек, повышения рентабельности операционной деятельности РУСАЛ переходит от&nbsp;традиционного механизма закупок к&nbsp;комплексному процессу управления цепочками поставок.
+              .provider__blocks
+                each item in providerLists
+                  .provider__block
+                    .provider__block-title.mb-24
+                      p= item.title
+                    ul.provider__block-list
+                      each li in item.list
+                        li.provider__block-list-item= li
+          .col-4
+            +sidebar-card-provider(sidebarCard)

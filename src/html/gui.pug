@@ -1,0 +1,291 @@
+extends components/layout-content-only
+include components/counter
+include components/price-table
+include elements/button
+include components/share-block
+include components/attachment
+include components/backlink
+include components/alert
+
+block title
+  | GUI проекта
+
+block vars
+  -
+    var _3s_priceList = [
+    {
+    name: 'Изменение',
+    yield: '+0,02 (0,34%)'
+    },
+    {
+    name: 'Стоимость акции',
+    yield: '29,17 руб.'
+    },
+    {
+    name: 'Капитализация',
+    yield: '443,18 млрд. руб.',
+    yieldNegative: true
+    }
+    ]
+    var chartTooltip = `
+      <div class="highcharts-tooltip">
+        <div class="highcharts-tooltip__row">
+        <div class="highcharts-tooltip__title">
+        <span>Стоимость</span>
+        </div>
+        <div class="highcharts-tooltip__text">
+        <span>29,7<b> руб.</b></span>
+        </div>
+        </div>
+        <div class="highcharts-tooltip__separator"></div>
+        <div class="highcharts-tooltip__row">
+        <div class="highcharts-tooltip__title">
+        <span>Данные на</span>
+        </div>
+        <div class="highcharts-tooltip__text">
+        <span><b>22.12.2019 • 00:00</b></span>
+        </div>
+        </div>
+        </div>
+    `
+block content
+  .gui
+    .container
+      h2.gui__title Иконки и элементы взаимодействия
+      ul.gui__list
+        li.gui__item
+          span.gui__label Управление слайдером
+          .gui__content
+            +counter({ id: 'common', count: 5 })
+        li.gui__item
+          span.gui__label Поиск
+          .gui__content
+            .header__search(class='header__search--dark')
+              include ../assets/images/i-search.svg
+        li.gui__item
+          span.gui__label Меню сайта
+          .gui__content
+            .header__burger(class='_dark' data-fade-button="menu")
+              include ../assets/images/i-burger.svg
+        li.gui__item
+          span.gui__label Обновить
+          .gui__content
+            .main__stock-chart-refresh
+              include ../assets/images/i-refresh.svg
+        li.gui__item
+          span.gui__label График
+          .gui__content
+            .main__stock
+              .main__stock-chart-body(data-highcharts data-highcharts-id='main-stocks')
+        li.gui__item
+          span.gui__label Описание текущего значения на графике
+          .gui__content
+            .gui__tooltip !{chartTooltip}
+        li.gui__item
+          span.gui__label Кнопки 48рх
+          .gui__content
+            .gui__horizontal
+              +button({name: 'Запросить каталог', link: '#'})
+              +button({name: 'Показать ещё', tag: 'button', style: 'secondary'})
+              +button({name: 'Показать ещё', tag: 'button', style: 'secondary'})(disabled)
+        li.gui__item
+          span.gui__label Кнопки 40рх
+          .gui__content
+            .gui__horizontal
+              +button({name: 'Запросить каталог', link: '#', height: 'low'})
+              +button({name: 'Показать ещё', tag: 'button', style: 'secondary', height: 'low'})
+              +button({name: 'Показать ещё', tag: 'button', style: 'secondary', height: 'low'})(disabled)
+        li.gui__item
+          span.gui__label Ссылка с иконкой
+          .gui__content
+            a.contacts-card__map-link(href='#')
+              include ../assets/images/i-pin.svg
+              span Открыть в Яндекс.Картах
+        li.gui__item
+          span.gui__label Выпадающий список
+          .gui__content
+            .gui__filter-select
+              .filter-select
+                select.filter-select-native(data-chosen-select-content-fit)
+                  option(value='Проекты' selected) Проекты
+                  option(value='Изделия') Изделия
+                  option(value='Документы') Документы
+                  option(value='Прочее') Прочее
+        li.gui__item
+          span.gui__label Социальные сети
+          .gui__content
+            ul.footer__social
+              li.footer__social-item
+                a.footer__social-link(href='#')
+                  include ../assets/images/i-social-twitter.svg
+              li.footer__social-item
+                a.footer__social-link(href='#')
+                  include ../assets/images/i-social-facebook.svg
+              li.footer__social-item
+                a.footer__social-link(href='#')
+                  include ../assets/images/i-social-youtube.svg
+            +share-block
+        li.gui__item
+          span.gui__label Состояния табов
+          .gui__content
+            .main__stock-chart-current
+              .main__stock-chart-current-icon._red
+              .main__stock-chart-current-name
+                span МосБиржа
+              .main__stock-chart-current-short.ml-32
+                span HKSE
+        li.gui__item
+          span.gui__label Приложенные документы
+          .gui__content
+            .press-detail__attachments
+              +attachment({
+                name: 'Презентация',
+                link: '#',
+                type: 'pdf'
+              })
+              +attachment({
+                name: 'Аудит сайта',
+                link: '#',
+                type: 'xls'
+              })
+              +attachment({
+                name: 'Презентация',
+                link: '#',
+                type: 'pdf'
+              })
+        li.gui__item
+          span.gui__label Иконки 24х24
+          .gui__content
+            .gui__horizontal
+              include ../assets/images/i-pin.svg
+              include ../assets/images/i-minus.svg
+              include ../assets/images/i-plus.svg
+              include ../assets/images/i-doc-pdf.svg
+              include ../assets/images/i-link.svg
+              include ../assets/images/i-popup-close.svg
+              include ../assets/images/i-share-dark.svg
+              include ../assets/images/i-close-menu-dark.svg
+        li.gui__item
+          span.gui__label Прочие иконки
+          .gui__content
+            .gui__horizontal
+              include ../assets/images/arrow-down.svg
+              include ../assets/images/i-plus-circle.svg
+              include ../assets/images/i-minus-circle.svg
+              include ../assets/images/i-breadcrumbs-arrow-dark.svg
+              include ../assets/images/i-collapse-arrow.svg
+              include ../assets/images/arrow-up.svg
+              +attachment({
+                name: '',
+                link: '',
+                type: 'pdf'
+              })
+              +attachment({
+                name: '',
+                link: '',
+                type: 'xls'
+              })
+              include ../assets/images/i-close-menu-dark.svg
+        li.gui__item
+          span.gui__label Футер
+          .gui__content
+            include components/footer-template.pug
+        li.gui__item
+          span.gui__label Пример таблицы
+          .gui__content
+            .col-6
+              .wysiwyg
+                table
+                  thead
+                    tr
+                      th Континенты
+                      th 2018, млн $
+                      th Проценты, %
+                      th 2017, млн $
+                      th Проценты, %
+                  tbody
+                    tr
+                      td Европа
+                      td 2,128
+                      td 22 %
+                      td 2,128
+                      td 22 %
+                    tr
+                      td СНГ
+                      td 1,203
+                      td 14 %
+                      td 1,203
+                      td 14 %
+        li.gui__item
+          span.gui__label Карточка продукта
+          .gui__content
+            a.main__products-slide.swiper-slide(href='#')
+              .main__products-image(style="background-image: url(common/images/ms4-slide__1.jpg)")
+              .main__products-bottom
+                .main__products-name
+                  span ALLOW
+                .main__products-index
+                  - var currentIndex = index+1 < 10 && '0'
+                  - currentIndex+= index+1
+                  span 01
+        li.gui__item
+          span.gui__label Ссылка для возврата на предыдущую страницу
+          .gui__content
+            .gui__horizontal(style='margin-top: 25px')
+            +backlink('/press.html', 'Назад', 'dark')
+        li.gui__item
+          span.gui__label Стрелка "назад"
+          .gui__content
+            .gui__horizontal(style='margin-top: 25px')
+              include ../assets/images/i-backlink-arrow-dark.svg
+      h2.gui__title Текстовые стили
+      ul.gui__list
+        li.gui__item
+          span.gui__label H1
+          .gui__content
+            p.gui__h1 Низкоуглеродный алюминий Allow
+        li.gui__item
+          span.gui__label H2
+          .gui__content
+            p.gui__h2 РУСАЛ операционные результаты второго квартала 2019 года
+        li.gui__item
+          span.gui__label H3
+          .gui__content
+            p.gui__h3 РУСАЛ операционные результаты второго квартала 2019 года
+        li.gui__item
+          span.gui__label H4
+          .gui__content
+            p.gui__h4 БКЗ запустил производство кабельно-проводниковой продукции
+        li.gui__item
+          span.gui__label p1
+          .gui__content
+            p.gui__p1 Москва, 26 июля 2019 года – РУСАЛ (торговый кодна Гонконгской фондовой бирже486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционной деятельности компании во втором квартале 2019 года.
+        li.gui__item
+          span.gui__label p1 Bold
+          .gui__content
+            p.gui__p1-bold Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционной деятельности компании во втором квартале 2019 года.
+        li.gui__item
+          span.gui__label p2
+          .gui__content
+            p.gui__p2 Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционной деятельности компании во втором квартале 2019 года.
+        li.gui__item
+          span.gui__label p3
+          .gui__content
+            p.gui__p3 Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486,на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционной деятельности компании во втором квартале 2019 года.
+        li.gui__item
+          span.gui__label p3 Table
+          .gui__content
+            p.gui__p3-table Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486,на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционной деятельности компании во втором квартале 2019 года.
+        li.gui__item
+          span.gui__label quote
+          .gui__content
+            p.gui__quote Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционной деятельности компании во втором квартале 2019 года.
+        li.gui__item
+          span.gui__label Alerts
+          .gui__content
+            .gui__alert
+              +alert({ style: 'info', text: 'Message' })
+            .gui__alert
+              +alert({ style: 'error', text: 'Message', title: 'Error', isClosable: true })
+            .gui__alert
+              +alert({ style: 'success', text: 'Message', title: 'Success', isClosable: true  })

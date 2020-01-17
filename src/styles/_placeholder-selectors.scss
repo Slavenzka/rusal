@@ -1,0 +1,27 @@
+%h1{
+  @include h1;
+}
+%h2{
+  @include h2;
+}
+%h3{
+  @include h3;
+}
+%h4{
+  @include h4;
+}
+%p1{
+  @include p1;
+}
+%p2{
+  @include p2;
+}
+%p2-navig{
+  @include p2-navig;
+}
+%p2-date{
+  @include p2-date;
+}
+%p3{
+  @include p3;
+}

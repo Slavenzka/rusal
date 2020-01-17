@@ -1,0 +1,49 @@
+.invest{
+  &__cards{
+    background-color: $colorGrey;
+    padding-bottom: 128px;
+  }
+  &__review{
+    background-color: $colorWhite;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: none;
+    width: 684px;
+    z-index: 11;
+    padding: 52px 56px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    &-backlink{
+      margin-bottom: 76px;
+    }
+    &-title{
+      @include h3;
+    }
+    &-results{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 52px;
+    }
+    &-dropdown{
+      display: flex;
+      align-items: center;
+    }
+    &-block{
+      &:not(:last-child){
+        border-bottom: 1px solid rgba(#333333, .1);
+      }
+    }
+  }
+  &__layout{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    z-index: 10;
+    display: none;
+  }
+}

@@ -1,0 +1,297 @@
+extends components/layout-inner
+include components/menu
+include components/banner
+include components/facts
+include components/table
+include elements/button
+
+block title
+  | О компании
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          linkName: 'Галерея'
+        }
+      ],
+      title: 'O компании',
+      style: 'transparent'
+    }
+    var videoBannerData = {
+      title: 'Видео о компании',
+      url: 'https://www.youtube.com/watch?v=vBLuz_Yn0FQ&autoplay=1',
+      background: 'common/images/gallery__bg-single.jpg',
+      duration: '10 мин 29 сек'
+    }
+    var factsData = {
+      nav: {
+        title: 'Управление',
+        items: [
+          {
+            text: 'Совет директоров',
+            url: '#'
+          },
+          {
+            text: 'Комитеты совета директоров',
+            url: '#'
+          },
+          {
+            text: 'Менеджмент',
+            url: '#'
+          }
+        ]
+      },
+      content: `
+        <h3>Основные факты</h3>
+        <p>РУСАЛ – один из крупнейших в мире производителей алюминия и глинозема.</p>
+        <p>Компания создана в марте 2007 года в результате объединения РУСАЛа и СУАЛа с глиноземными активами швейцарской Glencore. Активы РУСАЛа расположены в 20 странах на пяти континентах.</p>
+      `
+    }
+    var indicatorsData = {
+      stock: {
+        title: 'Ключевые цифры',
+        subtitle: 'Биржевые тикеры',
+        items: [
+          {
+            code: '486',
+            stock: 'HKEx'
+          },
+          {
+            code: 'RUAL',
+            stock: 'Московская биржа'
+          },
+        ]
+      },
+      stats: [
+        {
+          value: '64 000+',
+          text: 'человек трудятся на предприятиях РУСАЛа'
+        },
+        {
+          value: '7,77',
+          text: 'млн тонн глинозёма произведено в 2018 году'
+        },
+        {
+          value: '5,8%',
+          text: 'мирового производства алюминия на 2018 год'
+        },
+        {
+          value: '3,75',
+          text: 'млн тонн алюминия произведено в 2018 году'
+        },
+        {
+          value: '89',
+          text: 'тыс тонн фольги производится ежегодно'
+        },
+        {
+          value: '6,2%',
+          text: 'мирового производства глинозёма на 2018 год'
+        }
+      ]
+    }
+    var sliderData = [
+      {
+        background: 'common/images/about__slider-bg--1.jpg',
+        ownership: {
+          percentage: '27,8%',
+          description: 'акций ГМК «Норильского никеля» принадлежит РУСАЛу'
+        },
+        info: {
+          name: 'ГМК «Норильский никель»',
+          description: 'Крупнейший в мире производитель никеля, палладия и один из крупнейших производителей платины и меди'
+        }
+      },
+      {
+        background: 'common/images/about__slider-bg--2.jpg',
+        ownership: {
+          percentage: '27,8%',
+          description: 'акций ГМК «Норильского никеля» принадлежит РУСАЛу'
+        },
+        info: {
+          name: 'ГМК «Норильский никель»',
+          description: 'Крупнейший в мире производитель никеля, палладия и один из крупнейших производителей платины и меди'
+        }
+      }
+    ]
+    var corpData = [
+      {
+        title: 'Лучшие технологии<br />электролиза алюминия в мире',
+        items: [
+          {
+            key: 'РА-550',
+            value: 'Электролиз'
+          },
+          {
+            key: 'РА-500',
+            value: 'Электролиз'
+          },
+          {
+            key: 'РА-400',
+            value: 'Электролиз'
+          },
+          {
+            key: 'РА-300',
+            value: 'Электролиз'
+          },
+          {
+            key: 'Инертный анод',
+            value: 'Электролиз (в разработке)'
+          }
+        ]
+      },
+      {
+        title: 'Акционеры компании<br />(по состоянию на 31.01.2019)',
+        items: [
+          {
+            key: '50,10%',
+            value: 'En+'
+          },
+          {
+            key: '26,50%',
+            value: 'СУАЛ'
+          },
+          {
+            key: '6,78%',
+            value: 'Amokenga Holdings'
+          },
+          {
+            key: '16,62%',
+            value: 'Свободное обращение'
+          }
+        ]
+      }
+    ]
+    var linksData = [
+      {
+        title: 'Ссылочный блок 1',
+        items: [
+          [
+            {
+              text: 'Совет директоров',
+              url: '#'
+            },
+            {
+              text: 'Комитет директоров',
+              url: '#'
+            },
+            {
+              text: 'Совет комитета',
+              url: '#'
+            }
+          ],
+          [
+            {
+              text: 'Профсоюз',
+              url: '#'
+            },
+            {
+              text: 'Реклама на сайте',
+              url: '#'
+            }
+          ]
+        ]
+      },
+      {
+        title: 'Ссылки про заводы',
+        items: [
+          [
+            {
+              text: 'Экономика РУСАЛа',
+              url: '#'
+            },
+            {
+              text: 'Производство',
+              url: '#'
+            },
+            {
+              text: 'Кибербезопасность',
+              url: '#'
+            }
+          ],
+          [
+            {
+              text: 'Политика компании',
+              url: '#'
+            }
+          ]
+        ]
+      }
+    ]
+block content
+  +menu
+  .about
+    +banner(bannerData)
+    .about__video
+      a.about__video-item(data-video-trigger href=videoBannerData.url style='background-image: url("' + videoBannerData.background + '")') Кликните для просмотра видео
+        .container
+          p.about__video-title=videoBannerData.title
+          p.about__video-duration=videoBannerData.duration
+    .about__basic
+        +facts(factsData)
+    .about__indicators(data-waypoint="about-indicators")
+      .container
+        .row
+          .col-4.offset-2
+            .about__stock(data-waypoint="about-stock")
+              h3.about__title=indicatorsData.stock.title
+              .about__stock-wrapper
+                h4.about__subtitle=indicatorsData.stock.subtitle
+                table.about__stock-table
+                  each row in indicatorsData.stock.items
+                    tr.about__stock-row
+                      td.about__stock-code=row.code
+                      td.about__stock-name=row.stock
+          .col-6
+            .about__stats(data-waypoint="about-stats")
+              ul.about__stats-list
+                each item in indicatorsData.stats
+                  li.about__stats-item
+                    p.about__stats-value=item.value
+                    p.about__stats-description=item.text
+    .about__slider
+      .container
+        .about__slider-wrapper.swiper-container(data-about-slider)
+          ul.about__slider-list.swiper-wrapper
+            each slide in sliderData
+              li.about__slider-item.swiper-slide(style='background-image: url("' + slide.background +'")')
+                .about__slider-content.col-4.offset-2(data-about-slider-content)
+                  .about__slider-share
+                    p.about__slider-ownership=slide.ownership.percentage
+                    p.about__slider-descriptor=slide.ownership.description
+                  .about__slider-company
+                    p.about__slider-corp=slide.info.name
+                    p.about__slider-profile=slide.info.description
+          button.about__slider-control(data-about-prev) Previous
+          button.about__slider-control(data-about-next) Next
+    .about__corporative
+      .container
+        .row.col-12.offset-2
+          each item in corpData
+            .about__table.col-4.mt-68
+              h3.about__subtitle !{item.title}
+              +table(item.items)
+    .about__geo
+      .container
+        .row.col-12.offset-2
+          .about__geo-wrapper
+            h3.about__title География РУСАЛа
+            p.about__description 44 завода на 5 континентах
+            .about__geo-btn.mt-56
+              +button({ name: 'Перейти на страницу', link: '#', tag: 'a', style: 'secondary', height: 'high' })
+    .about__links
+      .container
+        .about__links-wrapper
+          .row.col-12.offset-2
+            each block in linksData
+              .about__links-block.col-4
+                h4.about__subtitle.about__links-subtitle(style='width: 100%')=block.title
+                each links in block.items
+                  .about__links-column
+                    each link in links
+                      a.about__links-item(href=link.url)=link.text
+

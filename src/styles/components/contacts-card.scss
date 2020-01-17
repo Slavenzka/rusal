@@ -1,0 +1,86 @@
+.contacts-card {
+  padding: 40px 40px 48px 40px;
+  width: 416px;
+  background-color: white;
+
+  &__section:not(:first-of-type) {
+    margin-top: 32px;
+  }
+
+  &__section--phones {
+    .contacts-card__item:nth-of-type(2n + 1):nth-last-of-type(1),
+    .contacts-card__item:nth-of-type(2n):nth-last-of-type(1) {
+      margin-bottom: 0;
+    }
+    .contacts-card__item:nth-of-type(2n) {
+      margin-right: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    @include h4;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item:not(:last-of-type) {
+    margin-right: 40px;
+    margin-bottom: 8px;
+  }
+
+  &__phone {
+    @include p2;
+  }
+
+  &__hint {
+    @include p3;
+    opacity: 0.5;
+    display: block;
+  }
+
+  &__description {
+    @include p2($colorBlack);
+
+    &:hover {
+      color: $colorBlack;
+    }
+  }
+
+  &__link {
+    @include p2;
+    transition: $transitionSpeed;
+
+    &:hover {
+      color: $colorBlue;
+    }
+  }
+
+  &__map-link {
+    display: flex;
+    align-items: center;
+    @include p2($colorBlue);
+
+    &:hover {
+      color: $colorBlue;
+    }
+
+    span {
+      margin-left: 12px;
+    }
+  }
+
+  &__bottom{
+    margin-top: 144px;
+  }
+
+  &__column{
+    max-width: 356px;
+    &:not(:first-child){
+      margin-left: 126px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.backlink{
+  display: flex;
+  align-items: center;
+  &:hover{
+    text-decoration: none;
+  }
+  &__arrow{
+    svg{
+      display: block;
+    }
+    &._light{
+      svg{
+        path{
+          stroke: $colorWhite;
+        }
+      }
+    }
+    &._dark,
+    &._transparent{
+      svg{
+        path{
+          stroke: $colorBlack;
+        }
+      }
+    }
+  }
+  &__name{
+    @include p3;
+    margin-left: 12px;
+    &._light{
+      color: $colorWhite;
+    }
+    &._dark{
+      color: $colorBlack;
+    }
+  }
+}

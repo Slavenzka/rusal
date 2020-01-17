@@ -1,0 +1,101 @@
+.price-table{
+  margin-bottom: 38px;
+  &__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    &:not(:last-child){
+      margin-bottom: 20px;
+      @include media-breakpoint-down('xs'){
+        margin-bottom: 16px;
+      }
+    }
+  }
+  &__name{
+    @include h4;
+    @include fontNormal;
+    @include media-breakpoint-down('xs'){
+      @include p2-m;
+    }
+    &._tiny{
+      @include p2;
+    }
+  }
+  &__value{
+    @include h4;
+    @include media-breakpoint-down('xs'){
+      @include p2-m;
+      @include fontBold;
+    }
+  }
+  &__yield{
+    @include h4;
+    margin-left: 24px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    @include media-breakpoint-down('xs'){
+      @include p2-m;
+      @include fontBold;
+    }
+    &:after{
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 9px;
+      vertical-align: middle;
+      margin-left: 24px;
+      @include media-breakpoint-down('lg') {
+        margin-left: 5px;
+      }
+    }
+    &._tiny{
+      @include p2;
+      @include fontBold;
+      margin-left: 8px;
+      &:after{
+        margin-left: 8px;
+      }
+    }
+    &._positive{
+      &:after{
+        background: url('../../common/images/i-yield-arrow-positive.svg') no-repeat;
+      }
+    }
+    &._negative{
+      &:after{
+        background: url('../../common/images/i-yield-arrow-negative.svg') no-repeat;
+      }
+    }
+  }
+  &__left{
+    width: 45%;
+    @include media-breakpoint-down('sm'){
+      width: 50%;
+    }
+  }
+  &__right{
+    width: 260px;
+    display: flex;
+    justify-content: space-between;
+    @include media-breakpoint-down('lg') {
+      width: 225px;
+    }
+    @include media-breakpoint-down('sm'){
+      width: 50%;
+    }
+    @include media-breakpoint-down('xs'){
+      width: 30%;
+    }
+    @media screen and (max-width: 580px) {
+      width: 50%;
+    }
+    &._tiny{
+      width: auto;
+    }
+  }
+}

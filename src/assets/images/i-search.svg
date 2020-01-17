@@ -1,0 +1,6 @@
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="i-search">
+    <g mask="url(#mask0)">
+        <rect class="i-search__rect" x="22.9204" y="24.3345" width="12" height="2" rx="1" transform="rotate(-135 22.9204 24.3345)" fill="#333333"/>
+        <path class="i-search__path" fill-rule="evenodd" clip-rule="evenodd" d="M15.8494 5.94971C13.1157 3.21604 8.68358 3.21604 5.94991 5.94971C3.21624 8.68338 3.21624 13.1155 5.94991 15.8492C8.68358 18.5829 13.1157 18.5829 15.8494 15.8492C18.5831 13.1155 18.5831 8.68338 15.8494 5.94971Z" stroke="#333333" stroke-width="2"/>
+    </g>
+</svg>

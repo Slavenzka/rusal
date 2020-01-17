@@ -1,0 +1,49 @@
+.vacancy-inner{
+  padding-top: 44px;
+  padding-bottom: 136px;
+  &__backlink{
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  &__title{
+    @include h3;
+    margin-bottom: 40px;
+  }
+  &__info{
+    margin-bottom: 47px;
+    padding: 20px 0;
+    box-sizing: border-box;
+    display: flex;
+    border-top: 1px solid rgba($colorBlack, .1);
+    border-bottom: 1px solid rgba($colorBlack, .1);
+    &-key{
+      @include p3;
+      color: $colorNavGrey;
+    }
+    &-value{
+      @include p1;
+    }
+    &-item{
+      &:not(:first-child){
+        margin-left: 48px;
+      }
+    }
+  }
+  &__text{
+    &.wysiwyg{
+      h4{
+        margin-top: 40px;
+        margin-bottom: 12px;
+      }
+      ul{
+        li{
+          margin: 8px 0;
+        }
+      }
+    }
+  }
+  &__top{
+    margin-bottom: 68px;
+  }
+}

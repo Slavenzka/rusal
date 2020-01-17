@@ -1,0 +1,49 @@
+.growth {
+
+  &__cards {
+    background-color: #f2f2f2;
+  }
+
+  &__worth {
+    font-size: 15px;
+    line-height: 28px;
+
+    p {
+      @extend .p2;
+      margin: 0 0 24px;
+    }
+
+    ul {
+      list-style: disc;
+
+      li {
+        @extend .p2;
+        margin: 16px 0;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__goals {
+    background: #fff;
+    padding-top: 72px;
+  }
+
+  &__goals-line {
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(#333, .1);
+    }
+  }
+
+  &__footer {
+    @extend .p1;
+    background-color: #f2f2f2;
+    color: #999;
+    padding: 56px 0 120px;
+  }
+
+  &__footer-star {
+    margin-left: -12px;
+    margin-right: 6px;
+  }
+}

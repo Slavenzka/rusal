@@ -1,0 +1,18 @@
+extends components/layout-inner
+include components/banner
+include elements/button
+include components/invest-card
+include components/menu
+
+block title
+  | Инвесторам
+block vars
+block content
+  +menu
+  .inner.pt-120.pb-40
+    .container
+      .row
+        .col-12
+          +button({ name: 'Открыть модальное окно - Обратная связь', tag: 'a', link: '#feedback-popup' })&attributes({
+            'data-open-popup': true
+          })

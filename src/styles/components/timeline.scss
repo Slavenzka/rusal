@@ -1,0 +1,63 @@
+.timeline {
+  position: relative;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 2px;
+    height: 110%;
+    width: 1px;
+    background-color: rgba(51, 51, 51, 0.1);
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 24px;
+    @include p2($colorNavGrey);
+    background-color: transparent;
+    border: none;
+    transition-duration: 0.3s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 5px / 2);
+      left: 0;
+      width: 5px;
+      height: 5px;
+      background-color: $colorBlack;
+      border-radius: 50%;
+      transform: scale(1);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--active {
+      @include h4($colorRed);
+
+      &::before {
+        transform: scale(1.4);
+        background-color: $colorRed;
+      }
+    }
+
+    &--active {
+      pointer-events: none;
+    }
+
+    &:not(:first-of-type) {
+      margin-top: 20px;
+    }
+  }
+
+  .timeline__item--active + .timeline__item {
+    margin-top: 36px;
+  }
+}

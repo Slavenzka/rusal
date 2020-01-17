@@ -1,0 +1,8 @@
+mixin news-post-tiny(data, isSplit)
+  //- data = { date: string, title: string, link: string }
+  //- isSplit = boolean
+  a.news-post._tiny(href=data.link)
+    .news-post__date.mb-16.wow(data-wow-animation="fadeIn")
+      span= data.date
+    .news-post__title.mb-16.wow(data-wow-animation="textFadeIn")
+      p= data.title

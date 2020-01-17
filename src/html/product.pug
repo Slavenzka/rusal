@@ -1,0 +1,90 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include elements/button
+
+block title
+  | Страница продукта
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '#',
+          linkName: 'Главная'
+        },
+        {
+          link: '#',
+          linkName: 'Клиентам'
+        },
+        {
+          linkName: 'Первичный алюминий'
+        },
+      ],
+      title: 'Первичный алюминий',
+      image: 'common/images/product__bg.jpg'
+    }
+    var productData = [
+      {
+        title: 'Форма выпуска',
+        content: `
+          <p>Мелкая чушка, Т-образная чушка</p>
+        `
+      },
+      {
+        title: 'Стандарты',
+        content: `
+          <p>«ГОСТ 11069-2001 Алюминий первичный. Марки», «ГОСТ 11070-74 Чушки первичного алюминия», а также российские стандарты и стандарты потребителей</p>
+        `
+      },
+      {
+        title: 'Заводы-изготовители',
+        content: `
+          <p>Телефон:</p>
+          <p>+7 495 720 51 70, доб. 66-41</p>
+        `
+      },
+      {
+        title: 'Продажи в странах СНГ (кроме стран Таможенного союза)',
+        content: `
+          <p>Телефон:</p>
+          <p>+41 41 560 98 24 ( доб. 824)</p>
+        `
+      },
+      {
+        title: 'Экспортные продажи',
+        content: `
+          <p><b>Европа</b></p>
+          <p>Телефон: +41 41 560 98 76</p>
+          <br/>
+          <p><b>Азия</b></p>
+          <p>Телефон: +65 681 629 15</p>
+          <br/>
+          <p><b>Америка</b></p>
+          <p>Телефон: +1 914 6705771 (ext. 235)</p>
+        `
+      }
+    ]
+block content
+  +menu
+  .inner.product
+    +banner(bannerData)
+    .product__wrapper
+      .container
+        .row
+          .col-4
+            .product__sidebar
+              .product__sidebar-block
+                .product__sidebar-title
+                  p Подробнее
+                .product__sidebar-text
+                  p Первичный алюминий используется в транспортной, строительной, электротехнической и упаковочной отраслях промышленности. Предприятия РУСАЛа производят первичный алюминий в соответствии с международными стандартами качества, российскими ГОСТами и различными техническими спецификациями, разработанными по запросам потребителей.
+                .product__sidebar-button
+                  +button({ name: 'Запросить каталог', link: '#' })
+          .col-8
+            .product__content
+              each item in productData
+                .product__block
+                  .product__block-title
+                    p= item.title
+                  .product__block-content.wysiwyg!= item.content

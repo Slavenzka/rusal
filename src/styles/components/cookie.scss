@@ -1,0 +1,22 @@
+.cookie{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $colorWhite;
+  padding: 28px 0;
+  z-index: 100;
+  &__text{
+    @include p2;
+  }
+  &__close{
+    cursor: pointer;
+    display: block;
+    background-image: url("../images/close.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+  }
+}

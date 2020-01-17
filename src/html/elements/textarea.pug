@@ -1,0 +1,14 @@
+mixin textarea(data)
+  //- data = { placeholder: string, type: string }
+  div.textarea(data-input)
+    .textarea__wrapper
+      label.textarea__content(data-input-content)
+        textarea.textarea__field()&attributes({
+          'data-input-field': true,
+          placeholder: data.placeholder || '',
+          pattern: data.pattern,
+          required: data.required,
+          value: data.value
+        })
+        if data.placeholder
+          span.textarea__label= data.placeholder

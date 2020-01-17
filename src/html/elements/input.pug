@@ -1,0 +1,20 @@
+mixin input(data)
+  //- data = { placeholder: string, label: string, type: string, mask: string, pattern: string, required: bool, value: string }
+  div.input(data-input)
+    .input__wrapper
+      label.input__content(data-input-content)
+        input.input__field(class={
+          '_inner': block
+        })&attributes({
+          'data-input-field': true,
+          placeholder: data.placeholder || '',
+          type: data.type || 'text',
+          pattern: data.pattern,
+          required: data.required,
+          value: data.value
+        })
+        if data.placeholder
+          span.input__label= data.label || data.placeholder
+      if block
+        .input__inner
+          block

@@ -1,0 +1,23 @@
+.gallery-category{
+  display: block;
+  background-color: #fff;
+  &:hover{
+    text-decoration: none;
+  }
+  &__image{
+    height: 260px;
+    width: 100%;
+    background-size: cover;
+  }
+  &__content{
+    padding: 24px 32px 32px;
+  }
+  &__top{
+    @include p2;
+    color: $colorNavGrey;
+    margin-bottom: 12px;
+  }
+  &__title{
+    @include h4;
+  }
+}

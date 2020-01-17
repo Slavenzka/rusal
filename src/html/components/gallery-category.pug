@@ -1,0 +1,9 @@
+mixin gallery-category(data)
+  //- data = { date: string, photosCount: number or string, title: string, link: string, image: string }
+  a.gallery-category(href=data.link)
+    .gallery-category__image(style='background-image: url('+data.image+')')
+    .gallery-category__content
+      .gallery-category__top
+        p #{data.date} • #{data.photosCount} фото
+      .gallery-category__title
+        p= data-title

@@ -1,0 +1,432 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/share-button
+include components/document
+
+block title
+  | Сертификаты
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          link: '#',
+          linkName: 'Инвесторам'
+        },
+        {
+          link: '#',
+          linkName: 'Раскрытие информации'
+        },
+        {
+          linkName: 'Сертификаты'
+        }
+      ],
+      title: 'Сертификаты',
+      image: 'common/images/certificates__bg.jpg'
+    }
+    var certificatesData = [
+      {
+        title: 'Алюминий и сплавы, кремний, порошки и пудры, фольга и упаковочные материалы',
+        titleStyle: 'tiny',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'РУСАЛ Менеджмент + предприятия',
+            value: 'ISO 9001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Kubal',
+            value: 'ISO 9001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Богучанский алюминиевый завод',
+            value: 'ISO 9001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'СКАД',
+            value: 'ISO 9001'
+          }
+        ]
+      },
+      {
+        title: 'Глинозем и галлий',
+        titleStyle: 'tiny',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Aughinish',
+            value: 'ISO 9001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Ачинский глиноземный комбинат',
+            value: 'ISO 9001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Богословский алюминиевый завод',
+            value: 'ISO 9001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Бокситогорский глиноземный завод',
+            value: 'ISO 9001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Уральский алюминиевый завод',
+            value: 'ISO 9001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'НГЗ',
+            value: 'ISO 9001'
+          }
+        ]
+      },
+      {
+        title: 'Продукция для автомобильного сектора',
+        titleStyle: 'tiny',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Иркутский алюминиевый завод',
+            value: 'IATF 16949'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Красноярский алюминиевый завод',
+            value: 'IATF 16949'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Новокузнецкий алюминиевый завод',
+            value: 'IATF 16949'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Саяногорский алюминиевый завод',
+            value: 'IATF 16949'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Братский алюминиевый завод',
+            value: 'IATF 16949'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'СКАД',
+            value: 'IATF 16949'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'K&K',
+            value: 'IATF 16949'
+          }
+        ]
+      },
+      {
+        title: 'Сертификация Aluminium Stewardship Initiative (ASI) ',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Управляющая компания, Боксит Тимана, РУСАЛ Каменск-Уральский, филиал РУСАЛ Братск в Шелехове',
+            value: 'ASI chain of custody standard'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Управляющая компания, Боксит Тимана, РУСАЛ Каменск-Уральский, филиал РУСАЛ Братск в Шелехове',
+            value: 'ASI performance standard '
+          }
+        ]
+      },
+      {
+        title: 'Система менеджмента безопасности пищевых продуктов',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Саянал',
+            value: 'ISO 22000'
+          }
+        ]
+      },
+      {
+        title: 'Система экологического менеджмента',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'РУСАЛ Менеджмент +  предприятия',
+            value: 'ISO 14001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Ачинский глиноземный комбинат',
+            value: 'ISO 14001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Eurallumina SPA',
+            value: 'ISO 14001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Aughinish',
+            value: 'ISO 14001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'КраМЗ',
+            value: 'ISO 14001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'БоАЗ',
+            value: 'ISO 14001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'НГЗ',
+            value: 'ISO 14001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'KUBAL',
+            value: 'ISO 14001'
+          }
+        ]
+      },
+      {
+        title: 'Система менеджмента в области охраны труда и промышленной безопасности',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'РУСАЛ Менеджмент + предприятия',
+            value: 'OHSAS 18001'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Ачинский глиноземный комбинат',
+            value: 'OHSAS 18001'
+          }
+        ]
+      },
+      {
+        title: 'Декларация соответствия продукции',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Братский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Иркутский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Кандалакшский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Красноярский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Новокузнецкий алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Саяногорский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Волгоградский алюминиевый завод (порошки)'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Волгоградский алюминиевый завод (сплавы)'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Богучанский алюминиевый завод'
+          }
+        ]
+      },
+      {
+        title: 'Декларация соответствия требованиям регламента REACH',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Братский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Иркутский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Кандалакшский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Красноярский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Новокузнецкий алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Саяногорский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Волгоградский алюминиевый завод (порошки)'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Волгоградский алюминиевый завод (сплавы)'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Богучанский алюминиевый завод'
+          }
+        ]
+      },
+      {
+        title: 'Судостроительный стандарт DNV GL rules for classification – Ships',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Саяногорский алюминиевый завод'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Братский алюминиевый завод'
+          }
+        ]
+      },
+      {
+        title: 'Паспорта безопасности',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Al-Nickel 1% Alloys safety data sheet RUSAL'
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Aluminium safety data sheet RUSAL (English) '
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Aluminium safety data sheet RUSAL (Русский) '
+          },
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Aluminium alloys safety data sheet RUSAL (French)'
+          }
+        ]
+      },
+      {
+        title: 'Декларация о неиспользовании конфликтных минералов',
+        docs: [
+          {
+            link: '#',
+            type: 'pdf',
+            name: 'Declaration of DRC'
+          }
+        ]
+      }
+    ]
+block content
+  +menu
+  .inner.certificates
+    +banner(bannerData)
+      +share-button
+    .certificates__wrapper
+      .container
+        .row
+          .col-4
+            .certificates__sidebar
+              .certificates__sidebar-block
+                .certificates__sidebar-title
+                  p Сертификация
+                .certificates__sidebar-text
+                  p Производственные мощности ОК РУСАЛ имеют сертифицированные ISO 9001 системы менеджмента качества, ISO 14001 системы менеджмента окружающей средыи OHSAS 18001 системы менеджмента здоровья и безопасности. СМК поставщиков для автомобильной промышленности сертифицирована в соответствиис ISO / TS 16949. РУСАЛ отвечают требованиям REACH, RoHS, ELV и SVHC.
+          .col-8
+            .certificates__content
+              .certificates__title
+                p Система качества
+              .certificates__docs
+                each item in certificatesData
+                  .certificates__doc
+                    .certificates__doc-title(class=item.titleStyle && '_tiny')
+                      p= item.title
+                    .certificates__doc-items
+                      each doc in item.docs
+                        .certificates__doc-row
+                          .certificates__doc-item
+                            +document(doc)
+                          .certificates__doc-value
+                            p= doc.value

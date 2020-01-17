@@ -1,0 +1,44 @@
+extends components/layout-inner
+include components/backlink
+include components/search-input
+include components/tag
+
+block title
+  | Поиск
+block vars
+  -
+    var tags = [
+      {
+        name: 'О компании'
+      },
+      {
+        name: 'ALLOW'
+      },
+      {
+        name: 'География производства'
+      },
+      {
+        name: 'Совет директоров'
+      },
+      {
+        name: 'Карьера в РУСАЛе'
+      },
+      {
+        name: 'Конкурсные отборы'
+      }
+    ]
+block content
+  .search
+    .container
+      .row
+        .col-12
+          .search__wrapper
+            +backlink('#', 'Назад', 'dark')
+          .search__field
+            +search-input({ placeholder: 'Поиск по сайту' })
+      .row
+        .col-12
+          .search__tags
+            each tag in tags
+              .search__tag
+                +tag(tag)

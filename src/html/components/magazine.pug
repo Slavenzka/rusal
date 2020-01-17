@@ -1,0 +1,28 @@
+include ../components/document-blue
+
+mixin magazine(data)
+  //- data = { image: string, title: string, no: number || number, date: string, articles: array, doc: object}
+    //- data.articles = [{ name: string }]
+    //- data.doc = { name: string, link: string, type: string }
+  .magazine
+    .magazine__image
+      img(alt=data.title src=data.image)
+    .magazine__details
+      .magazine__title
+        p= data.title
+      .magazine__top
+        p
+          | №
+          = data.no
+          | /
+          = " "
+          = data.date
+      if data.articles
+        .magazine__subtitle
+          span Статьи номера:
+        ul.magazine__articles
+          each item in data.articles
+            li.magazine__articles-item= item.name
+      if data.doc
+        .magazine__doc
+          +document-blue(data.doc)

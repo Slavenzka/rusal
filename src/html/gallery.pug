@@ -1,0 +1,128 @@
+extends components/layout-inner
+include components/menu
+include components/backlink
+include components/breadcrumbs
+include components/share-button
+include components/gallery-video
+include components/gallery-image
+include elements/button
+
+block title
+  | Галерея
+block vars
+  -
+    var breadcrumbs = [
+      {
+        link: '/',
+        linkName: 'Главная'
+      },
+      {
+        linkName: 'Галерея'
+      }
+    ]
+    var bannerData = {
+      image: 'common/images/banner__bg-gallery.jpg',
+      title: 'Галерея'
+    }
+    var galleryItems = [
+      {
+        type: 'video',
+        url: 'https://www.youtube.com/watch?v=vBLuz_Yn0FQ&autoplay=1',
+        background: 'common/images/gallery__bg-single.jpg',
+        duration: '10 мин 20 сек'
+      },
+      {
+        type: 'img',
+        background: 'common/images/gallery__new-1.jpg',
+        url: 'common/images/gallery__new-1.jpg',
+        caption: 'Причал недалеко от Саяногорского алюминиевого завода'
+      },
+      {
+        type: 'img',
+        background: 'common/images/gallery__new-2.jpg',
+        url: 'common/images/gallery__new-2.jpg',
+        caption: 'Причал недалеко от Саяногорского алюминиевого завода'
+      },
+      {
+        type: 'img',
+        background: 'common/images/gallery__new-3.jpg',
+        url: 'common/images/gallery__new-3.jpg',
+        caption: 'Причал недалеко от Саяногорского алюминиевого завода'
+      },
+      {
+        type: 'img',
+        background: 'common/images/gallery__new-4.jpg',
+        url: 'common/images/gallery__new-4.jpg',
+        caption: 'Причал недалеко от Саяногорского алюминиевого завода'
+      },
+      {
+        type: 'img',
+        background: 'common/images/gallery__new-5.jpg',
+        url: 'common/images/gallery__new-5.jpg',
+        caption: 'Причал недалеко от Саяногорского алюминиевого завода'
+      },
+      {
+        type: 'img',
+        background: 'common/images/gallery__new-1.jpg',
+        url: 'common/images/gallery__new-1.jpg',
+        caption: 'Причал недалеко от Саяногорского алюминиевого завода'
+      },
+      {
+        type: 'video',
+        url: 'https://www.youtube.com/watch?v=vBLuz_Yn0FQ&autoplay=1',
+        background: 'common/images/gallery__new-7.jpg',
+        duration: '10 мин 20 сек'
+      },
+      {
+        type: 'img',
+        background: 'common/images/gallery__new-1.jpg',
+        url: 'common/images/gallery__new-1.jpg',
+        caption: 'Причал недалеко от Саяногорского алюминиевого завода'
+      },
+      {
+        type: 'img',
+        background: 'common/images/gallery__new-2.jpg',
+        url: 'common/images/gallery__new-2.jpg',
+        caption: 'Причал недалеко от Саяногорского алюминиевого завода'
+      }
+    ]
+block content
+  +menu
+  .inner.gallery._white(data-tabs)
+    .container.gallery__container
+      .row
+        .col-2
+          +backlink('#', 'Назад', 'dark')
+        .col-10
+          .gallery__breadcrumbs
+            +breadcrumbs({ list: breadcrumbs, style: 'dark' })
+      .row
+        .col-10.offset-2
+          .gallery__title
+            p Саяногорский алюминиевый завод празднует свой день рождения
+          .gallery__details
+            .gallery__details-info
+              .gallery__details-block
+                .gallery__details-title
+                  p Дата
+                .gallery__details-text
+                  p 09.03.2019
+              .gallery__details-block
+                .gallery__details-title
+                  p Количество файлов
+                .gallery__details-text
+                  p 100
+            .gallery__details-share
+              +share-button
+      .row
+        each item, index in galleryItems
+          .col-5(class=index % 2 === 0 && 'offset-2')
+            .gallery__item
+              if item.type === 'video'
+                +gallery-video(item)
+              else if item.type === 'img'
+                +gallery-image(item)
+      .row
+        .col-10.offset-2
+          .gallery__button
+            +button({ name: 'Показать еще', link: '#', style: 'secondary', tag: 'button' })

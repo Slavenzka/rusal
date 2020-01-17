@@ -1,0 +1,25 @@
+include ../components/dropzone
+
+mixin vacancy-form
+  form.vacancy-form(enctype="multipart/form-data" action="#" method="POST")
+    .vacancy-form__title
+      p Откликнуться
+    .vacancy-form__fields
+      .vacancy-form__field
+        +input({ placeholder: 'Иванов Иван Иванович', label: 'ФИО' })
+      .vacancy-form__field
+        +input({ placeholder: '+7 (', label: 'Телефон', type: 'tel' })
+      .vacancy-form__field
+        +input({ label: 'Эл. почта', type: 'email', placeholder: 'ivan@domain.com' })
+    .vacancy-form__uploader
+      +dropzone
+        p Перетащить или
+          = ' '
+          a.vacancy-form__link(href='#') загрузить резюме
+    .vacancy-form__bottom
+      .vacancy-form__button
+        +button({ name: 'Отправить', tag: 'button', disabled: true })
+      .vacancy-form__personal
+        p Нажимая на кнопку, я даю согласие на
+          = ' '
+          a.form__link(href='#') обработку персональных данных

@@ -1,0 +1,87 @@
+extends components/layout-inner
+include components/breadcrumbs
+include components/backlink
+include components/menu
+include components/vacancy-form
+include elements/button
+include elements/input
+
+block title
+  | Вакансии
+block vars
+  -
+    var breadcrumbs = [
+      {
+        linkName: 'Главная',
+        link: '#'
+      },
+      {
+        linkName: 'Карьера'
+      },
+      {
+        linkName: 'Вакансии'
+      },
+      {
+        linkName: 'Юрисконсульт (Отдел правового сопровождения зарубежных активов)'
+      }
+    ]
+block content
+  +menu
+  .inner._white.vacancy-inner
+    .vacancy-inner__top
+      .container
+        .row
+          .col-2
+            .vacancy-inner__backlink
+              +backlink('#', 'Назад', 'dark')
+          .col-10
+            +breadcrumbs({
+              list: breadcrumbs,
+              style: 'dark'
+            })
+    .vacancy-inner__content
+      .container
+        .row
+          .offset-2.col-5
+            .vacancy-inner__title
+              p Менеджер отдела <br/> документационного обеспечения
+            .vacancy-inner__details
+              .vacancy-inner__info
+                .vacancy-inner__info-item
+                  .vacancy-inner__info-key
+                    p Специальность
+                  .vacancy-inner__info-value
+                    p Инвестиции
+                .vacancy-inner__info-item
+                  .vacancy-inner__info-key
+                    p Регион
+                  .vacancy-inner__info-value
+                    p Новороссийск
+                .vacancy-inner__info-item
+                  .vacancy-inner__info-key
+                    p Опыт работы
+                  .vacancy-inner__info-value
+                    p 3-6 лет
+            .vacancy-inner__text.wysiwyg
+              p РУСАЛ – лидер мировой алюминиевой отрасли. Компания присутствует в 20 странах мира на 5 континентах. Основную часть продукции компании составляют первичный алюминий, алюминиевые сплавы, фольга и глинозем.
+              h4 Обязанности
+              ul
+                li Проведение анализа управленческой отчетности Компании
+                li Дата-аналитика
+                li Анализ и оценка финансовых моделей проектов, в т.ч. инвестиционных
+                li Участие в разработке методик и алгоритмов оценки эффективности и результативности бизнес-процессов Компании (закупки, логистика, производство и пр.)
+                li Участие в проведении аудиторских проверок различных бизнес-процессов Компании, проведение ревизий финансово-хозяйственной деятельности предприятий (в т.ч. выездных, в т.ч. за рубеж) и пр.
+                li Разработка методик и алгоритмов оценки эффективности и результативности бизнес-процессов Компании (закупки, логистика, производство и пр.)
+                li Документальное оформление процесса и результатов аудиторской проверки, формирование итогового отчета по проверке, с указанием выявленных недостатков и рекомендаций по их устранению и повышению эффективности СВК
+              h4 Требования
+              ul
+                li Опыт анализа данных: управленческой отчетности, производственных показателей, данных учетных систем (финансовые и производственные показатели, данные по закупкам и продажам)
+                li Владение Excel на продвинутом уровне (построение финансово-экономических моделей, обработка bigdata), 1С, SAP, SAP BI, Hyperion, прочие инструменты отчетности, PowerPoint – подготовка презентаций высокого качества;
+                li Высшее техническое/экономическое (технический ВУЗ)
+                li Английский (не ниже уровня Intermediate)
+              h4 Условия
+              ul
+                li Оформление согласно ТК РФ
+                li Офис - м. Парк Победы.
+          .col-4.offset-1
+            +vacancy-form

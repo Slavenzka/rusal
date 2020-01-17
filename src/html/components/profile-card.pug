@@ -1,0 +1,26 @@
+mixin profile-card(data)
+  //- data = { id: number, image: string, bigImage: string, title: string, subtitle: string, link: string, description: string }
+  .profile-card&attributes(attributes)
+    a.profile-card__wrapper-link(href='#profile-card-popup-'+data.id data-open-popup)
+      .profile-card__image
+        img(src=data.image alt='Фото ' + data.title)
+      .profile-card__content
+        .profile-card__about
+          .profile-card__title
+            p= data.title
+          .profile-card__description
+            p= data.subtitle
+        span.profile-card__more Подробнее
+    //- Details popup
+    .profile-card__popup.mfp-hide(id='profile-card-popup-'+data.id)
+      button(type='button').profile-card__popup-close.mfp-close
+      .profile-card__popup-left
+        .profile-card__popup-photo.mb-32
+          img(src=data.bigImage || data.image alt='Фото ' + data.title)
+        .profile-card__popup-title.mb-8
+          p= data.title
+        .profile-card__popup-subtitle
+          p= data.subtitle
+      .profile-card__popup-content
+        .profile-card__popup-inside !{data.description}
+    //- end Details popup

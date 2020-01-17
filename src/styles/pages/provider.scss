@@ -1,0 +1,60 @@
+.provider{
+  &__wrapper{
+    background-color: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  &__content{
+    box-sizing: border-box;
+    padding-top: 72px;
+    padding-bottom: 116px;
+  }
+  &__title{
+    @include h3;
+  }
+  &__text {
+    padding-right: 22%;
+  }
+  &__blocks{
+    display: flex;
+  }
+  &__block{
+    width: 368px;
+    &:not(:first-child){
+      margin-left: 40px;
+    }
+    &-title{
+      @include h4;
+    }
+    &-list{
+      list-style: disc;
+      margin-left: 15px;
+      &-item{
+        @include p2;
+        &:not(:last-child){
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+  &__link{
+    @include p2;
+    transition: $transitionSpeed;
+    &:hover{
+      color: $colorBlue;
+      text-decoration: none;
+    }
+  }
+  &__sidebar{
+    background-color: #fff;
+    &-bottom{
+      padding: 16px 40px;
+      box-sizing: border-box;
+      border-top: 1px solid rgba($colorBlack, .1);
+    }
+    &-content{
+      padding: 16px 40px 4px 40px;
+      box-sizing: border-box;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mixin gallery-video(data)
+  //- data = { duration: string, url: string, background: string }
+  a.gallery-video(data-video-trigger href=data.url)
+    .gallery-video__preview(style='background: url("' + data.background + '")')
+    .gallery-video__details
+      .gallery-video__duration
+        span= data.duration
+    .gallery-video__button
+      include ../../assets/images/i-play.svg

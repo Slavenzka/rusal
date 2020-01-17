@@ -1,0 +1,54 @@
+include ../components/backlink
+include ../components/breadcrumbs
+include ../elements/button
+
+mixin banner(data)
+  //- data = { breadcrumbs: [], image: string, title: string, titleWrapperStyle: string, counters: [], style: string, text: string, buttons: [] }
+    //- data.counters = [{ qty: number, text: string }]
+    //- data.buttons = [{  }]
+    //- data.center = { columns: number }
+  .banner(style=data.image && 'background-image: url("'+data.image+'")' class=data.style && '_'+data
+    .style)
+    .banner__top
+      .container
+        .row
+          .col-2
+            .banner__backlink
+              +backlink('#', 'Назад', data.style)
+          .col-10
+            +breadcrumbs({
+              list: data.breadcrumbs,
+              style: data.style || 'light'
+            })
+    .banner__content
+      .banner__title(class=data.style && '_' + data.style)
+        .container
+          .row
+            div(class=data.titleWrapperStyle || 'col-8 offset-2')
+              span !{data.title}
+      if data.text
+        .container
+          .row
+            .col-8.offset-2
+              .banner__text
+                p= data.text
+      if data.counters
+        .banner__counters
+          .container
+            for counter in data.counters
+              .banner__counter
+                span.banner__qty=counter.qty
+                span.banner__descriptor=counter.text
+      if data.buttons
+        .container
+          .row
+            .col-12
+              .banner__buttons
+                each button in data.buttons
+                  .banner__buttons-item
+                    +button(button)
+    .banner__bottom
+      .container
+        .row
+          .col-12.banner__bottom-content
+            block

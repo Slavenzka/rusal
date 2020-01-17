@@ -1,0 +1,16 @@
+mixin facts(data)
+  //- data = { nav: {}, content: string }
+    //- nav = { title: string, items: [{ text: string, url: string }] }
+  .facts
+    .container
+      .row
+        .col-4.offset-2
+          .facts__links
+            p.facts__subtitle=data.nav.title
+            ul.facts__list
+              each item in data.nav.items
+                li.facts__item
+                  a.facts__link(href=item.url)=item.text
+        .col-4
+          .facts__wyziwig !{data.content}
+

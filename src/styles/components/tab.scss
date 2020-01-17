@@ -1,0 +1,46 @@
+.tab{
+  position: relative;
+  transform: translateX(0);
+  transition: transform .3s ease .3s;
+  &:not(:first-child){
+    margin-left: 40px;
+    @include media-breakpoint-down('xs'){
+      margin-left: 24px;
+    }
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: $colorRed;
+    opacity: 0;
+    left: -14px;
+    visibility: hidden;
+    top: 50%;
+    transform: scale(0) translateX(0) translateY(-14px);
+    transition: $transitionSpeed;
+  }
+  &._active,
+  &:hover{
+    transition: transform .3s ease .3s;
+    &:before{
+      opacity: 1;
+      visibility: visible;
+      transition: $transitionSpeed;
+      transform: scale(1) translateX(0) translateY(-2px);
+    }
+    .tab__name{
+      color: $colorBlack;
+    }
+  }
+  &__name{
+    @include p2;
+    color: $colorNavGrey;
+    transition: $transitionSpeed;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}

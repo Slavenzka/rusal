@@ -1,0 +1,199 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/share-button
+include components/tab
+include components/profile-card
+
+block title
+  | Корпоративное управление
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '#',
+          linkName: 'Главная'
+        },
+        {
+          link: '#',
+          linkName: 'О нас'
+        },
+        {
+          link: '#',
+          linkName: 'Корпоративное управление'
+        }
+      ],
+      image: 'common/images/banner__bg-corporate.jpg',
+      title: 'Корпоративное управление'
+    }
+    var people = [
+      {
+        tab: 'Совет директоров',
+        content: [
+          {
+            image: 'common/images/p-bernard.jpg',
+            title: 'Бернард Зонневельд',
+            subtitle: 'Председатель Совета директоров РУСАЛа, независимый неисполнительный директор',
+            link: '#',
+            id: 101
+          },
+          {
+            image: 'common/images/p-christopher.jpg',
+            title: 'Кристофер Бёрнхэм',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 102
+          },
+          {
+            image: 'common/images/p-nophoto.jpg',
+            title: 'Дмитрий Васильев',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 103
+          },
+          {
+            image: 'common/images/p-nichilas.jpg',
+            title: 'Никилас Йордан',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 104
+          },
+          {
+            image: 'common/images/p-lyung.jpg',
+            title: 'Элси Льюнг',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 105
+          },
+          {
+            image: 'common/images/p-parker.jpg',
+            title: 'Кевин Паркер',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 106
+          },
+          {
+            image: 'common/images/p-poletaev.jpg',
+            title: 'Максим Полетаев',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 107
+          },
+          {
+            image: 'common/images/p-reynolds.jpg',
+            title: 'Рандольф Рейнольдс',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 108
+          },
+          {
+            image: 'common/images/p-kolmogorov.jpg',
+            title: 'Владимир Колмогоров',
+            subtitle: 'Член Совета директор РУСАЛа, неисполнительный директор',
+            link: '#',
+            id: 109
+          },
+          {
+            image: 'common/images/p-musseti.jpg',
+            bigImage: 'common/images/p-musseti-big.jpg',
+            title: 'Марко Музетти',
+            subtitle: 'Член Совета директор РУСАЛа, неисполнительный директор',
+            link: '#',
+            id: 110,
+            description: `
+              <p>Марко Музетти вошел в состав Совета директоров ОК РУСАЛ в декабре 2016г.</p>
+              <p>С 2007г. г-н Музетти является одним из руководителей Renova Management AG, компании по доверительному управлению инвестициями, расположенной в Цюрихе, Швейцария. В настоящее время он занимает должность управляющего директора по инвестициям в Renova Management AG. Также г-н Музетти входит в совет директоров Sulzer AG с 2011г. и в совет директоров Schmolz + Bickenbach AG с 2013г.</p>
+              <p>Г-н Музетти был операционным директором и заместителем гендиректора Aluminium Silicon marketing (Sual Group) в 2000-2007гг., главой департамента металлов и структурного финансирования в Banque Cantonale Vaudoise с 1998г. по 2000г., и заместителем главы департамента металлов в Banque Bruxelles Lambert с 1992г. по 1998г.</p>
+              <p>Г-н Музетти имеет диплом магистра в области бухгалтерии и финансов, который он получил в Лондонском институте экономики и политологии, Великобритания, а также диплом в области экономики Лозаннского университета, Швейцария.</p>
+            `
+          },
+          {
+            image: 'common/images/p-solomin.jpg',
+            title: 'Вячеслав Соломин',
+            subtitle: 'Член Совета директор РУСАЛа, неисполнительный директор',
+            link: '#',
+            id: 111
+          },
+          {
+            image: 'common/images/p-kuryanov.jpg',
+            title: 'Евгений Курьянов',
+            subtitle: 'Член Совета директор РУСАЛа, исполнительный директор',
+            link: '#',
+            id: 112
+          },
+          {
+            image: 'common/images/p-nikitin.jpg',
+            title: 'Евгений Никитин',
+            subtitle: 'Член Совета директор РУСАЛа, исполнительный директор',
+            link: '#',
+            id: 113
+          },
+          {
+            image: 'common/images/p-vavilov.jpg',
+            title: 'Евгений Вавилов',
+            subtitle: 'Член Совета директор РУСАЛа, исполнительный директор',
+            link: '#',
+            id: 114
+          }
+        ]
+      },
+      {
+        tab: 'Комитеты совета директоров',
+        content: [
+          {
+            image: 'common/images/p-bernard.jpg',
+            title: 'Бернард Зонневельд',
+            subtitle: 'Председатель Совета директоров РУСАЛа, независимый неисполнительный директор',
+            link: '#',
+            id: 201
+          },
+          {
+            image: 'common/images/p-christopher.jpg',
+            title: 'Кристофер Бёрнхэм',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 202
+          },
+          {
+            image: 'common/images/p-nophoto.jpg',
+            title: 'Дмитрий Васильев',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 203
+          }
+        ]
+      },
+      {
+        tab: 'Менеджмент',
+        content: [
+          {
+            image: 'common/images/p-nophoto.jpg',
+            title: 'Дмитрий Васильев',
+            subtitle: 'Член Совета директор РУСАЛа, независиммый неисполнительный директор',
+            link: '#',
+            id: 301
+          }
+        ]
+      }
+    ]
+block content
+  +menu
+  .inner.corporate
+    +banner(bannerData)
+      +share-button
+    .corporate__content(data-tabs)
+      .container
+        .row
+          .col-12
+            .corporate__tabs
+              each tab, index in people
+                +tab({name: tab.tab, isActive: index === 0})&attributes({'data-tab-id': index+1})
+      .corporate__blocks
+        each block, index in people
+          .corporate__block(class=index === 0 && '_active')&attributes({'data-tab-block': index+1})
+            .container
+              .row
+                each card, index in block.content
+                  .col-6.mb-32
+                    +profile-card(card)

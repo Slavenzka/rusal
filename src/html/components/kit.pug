@@ -1,0 +1,28 @@
+include ../components/document-blue
+
+mixin kit(data)
+  //- data = { type: string, content: string, title: string, doc: object }
+  .kit
+    .kit__content
+      if data.type === 'logo'
+        .kit__logo
+          img(alt="image" src=data.content)
+      else if data.type === 'image'
+        .kit__item
+          .kit__item-icon
+            include ../../assets/images/i-kit-image.svg
+      else if data.type === 'doc'
+        .kit__item
+          .kit__item-icon
+            include ../../assets/images/i-kit-doc.svg
+      else if data.type === 'archive'
+        .kit__item
+          .kit__item-icon
+            include ../../assets/images/i-kit-archive.svg
+      else if data.type === 'guide'
+        .kit__image
+          img(alt="image" src=data.content)
+    .kit__title
+      p= data.title
+    .kit__doc
+      +document-blue(data.doc, { type: 'small' })

@@ -1,0 +1,40 @@
+extends components/layout-inner
+include components/backlink
+include components/breadcrumbs
+include elements/button
+include components/menu
+
+block title
+  | 404
+block vars
+  -
+    var breadcrumbsData = [
+    {
+    link: '/',
+    linkName: 'Главная'
+    },
+    {
+    linkName: 'Ошибка 404'
+    }
+    ];
+block content
+  +menu
+  .inner.page404
+    .container.page404__bg
+      .page404__inner
+        .row
+          .col-2
+            +backlink('/', 'Назад', 'dark')
+          .col-10
+            +breadcrumbs({ list: breadcrumbsData, style: 'dark' })
+        .row
+          .col-4.offset-2
+            .page404__block
+              .page404__title Страница не&nbsp;найдена
+              .page404__text Возможно, запрашиваемая страница была перенесена или удалена
+              +button({
+                name: 'Перейти на главную',
+                link: '/',
+                style: 'secondary',
+                tag: 'a'
+              })

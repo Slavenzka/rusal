@@ -1,0 +1,12 @@
+mixin media-card(data)
+  //- data = { date: string, title: stirng, text: string, link: string }
+  a.media-card(href='#')
+    if data.date
+      .media-card__date
+        span= data.date
+    .media-card__title
+      p= data.title
+    .media-card__text
+      p= data.text
+    .media-card__more
+      span Подробнее

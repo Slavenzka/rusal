@@ -1,0 +1,12 @@
+mixin backlink(link, linkName, style)
+  //- link: string
+  //- linkName: string
+  //- style: string
+  - link = link || '#'
+  - linkName = linkName || 'Назад'
+  - style = style || 'light'
+  a.backlink(href=link class=style && '_'+style)
+    .backlink__arrow(class=style && '_'+style)
+      include ../../assets/images/i-backlink-arrow.svg
+    .backlink__name(class=style && '_'+style)
+      span= linkName

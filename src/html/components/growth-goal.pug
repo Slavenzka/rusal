@@ -1,0 +1,11 @@
+mixin growth-goal(image, title, text, goals)
+    .growth-goal&attributes(attributes)
+        .growth-goal__image-wrap
+            .growth-goal__image(style=`background-image: url('${image}')`)
+        .growth-goal__title!= title
+        .growth-goal__text!=text
+        .growth-goal__subtitle Задачи
+        ol.growth-goal__goals
+            each goal in goals
+                li!= goal
+

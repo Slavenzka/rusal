@@ -1,0 +1,56 @@
+include ../components/dropdown
+include ../elements/filter-select
+
+mixin header(options, data)
+  //- options: { style: string ('light' or 'dark'), showNav: bool, showSearch: bool, showClose: bool, isInner: bool }
+  //- data = { nav: [], projects: {} }
+    //- data.nav = [{ name: string, link: string }]
+    //- data.projects = { current: {}, list: [] }
+      //- data.projects.current = { name: string }
+      //- data.projects.list = [{ name: string, link: string }]
+    //- data.language = { current: {} }
+      //- data.language.current = { name: string }
+  header.header(class={'_fade': options.fade, '_inner': options.isInner} data-header)&attributes(attributes)
+    .container
+      .row.align-items-center
+        .col-4.col-sm-2
+          a.header__logo(href='#')
+            if options.style === 'light'
+              include ../../assets/images/logo.svg
+            else if options.style === 'dark'
+              include ../../assets/images/logo-dark.svg
+        .col-6.col-lg-7.d-none.d-sm-block
+          if options.showNav !== false
+            if data && data.nav
+              .d-none.d-lg-block
+                ul.header__nav
+                  each item in data.nav
+                    li.header__nav-item
+                      a.header__nav-link(class=options.style && '_'+options.style href=item.link)= item.name
+          else if options.showSearch === true
+            .header__search(class=options.style && '_'+options.style)
+              include ../../assets/images/i-search.svg
+        .col-8.col-sm-3.ml-auto
+          .header__selects
+            .header__select
+              +filter-select(data && data.projects, { style: options.style === 'light' && 'white' })
+            a.header__contacts(href='/contacts.html')
+              if options.style === 'light'
+                include ../../assets/images/i-phone.svg
+              else
+                include ../../assets/images/i-phone-dark.svg
+            .header__language(class=options.style && '_' + options .style class=options.style === 'light'? 'header__language--default': 'header__language--default-dark' data-lang)
+              .header__language-icon._white(data-lang-icon)
+                include ../../assets/images/i-world.svg
+              .header__language-inner(data-lang-inner)
+                +filter-select(data && data.language, { style: options.style === 'light' && 'white', lang: true })
+            .header__right
+              if options.showSearch === true
+                .header__search.d-sm-none(class=options.style && '_' + options.style)
+                  include ../../assets/images/i-search.svg
+              if options.showClose
+                .header__close(class=options.style && '_'+options.style data-menu-close)
+                  include ../../assets/images/i-close-menu.svg
+              else
+                .header__burger(class=options.style && '_'+options.style data-menu-button)
+                  include ../../assets/images/i-burger.svg

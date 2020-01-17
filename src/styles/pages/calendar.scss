@@ -1,0 +1,83 @@
+.calendar{
+  &__wrapper{
+    padding-top: 73px;
+    padding-bottom: 116px;
+    box-sizing: border-box;
+  }
+  &__sidebar{
+    &-block{
+      background-color: #fff;
+      padding: 40px 40px 48px;
+      box-sizing: border-box;
+    }
+    &-title{
+      @include h3;
+      margin-bottom: 8px;
+    }
+    &-text{
+      @include p2;
+      margin-bottom: 40px;
+    }
+  }
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 44px;
+  }
+  &__title{
+    @include h3;
+  }
+  &__block{
+    background-color: #fff;
+    padding: 40px 40px 56px;
+    box-sizing: border-box;
+  }
+  &__table{
+    margin-bottom: 32px;
+    width: 100%;
+    border-collapse: collapse;
+    &-link{
+      color: $colorBlack;
+      display: table-cell;
+    }
+    td{
+      padding: 36px 0;
+      box-sizing: border-box;
+      border-top: 1px solid rgba($colorBlack, .1);
+      &:not(:first-child){
+        padding-left: 40px;
+      }
+    }
+    th{
+      @include p3;
+      line-height: 16px;
+      padding-bottom: 16px;
+      box-sizing: border-box;
+      &:not(:first-child){
+        padding-left: 40px;
+      }
+    }
+  }
+  &__button{
+    text-align: center;
+  }
+  &__date{
+    &-day{
+      @include h4;
+    }
+    &-month{
+      @include p2;
+      @include fontMedium;
+      color: $colorNavGrey;
+      text-transform: lowercase;
+    }
+  }
+  &__name{
+    @include p2;
+    @include fontBold;
+  }
+  &__type{
+    @include p2;
+  }
+}

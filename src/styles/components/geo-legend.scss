@@ -1,0 +1,67 @@
+.geo-legend {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 28px;
+
+  &__item {
+    position: relative;
+    padding-left: 24px;
+    @include p2($colorNavGrey);
+
+    &:not(:first-of-type) {
+      margin-left: 40px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 16px / 2);
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background-size: cover;
+    }
+  }
+
+  &__item--aluminium {
+    &::before {
+      background-image: url("../images/../images/i-aluminium.svg");
+    }
+  }
+
+  &__item--bauxites {
+    &::before {
+      background-image: url("../images/../images/i-bauxites.svg");
+    }
+  }
+
+  &__item--clay {
+    &::before {
+      background-image: url("../images/../images/i-clay.svg");
+    }
+  }
+
+  &__item--downstream {
+    &::before {
+      background-image: url("../images/../images/i-downstream.svg");
+    }
+  }
+
+  &__item--other {
+    &::before {
+      background-image: url("../images/../images/i-other.svg");
+    }
+  }
+
+  &__item--hpp {
+    &::before {
+      background-image: url("../images/../images/i-hpp.svg");
+    }
+  }
+
+  &__item--tech {
+    &::before {
+      background-image: url("../images/../images/i-tech.svg");
+    }
+  }
+}

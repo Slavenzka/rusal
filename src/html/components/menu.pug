@@ -1,0 +1,415 @@
+include ../components/header
+
+mixin menu
+  -
+    var headerData = {
+      projects: [
+        {
+          name: 'Проекты',
+          value: '1'
+        },
+        {
+          name: 'Изделия',
+          value: '2'
+        },
+        {
+          name: 'Прочее',
+          value: '3'
+        }
+      ],
+      language: [
+        {
+          name: 'РУС',
+          isSelected: true
+        },
+        {
+          name: 'ENG'
+        },
+        {
+          name: '中文'
+        }
+      ]
+    }
+    var primaryNav = [
+      {
+        name: 'О компании',
+        link: '#',
+        tag: 'company',
+        submenu: [
+          {
+            name: 'Миссия и ценности',
+            link: '#'
+          },
+          {
+            name: 'Корпоративное управление',
+            link: '#'
+          },
+          {
+            name: 'География',
+            link: '#'
+          },
+          {
+            name: 'История',
+            link: '#'
+          }
+        ]
+      },
+      {
+        name: 'Клиентам',
+        link: '#',
+        tag: 'clients',
+        submenu: [
+          {
+            name: 'Продукция',
+            link: '#'
+          },
+          {
+            name: 'Качество продукции',
+            link: '#'
+          },
+          {
+            name: 'Система поддержки клиентов',
+            link: '#'
+          },
+          {
+            name: 'Торговая политика',
+            link: '#'
+          },
+          {
+            name: 'Торговые представительства',
+            link: '#'
+          },
+        ]
+      },
+      {
+        name: 'Инвесторам',
+        link: '#',
+        tag: 'invest'
+      },
+      {
+        name: 'Устойчивое развитие',
+        link: '#',
+        tag: 'development'
+      },
+      {
+        name: 'Карьера',
+        link: '#',
+        tag: 'career'
+      },
+      {
+        name: 'Пресс-центр',
+        link: '#',
+        tag: 'press'
+      },
+    ]
+    var secondaryNav = [
+      {
+        name: 'Контакты',
+        link: '#'
+      },
+      {
+        name: 'Инновации',
+        link: '#'
+      }
+    ]
+    var colNavs = [
+      {
+        nav: [
+          {
+            name: 'Проекты развития',
+            link: '#'
+          },
+          {
+            name: 'Поставщикам',
+            link: '#'
+          }
+        ]
+      },
+      {
+        nav: [
+          {
+            name: 'Обратная связь',
+            link: '#'
+          },
+          {
+            name: 'Карта сайта',
+            link: '#'
+          }
+        ]
+      }
+    ]
+    var navList = [
+      {
+        title: 'О компании',
+        link: '#',
+        nav: [
+          {
+            name: 'Миссия и ценность связь',
+            link: '#'
+          },
+          {
+            name: 'Корпоративное управление',
+            link: '#'
+          },
+          {
+            name: 'География',
+            link: '#'
+          }
+        ]
+      },
+      {
+      title: 'Клиентам',
+      link: '#',
+      nav: [
+        {
+          name: 'Продукция',
+          link: '#'
+        },
+        {
+          name: 'Качество продукции',
+          link: '#'
+        },
+        {
+          name: 'Система поддержки клиентов',
+          link: '#'
+        },
+        {
+          name: 'Торговая политика',
+          link: '#'
+        },
+        {
+          name: 'Торговые представительства',
+          link: '#'
+        }
+        ]
+      },
+      {
+        title: 'Поставщикам',
+        link: '#',
+        nav: [
+          {
+            name: 'Продукция',
+            link: '#'
+          },
+          {
+            name: 'Качество продукции',
+            link: '#'
+          },
+          {
+            name: 'Система поддержки клиентов',
+            link: '#'
+          },
+          {
+            name: 'Торговая политика',
+            link: '#'
+          },
+          {
+            name: 'Торговые представительства',
+            link: '#'
+          }
+        ]
+      },
+      {
+        title: 'Устойчивое развитие',
+        link: '#',
+        nav: [
+          {
+            name: 'Охрана окружающей среды',
+            link: '#'
+          },
+          {
+            name: 'Здоровье и охрана труда',
+            link: '#'
+          },
+          {
+            name: 'Социальное инвестирование',
+            link: '#'
+          },
+          {
+            name: 'Подходы и политики',
+            link: '#'
+          },
+          {
+            name: 'Отчёт об устойчивом развитии',
+            link: '#'
+          }
+        ]
+      },
+      {
+        title: 'Карьера',
+        link: '#',
+        nav: [
+          {
+            name: 'Вакансии',
+            link: '#'
+          },
+          {
+            name: 'Контакты для соискателей',
+            link: '#'
+          },
+          {
+            name: 'Работа в компании',
+            link: '#'
+          },
+          {
+            name: 'Кадровым агентствам',
+            link: '#'
+          },
+          {
+            name: 'Работа с молодёжью',
+            link: '#'
+          }
+        ]
+      },
+    ]
+    var navBottomList = [
+      {
+        nav: [
+          {
+            name: 'Проекты развития',
+            link: '#'
+          },
+          {
+            name: 'Инновации',
+            link: '#'
+          },
+          {
+            name: 'История',
+            link: '#'
+          },
+          {
+            name: 'Инвесторам',
+            link: '#'
+          }
+        ]
+      },
+      {
+        nav: [
+          {
+            name: 'Пресс-центр',
+            link: '#'
+          },
+          {
+            name: 'Обратная связь',
+            link: '#'
+          },
+          {
+            name: 'Карта сайта',
+            link: '#'
+          }
+        ]
+      }
+    ]
+  .menu.animated(
+    data-menu
+  )
+    .d-none.d-md-block.full-height
+      .menu__header.fadeInDown.animated(
+        data-menu-animate
+        data-menu-animate-in='fadeInDown'
+        data-menu-animate-out="fadeOutUp"
+        data-animate-delayed-target="menuHeader"
+      )
+        +header({showClose: true, showSearch: true, style: 'light', showNav: false}, headerData)
+      .menu__wrapper
+        .menu__content.mb-40
+          .container
+            .row
+              .col-7.col-lg-5.offset-lg-2.menu__left
+                ul.menu__nav
+                  each item, index in primaryNav
+                    li.menu__nav-item(
+                      data-menu-nav=item.tag
+                    )
+                      a.menu__nav-link(
+                        href=item.link
+                        data-splitty
+                        data-animate-delayed-target="menuNavLink"
+                      )
+                        p(
+                          data-menu-animate
+                          data-menu-animate-in='titleSlideIn'
+                          data-menu-animate-out="titleSlideOut"
+                        )= item.name
+              .col-3.menu__subnavs
+                each item, index in primaryNav
+                  if item.submenu
+                    ul.menu__subnav(data-menu-subnav=item.tag)
+                      each subitem in item.submenu
+                        li.menu__subnav-item
+                          a.menu__subnav-link(
+                            href=subitem.link
+                            data-splitty
+                            data-splitty-delayed
+                          )
+                            p.animated.fadeInUp= subitem.name
+        .menu__bottom
+          .container
+            .row
+              .col-12.col-lg-10.offset-lg-2
+                .menu__separator(
+                  data-menu-animate
+                  data-menu-animate-in='fadeInRight'
+                  data-menu-animate-out="fadeOutRight"
+                  data-animate-delayed-target='menuSeparator'
+                )
+                  .menu__separator-inner
+            .row
+              .col-6.col-lg-5.offset-lg-2
+                ul.menu__list._row
+                  each item in secondaryNav
+                    li.menu__list-item._row
+                      a.menu__list-link(
+                        href=item.link
+                        data-splitty
+                        data-splitty-delayed
+                        data-animate-delayed-target='menuBottomNavLink'
+                      )
+                        p(
+                          data-menu-animate
+                          data-menu-animate-in='fadeInUp'
+                          data-menu-animate-out="fadeOutUp"
+                        )= item.name
+              .col-6.col-lg-5
+                if colNavs
+                  .menu__cols
+                    each item in colNavs
+                      ul.menu__list._col
+                        each col in item.nav
+                          li.menu__list-item._col
+                            a.menu__list-link(
+                              href=col.link
+                              data-splitty
+                              data-splitty-delayed
+                              data-animate-delayed-target='menuBottomNavLink'
+                            )
+                              p(
+                                data-menu-animate
+                                data-menu-animate-in='fadeInUp'
+                                data-menu-animate-out="fadeOutUp"
+                              )= col.name
+    .d-md-none
+      .menu-mobile
+        .menu-mobile__header
+          +header({showClose: true, showSearch: true, style: 'light', showNav: false}, headerData)
+        .menu-mobile__content
+          .container
+            .row
+              .col-12
+                .footer-mobile__menu
+                  each block in navList
+                    .footer-mobile__block(data-collapse)
+                      .footer-mobile__top(data-collapse-top)
+                        .footer-mobile__title
+                          span= block.title
+                        .footer-mobile__arrow(data-collapse-icon)
+                          img(src='common/images/i-arrow-footer-top.svg' alt='arrow')
+                      ul.footer-mobile__nav(data-collapse-content)
+                        each nav in block.nav
+                          li.footer-mobile__nav-item
+                            a.footer-mobile__nav-link(href=nav.link)= nav.name
+                ul.footer-mobile__submenu
+                  each subnav in navBottomList
+                    each item in subnav.nav
+                      li.footer-mobile__subitem
+                        a.footer-mobile__sublink(href=item.link)= item.name

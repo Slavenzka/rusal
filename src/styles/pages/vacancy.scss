@@ -1,0 +1,43 @@
+.vacancy{
+  &__content{
+    padding-top: 60px;
+    padding-bottom: 132px;
+  }
+  &__banner{
+    background-color: #fff;
+  }
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba($colorBlack, .1);
+  }
+  &__tabs{
+    display: flex;
+    align-items: center;
+  }
+  &__tab{
+    &:not(:first-child){
+      margin-left: 32px;
+    }
+  }
+  &__tags{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    margin-bottom: 88px;
+  }
+  &__tag{
+    margin-bottom: 12px;
+    &:not(:last-child){
+      margin-right: 12px;
+    }
+  }
+  &__block{
+    margin-bottom: 44px;
+  }
+  &__button{
+    text-align: center;
+  }
+}

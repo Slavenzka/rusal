@@ -1,0 +1,102 @@
+.input{
+  width: 100%;
+  &__wrapper{
+    position: relative;
+    height: 56px;
+    width: 100%;
+  }
+  &__content{
+    width: 100%;
+    height: 100%;
+    &:hover{
+      cursor: text;
+    }
+  }
+  &__field{
+    @include p2;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 14px 24px;
+    box-sizing: border-box;
+    color: transparent;
+    transition: $transitionSpeed;
+    transition-property: opacity, visibility;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    border-radius: 6px;
+    background: #FFFFFF;
+    &::placeholder{
+      color: $colorNavGrey;
+      transition: $transitionSpeed;
+      opacity: 0;
+      visibility: hidden;
+    }
+    &:focus,
+    &._not-empty{
+      padding-top: 26px;
+      outline: none;
+      color: $colorBlack;
+      &::placeholder{
+        opacity: 1;
+        visibility: visible;
+      }
+      & ~ .input__label {
+        transform: translateY(-6px);
+        opacity: 1;
+        visibility: visible;
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+    &._invalid{
+      border-color: $colorRed;
+    }
+    &[type='phone'],
+    &[type='tel']{
+      &::placeholder{
+        color: $colorBlack;
+      }
+    }
+    &._valid{
+      & ~ .input__inner{
+        .arrow-button{
+          path{
+            stroke: $colorBlue;
+          }
+        }
+      }
+    }
+    &._inner{
+      padding-right: 70px;
+    }
+  }
+  &__label{
+    @include p2;
+    color: $colorNavGrey;
+    position: absolute;
+    top: 14px;
+    left: 0;
+    padding: 0 24px;
+    box-sizing: border-box;
+    width: 100%;
+    transition: $transitionSpeed;
+  }
+  &__inner{
+    position: absolute;
+    right: 24px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__error{
+    font-size: 12px;
+    line-height: 16px;
+    @include fontMedium;
+    color: $colorRed;
+  }
+}

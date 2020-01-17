@@ -1,0 +1,139 @@
+.gallery {
+  padding-bottom: 116px;
+  &__wrapper{
+    padding: 44px 0 112px;
+    box-sizing: border-box;
+  }
+  &__controls {
+    display: flex;
+    padding-top: 60px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+  }
+  &__tabs {
+    display: flex;
+  }
+  &__tab:not(:first-of-type) {
+    margin-left: 32px;
+  }
+  &__filters {
+    display: flex;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+  &__filter:not(:first-of-type) {
+    margin-left: 33px;
+  }
+  &__blocks {
+    padding-top: 55px;
+    padding-bottom: 126px;
+  }
+  &__type:not(:first-of-type) {
+    margin-top: 80px;
+  }
+  &__date {
+    @include p2($colorNavGrey);
+  }
+  &__title {
+    @include h3($colorBlack);
+  }
+  &__content {
+    margin-top: 36px;
+  }
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  &__category{
+    margin-bottom: 32px;
+  }
+  &__item{
+    height: 396px;
+    margin-bottom: 32px;
+  }
+  &__container{
+    padding-top: 38px;
+    box-sizing: border-box;
+  }
+  &__breadcrumbs{
+    margin-bottom: 68px;
+  }
+  &__title{
+    margin-bottom: 48px;
+  }
+  &__details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+    border-top: 1px solid rgba($colorBlack, .1);
+    border-bottom: 1px solid rgba($colorBlack, .1);
+    margin-bottom: 56px;
+    &-info{
+      display: flex;
+    }
+    &-block{
+      &:not(:first-child){
+        margin-left: 140px;
+      }
+    }
+    &-title{
+      @include p3($colorNavGrey);
+    }
+    &-text{
+      @include p1($colorBlack);
+    }
+    &-share{
+      svg{
+        path {
+          fill: $colorBlack;
+        }
+      }
+    }
+  }
+  &__button{
+    margin-top: 48px;
+    text-align: center;
+  }
+}
+.gallery-popup{
+  .mfp-bottom-bar{
+    background-color: #fff;
+    margin-top: -40px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .mfp-title{
+    @include p2($colorBlack);
+    text-align: center;
+    padding-right: 0;
+  }
+  .mfp-close{
+    position: absolute;
+    top: 26px;
+    right: 44px;
+    font-size: 0;
+    color: transparent;
+    width: 20px;
+    height: 20px;
+    background: url('../images/i-close-menu.svg') no-repeat;
+    background-size: cover;
+  }
+  .mfp-close-wrapper{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .mfp-close{
+    padding-right: 0;
+    svg{
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  @include addFont;
+  display: flex;
+  flex-direction: column;
+}
+.full-height{
+  height: 100%;
+}
+#content{
+  flex: 1 0 auto;
+}
+.highcharts-tooltip{
+  display: flex;
+  flex-direction: column;
+  b,
+  strong{
+    font-weight: bold;
+  }
+  &__row{
+    display: block;
+  }
+  &__title{
+    color: rgba(#f7f7f7, .5);
+    margin-bottom: 4px;
+  }
+  &__separator{
+    margin: 10px 0;
+    width: 100%;
+    height: 1px;
+    background: #F7F7F7;
+    opacity: 0.1;
+  }
+  &__parent{
+    width: 100%;
+    height: 100%;
+    padding: 18px 20px 26px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: 'Gilroy', sans-serif;
+  }
+}
+.wow,
+.hidden{
+  visibility: hidden;
+}
+[data-splitty-additional-nesting]{
+  overflow: hidden;
+}
+[data-tab-block]{
+  display: none;
+  &._active{
+    display: block;
+    &.row{
+      display: flex;
+    }
+  }
+}
+img{
+  max-width: 100%;
+}
+.inner{
+  background-color: $colorGrey;
+  padding-top: 96px;
+  box-sizing: border-box;
+  &._white{
+    background-color: #fff;
+  }
+}
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+p{
+  margin-bottom: 0;
+}
+.h1{
+  @extend %h1;
+}
+.h2{
+  @extend %h2;
+}
+.h3{
+  @extend %h3;
+}
+.h4{
+  @extend %h4;
+}
+.p1{
+  @extend %p1;
+}
+.p2{
+  @extend %p2;
+}
+.p2-navig{
+  @extend %p2-navig;
+}
+.p2-date{
+  @extend %p2-date;
+}
+.p3{
+  @extend %p3;
+}

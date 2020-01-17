@@ -1,0 +1,75 @@
+.geo-map {
+  position: relative;
+  width: 100%;
+  svg {
+    width: 100%;
+    display: block;
+    path{
+      fill: $colorBlue;
+      stroke: $colorBlue;
+      transition-duration: $transitionSpeed;
+    }
+  }
+  &__pins {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  &__card {
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: $transitionSpeed;
+    &:hover,
+    &--visible,
+    &._visible{
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  &__pin {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    pointer-events: all;
+    background-size: cover;
+    &--aluminium{
+      background-image: url("../images/i-aluminium.svg");
+    }
+    &--bauxites {
+      background-image: url("../images/i-bauxites.svg");
+    }
+    &--clay {
+      background-image: url("../images/i-clay.svg");
+    }
+    &--downstream {
+      background-image: url("../images/i-downstream.svg");
+    }
+    &--hpp {
+      background-image: url("../images/i-hpp.svg");
+    }
+    &--other {
+      background-image: url("../images/i-other.svg");
+    }
+    &--tech {
+      background-image: url("../images/i-tech.svg");
+    }
+  }
+}
+.country__with-enterprise,
+.country__with-enterprise path{
+  fill-opacity: 0.5;
+  stroke-opacity: 0.5;
+  &:hover,
+  &--active,
+  &._active{
+    fill-opacity: 0.8;
+    stroke-opacity: 0.8;
+  }
+}
+.country-no-enterprise {
+  fill-opacity: 0.3;
+  stroke-opacity: 0.001;
+}

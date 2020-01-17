@@ -1,0 +1,137 @@
+extends components/layout-inner
+include components/backlink
+include components/search-input
+include components/tab
+include elements/button
+
+block title
+  | Поиск
+block vars
+  -
+    var tabs = [
+      {
+        name: 'Все разделы'
+      },
+      {
+        name: 'Производство'
+      },
+      {
+        name: 'Поставщикам'
+      },
+      {
+        name: 'Пресс-центр'
+      },
+      {
+        name: 'Карьера'
+      },
+      {
+        name: 'Устойчивое развитие'
+      },
+      {
+        name: 'Инвесторам'
+      },
+      {
+        name: 'Клиентам'
+      },
+      {
+        name: 'О нас'
+      },
+      {
+        name: 'Контакты'
+      },
+      {
+        name: 'Устойчивое развитие'
+      }
+    ]
+    var results = [
+      {
+        title: `<p>РУСАЛ за 10 лет переработал около 50% образованных отходов алюминиевого <b>производства</b></p>`,
+        content: `<p>... первоначальных 750 млн долларов США, что подтверждает уверенность рынка в приверженности Компании низкоуглеродным технологиям и ориентированности на производство экологически чистого алюминия, а также поддержку стратегии Компании в области устойчивого развития ...</p>`,
+        category: 'Пресс-релизы',
+        date: '20.06.2019'
+      },
+      {
+        title: `<p>РУСАЛ признали лучшей компанией России в области борьбы с изменением климата</p>`,
+        content: '<p>.. регионах России на общей площади более 120 га. Сегодня более 90% металла РУСАЛа производится с использованием экологичной гидроэлектроэнергии, <b>производство</b> которой исключает вредные выбросы, и компания продолжает работу над улучшением этого показателя ...</p>',
+        category: 'Новости',
+        date: '12.05.2019 '
+      },
+      {
+        title: `<p>БКЗ запустил <b>производство</b> кабельно-проводниковой продукции</p>`,
+        content: `<p>... первоначальных 750 млн долларов США, что подтверждает уверенность рынка в приверженности Компании низкоуглеродным технологиям и ориентированности на <b>производство</b> экологически чистого алюминия, а также поддержку стратегии Компании в области устойчивого развития ...</p>`,
+        category: 'Новости',
+        date: '20.06.2019'
+      },
+      {
+        title: `<p>РУСАЛ за 10 лет переработал около 50% образованных отходов алюминиевого <b>производства</b></p>`,
+        content: `<p>... первоначальных 750 млн долларов США, что подтверждает уверенность рынка в приверженности Компании низкоуглеродным технологиям и ориентированности на <b>производство</b> экологически чистого алюминия, а также поддержку стратегии Компании в области устойчивого развития ...</p>`,
+        category: 'Документы',
+        date: '03.02.2018'
+      }
+    ]
+block content
+  .search
+    .container
+      .row
+        .col-12
+          .search__wrapper
+            +backlink('#', 'Назад', 'dark')
+          .search__field
+            +search-input({ placeholder: 'Поиск по сайту', value: 'Производство' })
+    .search__wrapper(data-tabs)
+      .container
+        .row
+          .col-12
+            .search__tabs
+              each tab, index in tabs
+                .search__tabs-item()
+                  +tab(tab)&attributes({
+                    'data-tab-id': index,
+                    class: {
+                      '_active': index === 0
+                    }
+                  })
+        .search__results
+          - var i = 0;
+          while i < tabs.length
+            .search__results-block(class=i === 0 && '_active' data-tab-block=i)
+              .row
+                .col-12
+                  .search__results-total
+                    if i === 0
+                      span Всего 120
+                    else
+                      span Всего 20
+              .search__results-wrapper
+                each result in results
+                  a.search__results-item(href='#')
+                    .row
+                      .col-10
+                        .search__results-item-left
+                          .search__results-item-title!= result.title
+                          .search__results-item-content!= result.content
+                      .col-2
+                        .search__results-item-right
+                          .search__results-item-category
+                            span= result.category
+                          .search__results-item-date
+                            span= result.date
+                if i === 0
+                  each result in results
+                    a.search__results-item(href='#')
+                      .row
+                        .col-10
+                          .search__results-item-left
+                            .search__results-item-title!= result.title
+                            .search__results-item-content!= result.content
+                        .col-2
+                          .search__results-item-right
+                            .search__results-item-category
+                              span= result.category
+                            .search__results-item-date
+                              span= result.date
+            - i++
+        .row
+          .col-12
+            .search__button
+              +button({ name: 'Показать еще', link: '#', style: 'secondary' })

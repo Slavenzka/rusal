@@ -1,0 +1,16 @@
+mixin dropdown(data, options)
+  //- data = { current: { name: string, link: string }, list: array }
+  //- data.list = [{ name: string, link: string }]
+  //- options = { style: string }
+  - options = options || {}
+  .dropdown(class=options.style && '_'+options.style)
+    .dropdown__current(class=options.style && '_'+options.style)
+      if data && data.current
+        span= data.current.name
+        if data.list
+          .dropdown__arrow(class=options.style && '_'+options.style)
+            include ../../assets/images/i-arrow.svg
+    .dropdown__options
+      if data && data.list
+        each item in data.list
+          a.dropdown__option(href=item.link class=options.style && '_'+options.style)= item.name

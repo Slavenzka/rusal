@@ -1,0 +1,95 @@
+.career{
+  &__content{
+    overflow: hidden;
+  }
+  &__banner{
+    margin-bottom: 48px;
+  }
+  &__images{
+    margin-bottom: 116px;
+    &-item{
+      min-width: 416px;
+      &:not(:first-child){
+        margin-left: 32px;
+      }
+    }
+    &-inner{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__company{
+    margin-bottom: 136px;
+    &-title{
+      @include h3;
+      margin-bottom: 24px;
+    }
+    &-text{
+      @include p1;
+      margin-bottom: 44px;
+    }
+    &-subtitle{
+      @include h4;
+      margin-bottom: 12px;
+    }
+    &-contacts{
+      &-links{
+        display: flex;
+      }
+      &-link{
+        @include p1;
+        color: $colorBlack;
+        transition: $transitionSpeed;
+        &:hover{
+          color: $colorBlue;
+        }
+        &:not(:first-child){
+          margin-left: 32px;
+        }
+      }
+    }
+  }
+  &__metric{
+    &-value{
+      @include h1;
+      margin-bottom: 8px;
+    }
+    &-description{
+      @include p2;
+      color: $colorNavGrey;
+    }
+    &-row{
+      display: flex;
+      &:not(:last-child){
+        margin-bottom: 56px;
+      }
+    }
+    &-block{
+      position: relative;
+      &:not(:first-child){
+        margin-left: 65px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          height: 100px;
+          width: 1px;
+          background-color: rgba($colorBlack, .15);
+          transform: translateY(-50%);
+          left: -32px;
+        }
+      }
+    }
+  }
+  &__cards{
+    padding-bottom: 96px;
+  }
+  &__card{
+    height: 312px;
+    margin-bottom: 32px;
+  }
+}

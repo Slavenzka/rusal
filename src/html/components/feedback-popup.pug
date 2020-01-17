@@ -1,0 +1,36 @@
+include ../elements/input
+include ../elements/textarea
+include ../elements/button
+
+mixin feedback-popup
+  #feedback-popup.feedback-popup.mfp-hide
+    .container
+      .row
+        .offset-3.col-6
+          .feedback-popup__content
+            .feedback-popup__close.mfp-close
+            .feedback-popup__title
+              p Форма обратной связи
+            form.feedback-popup__form
+              .feedback-popup__fields
+                .feedback-popup__row
+                  .feedback-popup__field
+                    +input({ placeholder: 'Иванов Иван Иванович', label: 'ФИО' })
+                .feedback-popup__row
+                  .feedback-popup__field
+                    +input({ label: 'Эл. почта', type: 'email', placeholder: 'ivan@domain.com' })
+                  .feedback-popup__field
+                    +input({ placeholder: '+7 (', label: 'Телефон', type: 'tel' })
+                .feedback-popup__row
+                  .feedback-popup__field
+                    +input({ placeholder: 'Компания (необязательно)' })
+                .feedback-popup__row
+                  .feedback-popup__field
+                    +textarea({ placeholder: 'Вопрос' })
+            .feedback-popup__bottom
+              .feedback-popup__button
+                +button({ name: 'Отправить', disabled: true, tag: 'button' })
+              .feedback-popup__personal
+                p Нажимая на кнопку, я даю согласие на
+                  = ' '
+                  a.form__link(href='#') обработку<br> персональных данных

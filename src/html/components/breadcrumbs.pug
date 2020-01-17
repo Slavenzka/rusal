@@ -1,0 +1,17 @@
+mixin breadcrumbs(data)
+  //- data = { style: string, list: [], className: string }
+  //- data.list = [{ link: string, linkName: string }]
+  - data.style = data.style || 'light'
+  - var classStyleChecker = data && data.style && '_'+data.style
+  .breadcrumbs(class=data.className)
+    if data && data.list
+      ul.breadcrumbs__list(class=classStyleChecker)
+        each item, index in data.list
+          li.breadcrumbs__item(class=classStyleChecker)
+            if item.link
+              a.breadcrumbs__link(href=item.link)= item.linkName
+            else
+              span.breadcrumbs__link(href=item.link)= item.linkName
+          if index + 1 !== data.list.length
+            li.breadcrumbs__item._separator(class=classStyleChecker)
+              include ../../assets/images/i-breadcrumbs-arrow.svg

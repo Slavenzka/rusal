@@ -1,0 +1,20 @@
+mixin subscribe-news-popup()
+  -
+    var title = 'Подписка на рассылку'
+    var text = 'Подпишитесь на&nbsp;рассылку и&nbsp;получайте самые свежие новости первым!'
+  #subscribe-news-popup.subscribe-news-popup.mfp-hide
+    .container
+      .row
+        .col-8.offset-2.subscribe-news-popup__inner
+          button(type='button').mfp-close
+          .subscribe-news-popup__left
+            .subscribe-news-popup__left-img
+          .subscribe-news-popup__right
+            .subscribe-news-popup__title= title
+            .subscribe-news-popup__text!= text
+            form.subscribe-news-popup__input
+              input(type='text' placeholder='Адрес эл. почты' name='email')
+              button
+                img(src='common/images/long-arrow.svg' alt='Arrow icon')
+
+

@@ -1,0 +1,436 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/share-button
+include components/document
+include components/share-block
+include components/tab
+include components/media-card
+include elements/button
+include components/document
+include components/kit
+include components/magazine
+
+block title
+  | Медиатека
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '#',
+          linkName: 'Главная'
+        },
+        {
+          link: '#',
+          linkName: 'Инвесторам'
+        },
+        {
+          linkName: 'Финансовая отчетность'
+        }
+      ],
+      image: 'common/images/banner__bg-media.jpg',
+      title: 'Медиатека'
+    }
+    var tabs = [
+      {
+        name: 'Статьи и интервью',
+        isActive: true
+      },
+      {
+        name: 'Презентации'
+      },
+      {
+        name: 'Пресс-кит'
+      },
+      {
+        name: 'Журнал ALGOРИТМ успеха'
+      }
+    ]
+    var newsCards = [
+      {
+        date: '26.10.2019',
+        title: 'РУСАЛ операционные результаты второго квартала 2019 года ',
+        text: 'Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционно...',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'БКЗ запустил производство кабельно-проводниковой продукции',
+        text: 'РУСАЛ сообщает о закрытии книги заявок третьего транша 10-летних облигаций с офертой через  3 года на Московской бирже номинальным объемом 15 млрд рублей.',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'РУСАЛ операционные результаты второго квартала 2019 года ',
+        text: 'Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционно...',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'БКЗ запустил производство кабельно-проводниковой продукции',
+        text: 'РУСАЛ сообщает о закрытии книги заявок третьего транша 10-летних облигаций с офертой через  3 года на Московской бирже номинальным объемом 15 млрд рублей.',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'РУСАЛ операционные результаты второго квартала 2019 года ',
+        text: 'Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционно...',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'БКЗ запустил производство кабельно-проводниковой продукции',
+        text: 'РУСАЛ сообщает о закрытии книги заявок третьего транша 10-летних облигаций с офертой через  3 года на Московской бирже номинальным объемом 15 млрд рублей.',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'РУСАЛ операционные результаты второго квартала 2019 года ',
+        text: 'Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционно...',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'БКЗ запустил производство кабельно-проводниковой продукции',
+        text: 'РУСАЛ сообщает о закрытии книги заявок третьего транша 10-летних облигаций с офертой через  3 года на Московской бирже номинальным объемом 15 млрд рублей.',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'РУСАЛ операционные результаты второго квартала 2019 года ',
+        text: 'Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционно...',
+        link: '#'
+      },
+      {
+        date: '26.10.2019',
+        title: 'БКЗ запустил производство кабельно-проводниковой продукции',
+        text: 'РУСАЛ сообщает о закрытии книги заявок третьего транша 10-летних облигаций с офертой через  3 года на Московской бирже номинальным объемом 15 млрд рублей.',
+        link: '#'
+      },
+    ]
+    var docs = [
+      {
+        type: 'pdf',
+        name: 'Interim and Second Quarter 2019 Results (0,50mb)',
+        customDate: '09.08.2019',
+        link: '#'
+      },
+      {
+        type: 'pdf',
+        name: 'Итоги по итогам 3 квартала 2019 года (1,2 mb)  ',
+        customDate: '23.07.2019',
+        link: '#'
+      },
+      {
+        type: 'pdf',
+        name: 'Презентация по итогами проведения Новогоднего благотворительного марафона РУСАЛа «Верим в чудо, творим чудо!» (4,2 mb)',
+        customDate: '09.07.2019',
+        link: '#'
+        },
+      {
+        type: 'pdf',
+        name: 'Итоги по итогам 3 квартала 2019 года (1,2 mb)',
+        customDate: '22.06.2019',
+        link: '#'
+      },
+      {
+        type: 'pdf',
+        name: 'Презентация по итогами проведения Новогоднего благотворительного марафона РУСАЛа «Верим в чудо, творим чудо!» (3,7 mb)',
+        customDate: '09.06.2019',
+        link: '#'
+      },
+      {
+        type: 'pdf',
+        name: 'Презентация по итогами проведения Новогоднего благотворительного марафона РУСАЛа «Верим в чудо, творим чудо!» (4,2 mb)',
+        customDate: '08.05.2019',
+        link: '#'
+      },
+      {
+        type: 'pdf',
+        name: 'Итоги по итогам 3 квартала 2019 года (1,2 mb)',
+        customDate: '04.06.2019',
+        link: '#'
+      },
+      {
+        type: 'pdf',
+        name: 'Итоги по итогам 3 квартала 2019 года (1,2 mb)',
+        customDate: '23.07.2019',
+        link: '#'
+      },
+      {
+        type: 'pdf',
+        name: 'Interim and Second Quarter 2019 Results (0,50mb)',
+        customDate: '09.07.2019',
+        link: '#'
+      },
+      {
+        type: 'pdf',
+        name: 'Interim and Second Quarter 2019 Results (0,50mb)  ',
+        customDate: '23.06.2019',
+        link: '#'
+      }
+    ]
+    var kit = [
+      {
+        type: 'logo',
+        content: 'common/images/i-kit-logo-named.svg',
+        title: 'Логотип с наименованием',
+        doc: {
+          type: 'zip',
+          name: 'Скачать (5,6 kb)',
+          link: '#'
+        }
+      },
+      {
+        type: 'logo',
+        content: 'common/images/i-kit-logo-unnamed.svg',
+        title: 'Логотип без наименования',
+        doc: {
+          type: 'zip',
+          name: 'Скачать (5,6 kb)',
+          link: '#'
+        }
+      },
+      {
+        type: 'logo',
+        content: 'common/images/i-kit-logo-colored.svg',
+        title: 'Логотип в цвете',
+        doc: {
+          type: 'zip',
+          name: 'Скачать (5,6 kb)',
+          link: '#'
+        }
+      },
+      {
+        type: 'logo',
+        content: 'common/images/i-kit-logo-black.svg',
+        title: 'Логотип в ч/б',
+        doc: {
+          type: 'zip',
+          name: 'Скачать (5,6 kb)',
+          link: '#'
+        }
+      },
+      {
+        type: 'image',
+        title: 'Изображение',
+        doc: {
+          type: 'png',
+          name: 'Скачать (5,6 kb)',
+          link: '#'
+        }
+      },
+      {
+        type: 'doc',
+        title: 'Документ',
+        doc: {
+          type: 'pdf',
+          name: 'Скачать (5,6 kb)',
+          link: '#'
+        }
+      },
+      {
+        type: 'archive',
+        title: 'Архив',
+        doc: {
+          type: 'zip',
+          name: 'Скачать (5,6 kb)',
+          link: '#'
+        }
+      }
+    ]
+    var guide = {
+      type: 'guide',
+      content: 'common/images/kit__guide.jpg',
+      doc: {
+        name: 'Скачать (5,6 mb)',
+        type: 'pdf',
+        link: '#'
+      }
+    }
+    var magazines = [
+      {
+        image: 'common/images/kit__magazine-1.jpg',
+        title: 'РеALные люди',
+        no: 27,
+        date: 'Август 2019',
+        articles: [
+          {
+            name: 'Спецодежда производственников — 300 лет эволюции'
+          },
+          {
+            name: 'На каких специалистов будет спрос в ближайшем будущем'
+          },
+          {
+            name: 'Женщины-металлурги – крановщицы и вице-президенты и еще 14 статей'
+          }
+        ],
+        doc: {
+          name: 'Скачать журнал (6,5 mb)',
+          type: 'pdf',
+          link: '#'
+        }
+      },
+      {
+        image: 'common/images/kit__magazine-2.jpg',
+        title: 'Культ личности: найди свое место в истории',
+        no: 27,
+        date: 'Май 2019',
+        articles: [
+          {
+            name: 'Взять на себя ответственность и совершить поступок'
+          },
+          {
+            name: 'Кто сказал, что ты не великий'
+          },
+          {
+            name: 'Формула EQ'
+          }
+        ],
+        doc: {
+          name: 'Скачать журнал (4,3 mb)',
+          type: 'pdf',
+          link: '#'
+        }
+      },
+      {
+        image: 'common/images/kit__magazine-3.jpg',
+        title: 'Усправление идеями',
+        no: 27,
+        date: 'Май 2019',
+        articles: [
+          {
+            name: 'Системное творчество – орудие большого бизнеса. Отыскать способ создавать шедевры, не отклоняясь от графика'
+          },
+          {
+            name: 'Инновационный культуризм. Быть умным, быстрым и… живым'
+          },
+          {
+            name: 'Рутина – предохранитель от стресса. Выбирайте пути объезда'
+          }
+        ],
+        doc: {
+          name: 'Скачать журнал (4,3 mb)',
+          type: 'pdf',
+          link: '#'
+        }
+      },
+      {
+        image: 'common/images/kit__magazine-4.jpg',
+        title: '4–ая индустриальная революция',
+        no: 27,
+        date: 'Май 2019',
+        articles: [
+          {
+            name: '4 индустриальная революция. Жизнь в эпоху цифрового переворота – что происходит и чего ждать'
+          },
+          {
+            name: 'Металлургия: вызовы и возможности. Завтра уже наступило'
+          },
+          {
+            name: '3D: в печать! Аддитивные технологии в алюминиевой промышленности'
+          },
+          {
+            name: 'Наслаждение схваткой: Agile в стиле РУСАЛа'
+          }
+        ],
+        doc: {
+          name: 'Скачать журнал (4,3 mb)',
+          type: 'pdf',
+          link: '#'
+        }
+      },
+
+    ]
+block content
+  +menu
+  .inner.media
+    +banner(bannerData)
+      +share-button
+    .container.media__wrapper
+      .row
+        .col-4
+          .media__sidebar
+            .media__sidebar-title
+              p Пресс-служба
+            .media__sidebar-blocks
+              .media__sidebar-block
+                .media__sidebar-subtitle
+                  span Телефоны
+                a.media__sidebar-link(href='tel:+74957205170') +7 495 720-51-70
+                .media__sidebar-text
+                  p (бесплатно по России)
+              .media__sidebar-block
+                .media__sidebar-subtitle
+                  span Эл. почта
+                a.media__sidebar-link(href='mailto:documents@rusal.com') documents@rusal.com
+            .media__sidebar-social
+              +share-block
+        .col-8
+          .media__content(data-tabs)
+            .media__content-tabs
+              each tab, index in tabs
+                +tab(tab)&attributes({
+                  'data-tab-id': index
+                })
+            .media__content-blocks
+              .media__content-block._active(data-tab-block='0')
+                .media__cards
+                  each item in newsCards
+                    .media__card
+                      +media-card(item)
+                .media__more
+                  +button({
+                    name: 'Показать еще',
+                    link: '#',
+                    tag: 'button',
+                    style: 'secondary'
+                  })
+              .media__content-block(data-tab-block='1')
+                .media__docs
+                  each doc in docs
+                    .media__doc
+                      .media__doc-body
+                        +document(doc)
+                      .media__doc-date
+                        span= doc.customDate
+                .media__more
+                  +button({
+                    name: 'Показать еще',
+                    link: '#',
+                    tag: 'button',
+                    style: 'secondary'
+                  })
+              .media__content-block(data-tab-block='2')
+                .media__kits
+                  .media__text.wysiwyg
+                    p Обращаем ваше внимание, что пресс-служба РУСАЛа не занимается вопросами административно-хозяйственной деятельности и не выполняет функции секретариата.
+                    p Пресс-служба занимается исключительно вопросами взаимодействия с представителями средств массовой информации.
+                  .media__kits-block
+                    .media__kits-inner
+                      each item in kit
+                        .media__kits-item
+                          +kit(item)
+                  .media__kits-block
+                    .media__kits-title
+                      p Руководство по фирменному стилю ALLOW
+                    .media__kits-inner
+                      .media__kits-item
+                        +kit(guide)
+              .media__content-block(data-tab-block='3')
+                .media__magazines
+                  .media__text.wysiwyg
+                    p «ALгоритм успеха» – корпоративный журнал компании РУСАЛ. Первый номер вышел в 2010 году.
+                    p Наш журнал для всех, кто стремится к большему, кто привык ставить цели и достигать их. Это журнал для успешных людей. Для тех, кто не стоит на месте.
+                  .media__magazines__wrapper
+                    each item in magazines
+                      .media__magazine
+                        +magazine(item)
+                .media__more
+                  +button({
+                    name: 'Показать еще',
+                    link: '#',
+                    tag: 'button',
+                    style: 'secondary'
+                  })

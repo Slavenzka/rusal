@@ -1,0 +1,560 @@
+extends components/layout
+include elements/button
+include components/counter
+include components/header
+include components/news-post
+include components/news-post-tiny
+include components/price-table
+include components/menu
+include components/tab
+
+block vars
+  -
+    var headerData = {
+      nav: [
+        {
+          name: 'О компании',
+          link: '#'
+        },
+        {
+          name: 'Клиентам',
+          link: '#'
+        },
+        {
+          name: 'Поставщикам',
+          link: '#'
+        },
+        {
+          name: 'Устойчивое развитие',
+          link: '#'
+        },
+        {
+          name: 'Карьера',
+          link: '#'
+        },
+        {
+          name: 'Пресс-центр',
+          link: '#'
+        }
+      ],
+      projects: [
+        {
+          name: 'Проекты',
+          isSelected: true
+        },
+        {
+          name: '1'
+        },
+        {
+          name: '2'
+        },
+        {
+          name: '3'
+        }
+      ],
+      language: [
+        {
+          name: 'РУС'
+        },
+        {
+          name: 'ENG'
+        },
+        {
+          name: '中文'
+        }
+      ]
+    }
+    var firstPageHeaderOptions = {
+    style: 'light'
+    }
+    var anotherPagesHeaderOptions = {
+    style: 'dark',
+    showNav: true
+    }
+    var firstPageSlides = [
+    {
+    image: 'common/images/main-slide__1.jpg',
+    title: 'Под знаком Allow',
+    text: 'Мы – крупнейший в мире производитель низкоуглеродного алюминия'
+    },
+    {
+    image: 'common/images/main-slide__2.jpg',
+    title: 'Всегда впереди',
+    text: 'Развитие производства за счет строительства современных, экологичных предприятий — одно из наших ключевых конкурентных преимуществ'
+    },
+    {
+    image: 'common/images/main-slide__3.jpg',
+    title: 'Преимущества партнерства',
+    text: 'Наш приоритет – вовлеченность в бизнес наших клиентов и постоянный диалог с ними, чтобы создавать по-настоящему востребованный продукт высокого качества'
+    },
+    {
+    image: 'common/images/main-slide__4.jpg',
+    title: 'Технологическое совершенство',
+    text: 'Мы – эксперты в разработке новых технологий и продуктов, обеспечивающих наше инновационное лидерство в отрасли'
+    },
+    {
+    image: 'common/images/main-slide__5.jpg',
+    title: 'С заботой о тех, кто рядом',
+    text: 'Наши программы и инициативы в области устойчивого развития направлены на изменение качества жизни и создание современной социальной инфраструктуры'
+    }
+    ]
+    var _2s_newsPrimary = {
+    link: '#',
+    date: '26.07.2019',
+    title: 'РУСАЛ операционные результаты второго квартала 2019 года',
+    text: 'Москва, 26 июля 2019 года – РУСАЛ (торговый код на Гонконгской фондовой бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей алюминия, объявляет результаты операционной деятельности компании во втором квартале 2019 года.'
+    }
+    var _2s_newsArray = [
+    {
+    link: '#',
+    date: '26.07.2019',
+    title: 'БКЗ запустил производство кабельно-проводниковой продукции'
+    },
+    {
+    link: '#',
+    date: '23.07.2019',
+    title: 'РУСАЛ завершает строительство литейного комплекса мощностью 120 тыс. тонн на БоАЗе'
+    },
+    {
+    link: '#',
+    date: '26.07.2019',
+    title: 'БКЗ запустил производство кабельно-проводниковой продукции'
+    },
+    {
+    link: '#',
+    date: '23.07.2019',
+    title: 'РУСАЛ завершает строительство литейного комплекса мощностью 120 тыс. тонн на БоАЗе'
+    }
+    ]
+    var _2s_pricelist = [
+    {
+    name: 'Спот',
+    value: '1795,5',
+    yield: '0,0%'
+    },
+    {
+    name: '3 месяца',
+    value: '1827',
+    yield: '0,3%'
+    },
+    {
+    name: 'Запасы (т.)',
+    value: '953 500',
+    yield: '-6 675',
+    yieldNegative: true
+    }
+    ]
+    var _2s_investList = [
+    {
+    rows: [
+    {
+    name: 'Инвестиционные проекты',
+    link: '#'
+    },
+    {
+    name: 'Основные показатели',
+    link: '#'
+    },
+    {
+    name: 'Ключевые рынки',
+    link: '#'
+    }
+    ]
+    },
+    {
+    rows: [
+    {
+    name: 'Структура компании',
+    link: '#'
+    },
+    {
+    name: 'Ключевые цифры и факты',
+    link: '#'
+    },
+    {
+    name: 'Стратегия',
+    link: '#'
+    }
+    ]
+    }
+    ]
+    var _3s_slider = [
+    {
+    image: 'common/images/ms3-slide__1.jpg',
+    title: 'Алюминий для лучшего будущего',
+    content: 'Представляем низкоуглеродный алюминий ALLOW, позволяющий сократить «углеродный след» производства'
+    },
+    {
+    image: 'common/images/ms3-slide__1.jpg',
+    title: 'Алюминий для лучшего будущего',
+    content: 'Представляем низкоуглеродный алюминий ALLOW, позволяющий сократить «углеродный след» производства'
+    },
+    {
+    image: 'common/images/ms3-slide__1.jpg',
+    title: 'Алюминий для лучшего будущего',
+    content: 'Представляем низкоуглеродный алюминий ALLOW, позволяющий сократить «углеродный след» производства'
+    },
+    {
+    image: 'common/images/ms3-slide__1.jpg',
+    title: 'Алюминий для лучшего будущего',
+    content: 'Представляем низкоуглеродный алюминий ALLOW, позволяющий сократить «углеродный след» производства'
+    },
+    {
+    image: 'common/images/ms3-slide__1.jpg',
+    title: 'Алюминий для лучшего будущего',
+    content: 'Представляем низкоуглеродный алюминий ALLOW, позволяющий сократить «углеродный след» производства'
+    }
+    ]
+    var _3s_priceList = [
+    {
+    name: 'Изменение',
+    yield: '+0,02 (0,34%)'
+    },
+    {
+    name: 'Стоимость акции',
+    yield: '29,17 руб.'
+    },
+    {
+    name: 'Капитализация',
+    yield: '443,18 млрд. руб.',
+    yieldNegative: true
+    }
+    ]
+    var _3s_products = [
+    {
+    name: 'ALLOW',
+    image: 'common/images/ms4-slide__1.jpg',
+    link: '#'
+    },
+    {
+    name: 'Первичный алюминий',
+    image: 'common/images/ms4-slide__2.jpg',
+    link: '#'
+    },
+    {
+    name: 'ALLOW',
+    image: 'common/images/ms4-slide__1.jpg',
+    link: '#'
+    },
+    {
+    name: 'Первичный алюминий',
+    image: 'common/images/ms4-slide__2.jpg',
+    link: '#'
+    }
+    ]
+block title
+  | Главная страница
+block content
+  .main
+    +menu
+    .main__header._fixed(data-sticky-header)
+      +header(anotherPagesHeaderOptions, headerData)
+    .d-none.d-sm-block
+      .main__wrapper._first.pt-0(data-waypoint='mp_first')
+        .main__header._primary.wow(
+          data-header
+          data-animate-delayed-target='header'
+          data-wow-animation="homeFadeInDown"
+          data-wow-offset='0'
+        )
+          +header(firstPageHeaderOptions, headerData)
+        .main__sliders._fade(data-home-swiper data-swiper-id='home')
+          .hidden
+              div(data-home-swiper-src=firstPageSlides[0].image)
+          .main__sliders-inner
+            - var slidersIndex = 0
+            while slidersIndex < 4
+              .main__slider.swiper-container(data-swiper-main-images data-home-swiper-slider=slidersIndex)
+                .swiper-wrapper
+                  each slide, slideIndex in firstPageSlides
+                    .main__slide.swiper-slide(data-slide-id=slideIndex)
+                      .main__slide-image(data-swiper-main-images-image)
+                        img(src=slideIndex data-src=slide.image alt=slideIndex)
+              - slidersIndex++
+        .main__subscreen
+          .container
+            .row
+              .main__slider-counter.col-2
+                .wow(
+                  data-animate-delayed-target='firstCounter'
+                  data-wow-animation='homeFadeInUp'
+                  data-wow-offset='0'
+                )
+                  +counter({id: 'home', count: firstPageSlides.length})
+              .main__slider-icons.col-3.col-lg-2.offset-7.offset-lg-8
+                .main__slider-item
+                  .main__slider-icon.wow(
+                    data-animate-delayed-target='firstIconSearch'
+                    data-wow-animation='homeFadeInDown'
+                    data-wow-offset='0'
+                  )
+                    include ../assets/images/i-search-white.svg
+                .main__slider-item._filled.wow.fadeInUp(
+                  data-smooth-scroll
+                  data-smooth-scroll-to='main-page'
+                  data-animate-delayed-target='firstIconArrowWrapper'
+                  data-wow-offset='0'
+                )
+                  .wow(
+                    data-wow-delay='0.15s'
+                    data-wow-animation='homeFadeInDown'
+                    data-animate-delayed-target='firstIconArrow'
+                    data-wow-offset='0'
+                  )
+                    .main__slider-icon._arrow
+                      include ../assets/images/i-slider-arrow.svg
+        .main__banner
+          .main__banner-slider.swiper-container(data-home-banner)
+            .swiper-wrapper
+              each slide, slideIndex in firstPageSlides
+                .main__banner-slide.swiper-slide(data-home-banner-slide)
+                  .container
+                    .row
+                      .col-12.offset-lg-2.col-lg-8
+                        a.main__slide-title(href='#' data-splitty-swiper-title)&attributes({
+                          'data-animate-delayed': slideIndex > 0,
+                          'data-animate-delayed-target': slideIndex === 0 && 'firstTitle'
+                        })
+                          p(
+                            data-wow-animation=slideIndex === 0 && 'titleSlideIn'
+                            data-wow-offset=slideIndex === 0 && '-240'
+                            class={
+                              'wow': slideIndex === 0
+                            }
+                          )= slide.title
+                        a.main__slide-text(href='#' data-splitty-swiper)&attributes({
+                          'data-animate-delayed': slideIndex > 0,
+                          'data-animate-delayed-target': slideIndex === 0 && 'firstText'
+                        })
+                          p(
+                            data-wow-animation=slideIndex === 0 && 'homeFadeInUp'
+                            data-wow-offset=slideIndex === 0 && '-240'
+                            class={
+                              'wow': slideIndex === 0
+                            }
+                          )= slide.text
+    .d-sm-none
+      .main-banner-mobile
+        .main-banner-mobile__header.wow(
+          data-wow-animation='homeFadeInDown'
+        )
+          +header(firstPageHeaderOptions, headerData)
+        .main-banner-mobile__slider.swiper-container(data-swiper-main-mobile-banner)
+          .swiper-wrapper
+            each slide, slideIndex in firstPageSlides
+              .main-banner-mobile__slide.swiper-slide
+                .main-banner-mobile__slide-image(style='background-image: url("' + slide.image + '")')
+                .main-banner-mobile__slide-content
+                  .container
+                    .row
+                      .col-12
+                        a.main-banner-mobile__title.wow(
+                          href='#'
+                          data-wow-animation='titleSlideIn'
+                          data-wow-duration='0.7s'
+                        )
+                          p= slide.title
+                        a.main-banner-mobile__text.wow(
+                          href='#'
+                          data-wow-animation='homeFadeInUp'
+                        )
+                          p= slide.text
+          .container
+            .row
+              .col-12
+                .main-banner-mobile__pagination(data-swiper-main-mobile-banner-pagination)
+    .main__wrapper(data-smooth-scroll-target='main-page' data-waypoint='mp_second')
+      .container.full-height
+        .row.full-height
+          .main__news.col-12.col-md-7
+            .main__news-primary.d-none.d-sm-block
+              +news-post(_2s_newsPrimary, isSplit = true)
+            .main__news-title.wow.d-sm-none(
+              data-splitty
+              data-splitty-deep
+              data-wow-animation='titleSlideIn'
+              data-wow-duration='0.7s'
+            )
+              p Новости
+            .main__news-slider.swiper-container(data-swiper-main-news)
+              .main__news-counter.wow.d-none.d-sm-block(
+                data-wow-animation='fadeInUp'
+                data-wow-duration='0.7s'
+              )
+                +counter({ id: 'common', count: _2s_newsArray.length })
+              .swiper-wrapper.main__news-slider-wrapper
+                each slide in _2s_newsArray
+                  .main__news-post.swiper-slide
+                    +news-post-tiny(slide, isSplit = true)
+          .col-12.main__half._right.col-md-5
+            .main__price
+              .main__price-title
+                p.wow(
+                  data-wow-animation="titleSlideIn"
+                  data-wow-duration='0.7s'
+                ) Цены на алюминий
+              .main__price-table
+                +price-table(_2s_pricelist, isSplit = true)
+              .main__price-mark.d-none.d-sm-block(data-splitty data-animate-delayed)
+                p.wow(
+                  data-wow-animation="textFadeIn"
+                ) Официальная цена LME на 24.07.2019 в долл. США за тонну
+              .main__separator.wow.d-none.d-sm-block(
+                data-wow-animation="fadeInRight"
+                data-wow-duration='0.7s'
+              )
+            .main__invest.d-none.d-sm-block
+              .main__invest-title
+                p.wow(
+                  data-wow-animation="titleSlideIn"
+                  data-wow-duration='0.7s'
+                ) Инвесторам
+              .main__invest-cols
+                each item in _2s_investList
+                  ul.main__invest-nav(data-animate-delayed)
+                    each row in item.rows
+                      li.main__invest-item
+                        a.main__invest-link(
+                          href=row.link
+                          data-splitty
+                        )
+                          p.wow(
+                            data-wow-animation="fadeInUp"
+                          )= row.name
+    .main__wrapper
+      .container
+        .row
+          .col-12.col-md-7
+            .main__fs-sliders
+              .main__fs-images.swiper-container(
+                data-swiper-mfs-images
+              )
+                .swiper-wrapper
+                  each slide in _3s_slider
+                    .main__fs-slide.swiper-slide
+                      .main__fs-image._fade(style='background-image: url("' + slide.image + '")')
+              .main__fs-slider.swiper-container(data-swiper-mfs-swiper)
+                .swiper-wrapper
+                  each slide, slideIndex in _3s_slider
+                    .main__fs-slide.swiper-slide
+                      .main__fs-content
+                        .main__fs-title.mb-16(data-splitty-title data-animate-delayed)
+                          p(
+                            data-wow-animation=slideIndex === 0 && 'titleSlideIn'
+                            data-wow-duration=slideIndex === 0 && '0.7s'
+                            class={
+                              'wow': slideIndex === 0,
+                            }
+                          )= slide.title
+                        .main__fs-text(
+                          data-wow-animation=slideIndex === 0 && 'textFadeIn'
+                          data-wow-duration=slideIndex === 0 && '1.3s'
+                          class={
+                            'wow': slideIndex === 0
+                          }
+                        )
+                          p= slide.content
+                .main__fs-counter.wow.d-none.d-sm-block(
+                  data-wow-animation='fadeInUp'
+                  data-wow-duration='0.7s'
+                )
+                  +counter({ id: 'common', count: _3s_slider.length })
+                .main__fs-pagination.d-sm-none(data-swiper-mfs-pagination)
+          .col-12.col-md-5.main__stock(data-tabs)
+            .main__stock-title(data-splitty data-splitty-deep)
+              p.wow(
+                data-wow-animation='titleSlideIn'
+                data-wow-duration='0.7s'
+              ) Котировки акций
+            .main__stock-chart(
+              data-waypoint='main_stocks'
+            )
+              .main__stock-chart-top.mb-48
+                .main__stock-chart-current
+                  +tab({ name: 'МосБиржа', isActive: true })&attributes({
+                    'data-tab-id': 0,
+                    'data-highcharts-tab': 'main-stocks',
+                    'class': 'wow',
+                    'data-wow-animation': 'textFadeIn'
+                  })
+                  +tab({ name: 'HKSE' })&attributes({
+                    'data-tab-id': 1,
+                    'data-highcharts-tab': 'main-hkse',
+                    'class': 'wow',
+                    'data-wow-animation': 'textFadeIn'
+                  })
+                .main__stock-chart-refresh.wow(data-wow-animation='textFadeIn')
+                  include ../assets/images/i-refresh.svg
+              .main__stock-chart-block._active(data-tab-block='0')
+                .main__stock-chart-body.wow.animated(
+                  data-highcharts
+                  data-highcharts-id='main-stocks'
+                  data-wow-animation='textFadeIn'
+                )
+              .main__stock-chart-block(data-tab-block='1')
+                .main__stock-chart-body.textFadeIn.animated(data-highcharts data-highcharts-id='main-hkse')
+            .main__stock-price
+              +price-table(_3s_priceList)
+    .main__wrapper._bg-grey._products(data-product-wrapper)
+      .container
+        .row
+          .col-12.col-lg-5.col-sm-7.offset-sm-3
+            .main__products
+              .d-none.d-lg-block
+                div(data-sticky-scroller)
+                  .main__products-scroller(data-sticky-scroller-block)
+                    .main__products-title(data-splitty data-splitty-deep)
+                      p(
+                        data-wow-animation='titleSlideIn'
+                        data-wow-duration='0.7s'
+                        data-product-title
+                      ) Продукция
+                    .main__products-scroller-block(data-sticky-scroller-gallery)
+                      each slide, index in _3s_products
+                        a.main__products-slide.hidden(
+                          href=slide.link
+                          data-wow-delay=(0.2 * index) + 's'
+                          data-wow-duration='1.3s'
+                          data-product-slide
+                        )&attributes({
+                          'data-wow-animation': index === 0 ? 'fadeIn' : 'textFadeIn'
+                        })
+                          .main__products-image(style="background-image: url('" + slide.image + "')")
+                          .main__products-bottom
+                            .main__products-name
+                              span= slide.name
+                            .main__products-index
+                              - var currentIndex = index+1 < 10 && '0'
+                              - currentIndex+= index+1
+                              span= currentIndex
+                    .main__products-button(
+                      data-wow-delay='0.2s'
+                      data-wow-animation='fadeInUp'
+                      data-wow-duration='0.7s'
+                      data-wow-offset='15'
+                      data-product-button
+                    )
+                      +button({ name: 'Запросить каталог', link: '#' })
+              .d-lg-none
+                .main__products-title(data-splitty data-splitty-deep)
+                  p.wow(
+                    data-wow-animation='titleSlideIn'
+                    data-wow-duration='0.7s'
+                  ) Продукция
+                .main__products-slider.swiper-container(data-swiper-main-products)
+                  .swiper-wrapper
+                    each slide, index in _3s_products
+                      a.swiper-slide.main__products-slide(href=slide.link)
+                        .main__products-image(style="background-image: url('" + slide.image + "')")
+                        .main__products-bottom
+                          .main__products-name
+                            span= slide.name
+                          .main__products-index.d-none.d-sm-block
+                            - var currentIndex = index+1 < 10 && '0'
+                            - currentIndex+= index+1
+                            span= currentIndex
+                .main__products-button.wow(
+                  data-wow-animation='fadeInUp'
+                  data-wow-duration='0.7s'
+                )
+                  +button({ name: 'Запросить каталог', link: '#' })

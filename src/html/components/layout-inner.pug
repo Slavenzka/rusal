@@ -1,0 +1,82 @@
+- var lang = 'ru'
+
+block vars
+include header
+
+-
+  var headerData = {
+    options: {
+      isInner: true,
+      style: 'dark',
+      showNav: true
+    },
+    data: {
+      nav: [
+        {
+          name: 'О компании',
+          link: '#'
+        },
+        {
+          name: 'Клиентам',
+          link: '#'
+        },
+        {
+          name: 'Поставщикам',
+          link: '#'
+        },
+        {
+          name: 'Устойчивое развитие',
+          link: '#'
+        },
+        {
+          name: 'Карьера',
+          link: '#'
+        },
+        {
+          name: 'Пресс-центр',
+          link: '#'
+        }
+      ],
+      projects: [
+        {
+          name: 'Проекты',
+          value: '1'
+        },
+        {
+          name: 'Изделия',
+          value: '2'
+        },
+        {
+          name: 'Прочее',
+          value: '3'
+        }
+      ],
+      language: [
+        {
+          name: 'РУС'
+        },
+        {
+          name: 'ENG'
+        },
+        {
+          name: '中文'
+        }
+      ]
+    }
+  }
+doctype html
+html(class=htmlClass id=htmlId lang=lang)
+  head
+    title
+      block title
+    block meta
+      meta(charset='utf-8')
+      meta(name="viewport" content="width = device-width, initial-scale = 1.0")
+      link(rel="stylesheet" href="common/style/main.css")
+  body(class=bodyClass id=bodyId)
+    +header(headerData.options, headerData.data)
+    div#content
+      block content
+    include footer.pug
+    include popup
+    include scripts

@@ -1,0 +1,27 @@
+.table {
+  margin-top: 40px;
+  width: calc(100% - 25px);
+  border-collapse: collapse;
+
+  &__row {
+    border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+
+    &:not(:first-of-type) > td {
+      padding-top: 16px;
+    }
+  }
+
+  &__key,
+  &__value {
+    padding-bottom: 15px;
+  }
+
+  &__key {
+    @include h4;
+  }
+
+  &__value {
+    @include p3($colorNavGrey);
+    text-align: right;
+  }
+}

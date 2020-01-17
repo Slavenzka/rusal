@@ -1,0 +1,11 @@
+mixin collapse(data)
+  //- data = { title: string, isActive: bool }
+  .b-collapse(class=data.isActive && '_active' data-collapse)
+    .b-collapse__top.pb-24(data-collapse-top)
+      .b-collapse__title
+        span= data.title
+      .b-collapse__icon(class=data.isActive && '_active' data-collapse-icon)
+        include ../../assets/images/i-collapse-arrow.svg
+    .b-collapse__content(data-collapse-content)
+      .b-collapse__content-innet.pt-4.mb-24
+        block

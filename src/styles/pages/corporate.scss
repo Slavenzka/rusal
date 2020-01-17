@@ -1,0 +1,28 @@
+.corporate{
+  &__content{
+    padding: 60px 0 116px;
+    box-sizing: border-box;
+  }
+  &__tabs{
+    display: flex;
+    margin-bottom: 44px;
+  }
+  &__tab{
+    &:not(:first-child){
+      margin-left: 32px;
+    }
+  }
+  &__block{
+    display: none;
+    &._active{
+      display: block;
+    }
+  }
+  &__more{
+    color: $colorBlack;
+    &:hover{
+      text-decoration: none;
+      color: $colorBlack;
+    }
+  }
+}

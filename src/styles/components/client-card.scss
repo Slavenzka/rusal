@@ -1,0 +1,34 @@
+.client-card{
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &:hover{
+    .client-card__bottom{
+      color: $colorBlue;
+    }
+  }
+  &__image{
+    height: 192px;
+    background-size: cover;
+  }
+  &__content{
+    padding: 32px 40px;
+    box-sizing: border-box;
+  }
+  &__title{
+    @include h4;
+    margin-bottom: 8px;
+  }
+  &__text{
+    @include p2;
+  }
+  &__bottom{
+    @include p2;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba($colorBlack, .1);
+    transition: $transitionSpeed;
+  }
+}

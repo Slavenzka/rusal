@@ -1,0 +1,12 @@
+mixin client-card(data)
+  //- data = { link: string, name: string, text: string, image: string }
+  a.client-card(href=data.link)
+    .client-card__wrapper
+      .client-card__image(style='background-image: url("'+data.image+'")')
+      .client-card__content
+        .client-card__title
+          p= data.name
+        .client-card__text
+          p= data.text
+    .client-card__bottom
+      span Подробнее

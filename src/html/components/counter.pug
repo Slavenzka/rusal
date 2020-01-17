@@ -1,0 +1,22 @@
+mixin counter(data)
+  - var num = data ?  data.count || 0 : 0
+  - var id = data ?  data.id : ''
+  .counter(data-counter=id)
+    .counter__arrow._prev(data-counter-prev)
+      include ../../assets/images/i-slider-arrow.svg
+    .counter__values(data-counter-values)
+      .counter__value.faster(data-counter-value, data-counter-value-current)
+        .counter__value-container(data-counter-value-container)
+          .swiper-container(data-counter-swiper)
+            .swiper-wrapper
+              - var n = 1;
+              while n <= num
+                .swiper-slide
+                  span=n > 9 ? n : '0'+n
+                - n++
+      .counter__value(data-counter-value, data-counter-value-separator)
+        span /
+      .counter__value(data-counter-value, data-counter-value-slides)
+        span=num > 9 ? num : '0'+num
+    .counter__arrow._next(data-counter-next)
+      include ../../assets/images/i-slider-arrow.svg

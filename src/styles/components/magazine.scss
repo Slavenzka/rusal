@@ -1,0 +1,41 @@
+.magazine{
+  display: flex;
+  justify-content: space-between;
+  &__image{
+    width: 376px;
+    min-width: 376px;
+    height: 494px;
+    img{
+      max-height: 100%;
+      max-width: 100%;
+      display: block;
+    }
+  }
+  &__details{
+    width: 376px;
+    margin-left: 32px;
+  }
+  &__title{
+    @include h4;
+    margin-bottom: 4px;
+  }
+  &__top{
+    @include p3($colorNavGrey);
+    margin-bottom: 26px;
+  }
+  &__subtitle{
+    @include p2;
+    margin-bottom: 12px;
+  }
+  &__articles{
+    list-style: disc;
+    padding-left: 15px;
+    margin-bottom: 43px;
+    &-item{
+      @include p2;
+      &:not(:last-child){
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

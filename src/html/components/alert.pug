@@ -1,0 +1,13 @@
+mixin alert(data)
+  //- data = { style: string, title: string, text: string, isClosable: bool }
+  .alert(class=data.style && 'alert-'+data.style data-alert)
+    .alert__content
+      if data.isClosable
+        .alert__close(data-alert-close)
+          include ../../assets/images/i-alert-close.svg
+      if data.title
+        .alert__title
+          span= data.title
+      if data.text
+        .alert__text
+          p= data.text

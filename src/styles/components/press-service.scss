@@ -1,0 +1,44 @@
+.press-service {
+  display: flex;
+  padding: 32px 52px  52px 40px;
+  height: 100%;
+  background-color: white;
+
+  &__info {
+    width: 450px;
+  }
+
+  &__title {
+    @include h3($colorBlack);
+  }
+
+  &__contacts {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    &:nth-of-type(2n) {
+      margin-left: 32px;
+    }
+  }
+
+  &__type {
+    @include p2($colorNavGrey);
+  }
+
+  &__link {
+    @include p1($colorBlack);
+  }
+
+  &__social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: calc(100% - 450px);
+  }
+}

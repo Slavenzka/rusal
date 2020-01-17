@@ -1,0 +1,13 @@
+mixin attachment(data)
+  //- data = { name: string, type: oneOf[pdf, xls], link: string  }
+  block vars
+    -
+      var ico = 'common/images/i-doc-pdf.svg'
+      if(data.type === 'xls'){
+        ico = 'common/images/i-doc-xls.svg'
+      }
+  .attachment
+    a.attachment__link(href=data.link)
+      .attachment__ico
+        img(src=ico alt="icon")
+      .attachment__name!=data.name

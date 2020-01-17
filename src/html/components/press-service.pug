@@ -1,0 +1,18 @@
+include share-block
+
+mixin press-service(data)
+  //- data = { title: string, items: [] }
+    //- items = [{ name: string, type: oneOf['phone', 'mail'], content: string, url: string }]
+  .press-service
+    .press-service__info
+      p.press-service__title=data.title
+      ul.press-service__contacts
+        each item in data.items
+          li.press-service__item
+            p.press-service__type=item.name
+            if item.type === 'phone'
+              a.press-service__link.press-service__link--phone(href='tel' + item.url)=item.content
+            if item.type === 'mail'
+              a.press-service__link.press-service__link--mail(href='mailto:' + item.url)=item.url
+    .press-service__social
+      +share-block

@@ -1,0 +1,122 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/share-button
+include components/arrow-button
+include elements/filter-select
+include elements/input
+include elements/button
+
+block title
+  | Календарь инвестора
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          linkName: 'Инвесторам',
+          link: '#'
+        },
+        {
+          linkName: 'Календарь инвестора'
+        }
+      ],
+      image: 'common/images/calendar__bg.jpg',
+      title: 'Календарь инвестора'
+    }
+    var calendarFilter = [
+      {
+        name: '2019',
+        value: '2019',
+        isSelected: true
+      },
+      {
+        name: '2018',
+        value: '2018'
+      },
+      {
+        name: '2017',
+        value: '2017'
+      }
+    ]
+    var calendarEvents = [
+      {
+        day: '12',
+        month: 'НОЯ',
+        name: 'Производственные результаты за 3 кв. и 9 месяцев 2019 г.',
+        type: 'Инвесторам'
+      },
+      {
+        day: '07',
+        month: 'ноя',
+        name: 'Внеочередное общее собрание акционеров',
+        type: 'Собрания акционеров'
+      },
+      {
+        day: '20',
+        month: 'окт',
+        name: 'Операционные результаты за 2 квартал 2019 г.',
+        type: 'Публикация результатов'
+      },
+      {
+        day: '10',
+        month: 'окт',
+        name: 'Годовое общее собрание акционеров',
+        type: 'Собрания акционеров'
+      }
+    ]
+block content
+  +menu
+  .inner.calendar
+    +banner(bannerData)
+      +share-button
+    .calendar__wrapper
+      .container
+        .row
+          .col-4
+            .calendar__sidebar
+              .calendar__sidebar-block
+                .calendar__sidebar-title
+                  p Напоминание
+                .calendar__sidebar-text
+                  p Будьте в курсе всех предстоящих мероприятий! Оставьте эл. почту и получайте уведомления
+                form.calendar__sidebar-form
+                  .calendar__sidebar-input
+                    +input({
+                      placeholder: 'Адрес эл. почты',
+                      type: 'email'
+                    })
+                      +arrow-button
+          .col-8
+            .calendar__block
+              .calendar__top
+                .calendar__title
+                  p Мероприятия
+                .calendar__dropdown
+                  +filter-select(calendarFilter)
+              .calendar__content
+                table.calendar__table
+                  tr
+                    th Дата
+                    th Мероприятие
+                    th Тип мероприятия
+                  each row in calendarEvents
+                    tr
+                      td
+                        .calendar__date
+                          .calendar__date-day
+                            p= row.day
+                          .calendar__date-month
+                            p= row.month
+                      td
+                        .calendar__name
+                          p= row.name
+                      td
+                        .calendar__type
+                          p= row.type
+                .calendar__button
+                  +button({ name: 'Показать ещё', style: 'secondary' })

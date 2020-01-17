@@ -1,0 +1,75 @@
+.subscribe-news-popup{
+  .mfp-close{
+    display: none;
+  }
+  &__inner{
+    background: $colorWhite;
+    display: flex;
+    justify-content: space-between;
+    .mfp-close{
+      display: block;
+      background-image: url("../images/close.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 24px;
+      top: 16px;
+      right: 16px;
+      transition: all $transitionSpeed;
+    }
+  }
+  &__left{
+    padding: 46px 80px 0 46px;
+    &-img{
+      background-image: url("../images/subscribe-news-popup.png");
+      background-size: contain;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      width: 250px;
+      height: 100%;
+    }
+  }
+  &__right{
+    width: 456px;
+    padding: 60px 96px 60px 0;
+  }
+  &__title{
+    @include h3;
+    margin-bottom: 12px;
+  }
+  &__text{
+    @include p2;
+    margin-bottom: 36px;
+    opacity: 0.5;
+  }
+  &__input{
+    background: #FFFFFF;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 0 16px 0 24px;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input{
+      border: none;
+      padding: 0;
+      outline: none;
+      width: 100%;
+      height: 28px;
+      margin-right: 24px;
+    }
+    button{
+      background: none;
+      padding: 0;
+      border: none;
+      outline: none;
+      img{
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/share-button
+include components/document
+include components/press-center-banner
+include components/invest-card
+include components/press-service
+include elements/button
+
+block title
+  | Пресс-центр
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '#',
+          linkName: 'Главная'
+        },
+        {
+          linkName: 'Пресс-центр'
+        }
+      ],
+      image: 'common/images/banner__bg-press-center.jpg',
+      title: 'Пресс-центр'
+    }
+    var topBlock = {
+      type: 'banner',
+      button: {
+        text: 'Смотреть все пресс-релизы',
+        url: '#'
+      },
+      items: [
+        {
+          date: '26.07.2019',
+          title: 'РУСАЛ операционные результаты второго квартала 2019 года',
+          description: 'Москва, 26 июля 2019 года - РУСАЛ (торговый код на Гонкогской фондовой ' +
+          'бирже 486, на Московской бирже RUAL), один из крупнейших в мире производителей ' +
+          'алюминия, объявляет результаты операционно...',
+          link: '#'
+        },
+        {
+          date: '26.07.2019',
+          title: 'БКЗ запустил производство кабельно-проводниковой продукции',
+          link: '#'
+        },
+        {
+          date: '26.07.2019',
+          title: 'РУСАЛ успешно разместил второй в 2019 году транш рублевых облигаций на ' +
+          'Московской бирже',
+          link: '#'
+        },
+        {
+          date: '17.07.2019',
+          title: 'Китайское агентство CCXR повысило корпоративный рейтинг кредитоспособности ' +
+          'РУСАЛа',
+          link: '#'
+        },
+        {
+          date: '12.07.2019',
+          title: 'РУСАЛ завершает строительство литейного комплекса мощностью 120 тыс. тонн на ' +
+          'БоАЗе',
+          link: '#'
+        }
+      ]
+    }
+    var pressCards = [
+      {
+        type: 'calendar',
+        title: 'Календарь',
+        link: '#',
+        bottomText: 'Все мероприятия',
+        items: [
+          {
+            day: '28',
+            month: 'Сен',
+            description: 'Производственные результаты за 3 кв. и 9 месяцев 2019 г.'
+          },
+          {
+            day: '24',
+            month: 'Сен',
+            description: 'Внеочередное общее собрание акционеров'
+          },
+          {
+            day: '05',
+            month: 'Сен',
+            description: 'Финансовые результаты по МСФО за 3 квартал 2019 года'
+          }
+        ]
+      },
+      {
+        type: 'links',
+        title: 'Медиатека',
+        bottomText: 'Перейти в раздел',
+        link: '#',
+        content: [
+          {
+            link: '#',
+            name: 'Презентации'
+          },
+          {
+            link: '#',
+            name: 'Статьи и интервью'
+          },
+          {
+            link: '#',
+            name: 'Библиотека'
+          },
+          {
+            link: '#',
+            name: 'Пресс-релизы'
+          },
+          {
+            link: '#',
+            name: 'Ещё 4 страницы...'
+          }
+        ]
+      },
+      {
+        type: 'article',
+        title: 'Алгоритм успеха',
+        description: 'Журнал для тех, кто не стоит на месте',
+        background: 'common/images/press-center__card-bg.jpg',
+        bottomText: 'Читать журнал',
+        link: '#'
+      }
+    ]
+    var bottomBlocks = {
+      links: {
+        type: 'links',
+        title: 'Важные ссылки',
+        content: [
+          {
+            link: '#',
+            name: 'FAQ'
+          },
+          {
+            link: '#',
+            name: 'Subscription'
+          }
+        ]
+      },
+      contacts: {
+        title: 'Контакты пресс-службы',
+        items: [
+          {
+            name: 'Телефон',
+            type: 'phone',
+            content: '+7 495 720-51-70',
+            url: '+7495720-51-70'
+          },
+          {
+            name: 'Эл. почта',
+            type: 'mail',
+            url: 'press-center@rusal.ru'
+          },
+        ]
+      }
+    }
+block content
+  +menu
+  .inner.press-center
+    +banner(bannerData)
+      +share-button
+    .container
+      .col-12
+        .row
+          .press-center__content
+            .press-center__headlines
+              +press-center-banner(topBlock)
+            .press-center__cards.mt-32
+              .row
+                each card, index in pressCards
+                  if card.type === 'calendar'
+                    .col-4.mb-32
+                      +invest-card(card, false, true, card.bottomText)
+                  if card.type === 'links'
+                    .col-4.mb-32
+                      +invest-card(card, false, false, card.bottomText)
+                  if card.type === 'article'
+                    .col-4.mb-32
+                      +invest-card(card, false, true, card.bottomText)
+              .row
+                .col-4
+                  +invest-card(bottomBlocks.links, false, false, '', true)
+                .col-8
+                  +press-service(bottomBlocks.contacts)

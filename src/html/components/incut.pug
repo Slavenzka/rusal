@@ -1,0 +1,12 @@
+include ../elements/button
+mixin incut(data)
+  //- data = { title: string, text: string, button: button }
+  .incut
+    if data.img
+      .incut__bg(style='background-image: url("' + data.img + '")')
+    .incut__content(class={'_white': data.img})
+      .incut__title.mb-16!=data.title
+      .incut__text!=data.text
+      if data.button
+        .mt-48
+          +button(data.button)

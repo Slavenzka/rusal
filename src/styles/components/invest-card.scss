@@ -1,0 +1,240 @@
+.invest-card{
+  background-color: #fff;
+  min-height: 376px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  &--geo {
+    min-height: 288px;
+    .invest-card__wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 40px 40px 24px 40px;
+      min-height: 227px;
+      height: 100%;
+    }
+  }
+  &--freeHeight {
+    min-height: auto;
+
+    .invest-card__wrapper {
+      padding-bottom: 32px;
+    }
+  }
+  &._common{
+    min-height: 280px;
+    .invest-card__title{
+      @include h4;
+      margin-bottom: 16px;
+    }
+  }
+  &__wrapper{
+    padding: 32px 40px 23px;
+    box-sizing: border-box;
+  }
+  &__link-wrapper {
+    display: block;
+    height: 100%;
+
+    &:hover {
+      .invest-card__bottom,
+      .invest-card__post-title {
+        color: $colorBlue;
+      }
+    }
+  }
+  &__bottom{
+    @include p2;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    display: block;
+    border-top: 1px solid rgba(#333333, .1);
+    color: $colorBlack;
+    transition: $transitionSpeed;
+    &:hover{
+      text-decoration: none;
+      color: $colorBlue;
+    }
+  }
+  &__title{
+    @include h3;
+    margin-bottom: 24px;
+  }
+  &__name{
+    @include h4;
+  }
+  &__value{
+    @include h3;
+  }
+  &__text{
+    @include p2;
+    color: $colorNavGrey;
+  }
+  &__metric{
+    display: flex;
+    &:not(:last-child){
+      margin-bottom: 12px;
+    }
+    &-item{
+      &:not(:first-child){
+        margin-left: 44px;
+      }
+    }
+  }
+  &__date{
+    @include p2;
+    color: $colorNavGrey;
+  }
+  &__post{
+    transition: $transitionSpeed;
+    &:hover{
+      color: $colorBlue;
+      text-decoration: none;
+      .invest-card__post-title{
+        color: $colorBlue;
+      }
+    }
+    &-title{
+      @include h4;
+      transition: $transitionSpeed;
+    }
+  }
+  &__contacts{
+    &-name{
+      @include p2;
+      @include fontBold;
+    }
+    &-value{
+      @include p2;
+      @include fontNormal;
+    }
+    &-link{
+      color: $colorBlack;
+      transition: $transitionSpeed;
+      &:hover{
+        text-decoration: none;
+        color: $colorBlue;
+      }
+    }
+  }
+  &__links{
+    &-link{
+      @include h4;
+      display: block;
+      transition: $transitionSpeed;
+      &:hover{
+        text-decoration: none;
+        color: $colorBlue;
+      }
+    }
+  }
+
+  &__factory-name {
+    @include h4;
+  }
+
+  &__factory-type {
+    position: relative;
+    margin-top: 4px;
+    padding-left: 24px;
+    @include p2($colorBlack);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 12px / 2);
+      left: 0;
+      width: 12px;
+      height: 12px;
+      background-size: cover;
+    }
+
+    span {
+      opacity: 0.5;
+    }
+
+    &--aluminium {
+      &::before {
+        background-image: url("../images/../images/i-aluminium.svg");
+      }
+    }
+
+    &--bauxites {
+      &::before {
+        background-image: url("../images/../images/i-bauxites.svg");
+      }
+    }
+
+    &--clay {
+      &::before {
+        background-image: url("../images/../images/i-clay.svg");
+      }
+    }
+
+    &--downstream {
+      &::before {
+        background-image: url("../images/../images/i-downstream.svg");
+      }
+    }
+
+    &--other {
+      &::before {
+        background-image: url("../images/../images/i-other.svg");
+      }
+    }
+
+    &--hpp {
+      &::before {
+        background-image: url("../images/../images/i-hpp.svg");
+      }
+    }
+  }
+
+  &__factory-location {
+    margin-top: auto;
+    width: 100%;
+    @include p1($colorBlack);
+  }
+
+  &__calendar {
+    margin-top: 24px;
+    margin-bottom: 6px;
+  }
+
+  &__calendar-item {
+    display: flex;
+
+    &:not(:last-of-type) {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+    }
+  }
+
+  &__calendar-date {
+    width: 48px;
+  }
+
+  &__calendar-day {
+    @include h4($colorBlack);
+  }
+
+  &__calendar-month {
+    margin-top: -8px;
+    @include p2($colorNavGrey);
+    text-transform: lowercase;
+  }
+
+  &__calendar-description {
+    width: calc(100% - 48px);
+    @include p2($colorBlack);
+  }
+
+  &__article-description {
+    @include p2(white);
+  }
+}

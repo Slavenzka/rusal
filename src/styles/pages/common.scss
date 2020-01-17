@@ -1,0 +1,37 @@
+.common{
+  &__wrapper{
+    padding-top: 60px;
+    padding-bottom: 144px;
+    box-sizing: border-box;
+  }
+  &__date{
+    @include p2;
+    color: $colorNavGrey;
+  }
+  &__content{
+    &.wysiwyg{
+      figure{
+        margin-bottom: 116px;
+        img{
+          margin: 0 auto;
+          max-width: 100%;
+        }
+        figcaption{
+          margin-top: 24px;
+        }
+      }
+      li{
+        margin-left: 16px;
+      }
+      *:last-child{
+        margin-bottom: 0;
+        & > *{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &__cards{
+    margin: 48px 0 64px;
+  }
+}

@@ -1,0 +1,33 @@
+.sidebar-card{
+  background-color: #fff;
+  &._competitive{
+    .sidebar-card__content{
+      padding-bottom: 48px;
+    }
+  }
+  &._provider{
+    .sidebar-card__content{
+      padding-bottom: 28px;
+    }
+  }
+  &__content{
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  &__title{
+    @include h3;
+  }
+  &__bottom{
+    @include p2;
+    color: $colorBlack;
+    box-sizing: border-box;
+    padding: 16px 40px;
+    transition: $transitionSpeed;
+    border-top: 1px solid rgba($colorBlack, .1);
+    display: block;
+    &:hover{
+      color: $colorBlue;
+      text-decoration: none;
+    }
+  }
+}

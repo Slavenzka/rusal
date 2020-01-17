@@ -1,0 +1,174 @@
+include price-table-tiny
+
+mixin invest-card(data, geoType, cardAsLinkFlag, bottomText, disableMinHeightFlag)
+  //- data = { title: string, type: string, content: {} or [], link: string, factoryName: string,
+   factoryType: string, factoryLocation: string, isCommon: bool }
+  //- data.type = string ('metric' or 'post' or 'stock' or 'text' or 'contacts' or 'links')
+  //- geoPageFlag: bool
+  //- cardAsLinkFlag: bool
+  if cardAsLinkFlag && data.link
+    a.invest-card__link-wrapper(href=data.link.href)&attributes(attributes)
+      .invest-card(class={
+        'invest-card--geo': geoType,
+        'invest-card--freeHeight': disableMinHeightFlag,
+        '_common': data.isCommon
+      } style=data.type === 'article' && 'background-image: url("' + data.background + '")')
+        .invest-card__wrapper
+          if !geoType
+            .invest-card__title
+              span(style=data.type === 'article' && 'color: white')= data.title
+          if geoType
+            p.invest-card__factory-name=data.factoryName
+          .invest-card__content
+            if data.type
+              //- Metric
+              if data.type === 'metric'
+                each item in data.content
+                  .invest-card__metric
+                    each row in item.rows
+                      .invest-card__metric-item
+                        .invest-card__value
+                          span= row.value
+                        .invest-card__text
+                          span= row.text
+              //- end Metric
+              //- Post
+              if data.type === 'post'
+                div.invest-card__post
+                  .invest-card__date.mb-4
+                    span= data.content.date
+                  .invest-card__post-title
+                    span= data.content.title
+              //- end Post
+              //- Stock
+              if data.type === 'stock'
+                .invest-card__stock
+                  +price-table-tiny(data.content)
+              //- end Stock
+              //- Text
+              if data.type === 'text'
+                .invest-card__text
+                  span= data.content
+              //- end Text
+              //- Press
+              if data.type === 'press'
+                .invest-card__date.mb-4
+                  span= data.date
+                .invest-card__name.mb-16
+                  span= data.name
+                .invest-card__text!= data.content
+              //- end Links
+              //- Calendar
+              if data.type === 'calendar'
+                .invest-card__calendar
+                  each item in data.items
+                    .invest-card__calendar-item
+                      .invest-card__calendar-date
+                        p.invest-card__calendar-day=item.day
+                        p.invest-card__calendar-month=item.month
+                      .invest-card__calendar-description=item.description
+              //- end Calendar
+              //- Article
+              if data.type === 'article'
+                .invest-card__article-description=data.description
+              //- end Article
+          if data.factoryType
+            p.invest-card__factory-type(class='invest-card__factory-type--' + geoType)
+              span=data.factoryType
+          if data.factoryLocation
+            p.invest-card__factory-location=data.factoryLocation
+        if data.link
+          if bottomText
+            span.invest-card__bottom(style=data.type === 'article' && 'border-color: rgba(247, 247, 247, 0.3); color: white')=bottomText
+          else
+            span.invest-card__bottom=geoType ? 'Подробнее' : 'Читать подробнее'
+  else
+    div(class={
+      'invest-card': true,
+      'invest-card--geo': geoType,
+      'invest-card--freeHeight': disableMinHeightFlag,
+      '_common': data.isCommon
+    })&attributes(attributes)
+      .invest-card__wrapper
+        if !geoType
+          .invest-card__title
+            span= data.title
+        if geoType
+          p.invest-card__factory-name=data.factoryName
+        .invest-card__content
+          if data.type
+            //- Metric
+            if data.type === 'metric'
+              each item in data.content
+                .invest-card__metric
+                  each row in item.rows
+                    .invest-card__metric-item
+                      .invest-card__value
+                        span= row.value
+                      .invest-card__text
+                        span= row.text
+            //- end Metric
+            //- Post
+            if data.type === 'post'
+              a.invest-card__post(href=data.content.link)
+                .invest-card__date.mb-4
+                  span= data.content.date
+                .invest-card__post-title
+                  span= data.content.title
+            //- end Post
+            //- Stock
+            if data.type === 'stock'
+              .invest-card__stock
+                +price-table-tiny(data.content)
+            //- end Stock
+            //- Text
+            if data.type === 'text'
+              .invest-card__text
+                span= data.content
+            //- end Text
+            //- Contacts
+            if data.type === 'contacts'
+              .invest-card__contacts
+                .invest-card__contacts-fields
+                  each row in data.content.rows
+                    .invest-card__contacts-row.mb-16
+                      .invest-card__contacts-name
+                        span= row.name
+                      .invest-card__contacts-value
+                        -
+                          var investCardContactValueAttributes = {
+                            href: row.type === 'email' ? 'mailto:'+row.value : row.type === 'phone' && 'tel:'+row.value
+                          }
+                        a.invest-card__contacts-link&attributes(investCardContactValueAttributes)= row.value
+                .invest-card__text
+                  p= data.content.text
+            //- end Contacts
+            //- Links
+            if data.type === 'links'
+              ul.invest-card__links
+                each item in data.content
+                  li.invest-card__links-item.mb-16
+                    a.invest-card__links-link(href=item.link)= item.name
+            //- end Links
+            //- Press
+            if data.type === 'press'
+              .invest-card__date.mb-4
+                span= data.date
+              .invest-card__name.mb-16
+                span= data.name
+              .invest-card__text!= data.content
+            //- end Links
+            //- Article
+            if data.type === 'article'
+              block
+            //- end Article
+        if data.factoryType
+          p.invest-card__factory-type(class='invest-card__factory-type--' + geoType)
+            span=data.factoryType
+        if data.factoryLocation
+          p.invest-card__factory-location=data.factoryLocation
+      if data.link
+        if bottomText
+          a.invest-card__bottom(href=data.link)=bottomText
+        else
+          a.invest-card__bottom(href=geoType ? data.link.url: data.link)=geoType ? 'Подробнее':'Читать подробнее'

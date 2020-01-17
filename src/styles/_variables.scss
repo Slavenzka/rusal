@@ -1,0 +1,32 @@
+$colorBlack: #333;
+$colorWhite: #F7F7F7;
+$colorBlue: #3F91CD;
+$colorDarkBlue: #2678B1;
+$colorGrey: #F2F2F2;
+$colorLightGrey: #F7F7F7;
+$colorNavGrey: #999999;
+$colorRed: #D20A11;
+$colorDisabled: #e5e5e5;
+
+$transitionSpeed: .3s;
+$defaultCubicBezierTiming: cubic-bezier(.25, .1, .25, 1);
+
+
+//bootstrap variables
+$link-color: $colorBlue;
+$link-hover-color: $colorDarkBlue;
+$link-hover-decoration: none;
+$grid-gutter-width: 32px;
+$grid-breakpoints: (
+        xs: 0,
+        sm: 768px,
+        md: 992px,
+        lg: 1200px,
+        xl: 1400px
+);
+$container-max-widths: (
+        sm: 720px,
+        md: 960px,
+        lg: 1170px,
+        xl: 1344px
+);

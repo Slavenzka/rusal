@@ -1,0 +1,161 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/share-button
+include components/tab
+include components/sidebar-card/sidebar-card-competitive
+include components/document
+include elements/button
+
+block title
+  | Конкурсные отборы
+block vars
+  -
+    var competitiveBannerData = {
+      breadcrumbs: [
+        {
+          link: '#',
+          linkName: 'Главная'
+        },
+        {
+          link: '#',
+          linkName: 'Поставщикам'
+        },
+        {
+          link: '#',
+          linkName: 'Конкурсные отборы'
+        }
+      ],
+      image: 'common/images/banner__bg-competitive.jpg',
+      title: 'Конкурсные отборы'
+    }
+    var competitiveTabsData = [
+      {
+        name: 'Материально-технические ресурсы',
+        isActive: true
+      },
+      {
+        name: 'ЖД, авиа, авто, контейнерные перевозки'
+      },
+      {
+        name: 'Фрахт'
+      },
+      {
+        name: 'Строительно-монтажные и ремонтные работы'
+      },
+      {
+        name: 'Прочие услуги'
+      }
+    ]
+    var competitiveSidebarContentFirst = {
+      content: `
+        <p>Предлагаем Вашему вниманию информацию о текущих конкурсных отборах РУСАЛа и приглашаем принять участие.</p>
+      `
+    }
+    var competitiveSidebarContentSecond = {
+      content: `
+        <p>Найти дополнительную информацию и задать вопрос можно на странице «Часто задаваемые вопросы»</p>
+      `,
+      link: {
+        link: '#',
+        linkName: 'Перейти на страницу'
+      }
+    }
+block content
+  +menu
+  .inner.competitive
+    +banner(competitiveBannerData)
+      +share-button
+    .competitive__wrapper(data-tabs)
+      .container
+        .row
+          .col-12
+            .competitive__tabs
+              each tab, index in competitiveTabsData
+                +tab(tab)&attributes({ 'data-tab-id': index })
+        .row
+          .col-4
+            .competitive__sidebar
+              .competitive__sidebar-card.mb-32
+                +sidebar-card-competitive(competitiveSidebarContentFirst)
+                  .competitive__sidebar-text
+                    p Перечень необходимой документации для прохождения процедуры аккредитации
+                  .competitive__sidebar-doc
+                    +document({ type: 'pdf', name: 'Участнику конкурсного отбора', link: '#' })
+              .competitive__sidebar-card
+                +sidebar-card-competitive(competitiveSidebarContentSecond)
+          .col-8
+            each block, index in competitiveTabsData
+              .competitive__block(class=index === 0 && '_active' data-tab-block=index)
+                .competitive__content(data-tabs)
+                  .competitive__content-top
+                    .competitive__content-title
+                      span= block.name
+                    .competitive__content-tabs
+                      +tab({ name: 'Текущие', isActive: true })&attributes({ 'data-tab-id': 'current' })
+                      +tab({ name: 'Архивные' })&attributes({ 'data-tab-id': 'archive' })
+                  .competitive__content-blocks
+                    .competitive__content-block._active(data-tab-block='current')
+                      .competitive__content-table.wysiwyg.mb-32
+                        table
+                          thead
+                            tr
+                              th._left Дата<br> размещения
+                              th._left Срок окончания<br> приёма заявки
+                              th._left._description Описание лота
+                              th._left Контактные данные<br> ответственного лица
+                          tbody
+                            tr
+                              td._left 24.09.2019
+                              td._left 02.10.2019
+                              td._left
+                                b Отбор поставщиков на поставку запасных частей для рентгеновских спектрометров Simultix на 2019-2020г
+                              td._left
+                                | Кочетова Наталья Георгиевна <br/>+ 7 39151 3-53-74
+                            tr
+                              td._left 24.09.2019
+                              td._left 02.10.2019
+                              td._left
+                                b Поставка производственной мебели
+                              td._left
+                                | Бешкарев Василий Геннадьевич <br/>+ 7 913 830-09-78
+                            tr
+                              td._left 24.09.2019
+                              td._left 01.10.2019
+                              td._left
+                                b Отбор поставщика СИЗ
+                              td._left
+                                | Симонян Юлия Сергеевна <br/>+ 374 60 37-66-35
+                            tr
+                              td._left 24.09.2019
+                              td._left 01.10.2019
+                              td._left
+                                b Поставка бетона В15 (М200)
+                              td._left
+                                | Пузырёва Ольга Сергеевна<br/>+ 7 982 630-37-67
+                            tr
+                              td._left 24.09.2019
+                              td._left 01.10.2019
+                              td._left
+                                b Закупка электродвигателя M280L-4
+                              td._left
+                                | Пономарева Анна Владиславовна<br/>+ 7 3953 49-26-32
+                      .competitive__content-button
+                        +button({ name: 'Показать ещё', tag: 'button', style: 'secondary' })
+                    .competitive__content-block(data-tab-block='archive')
+                      .competitive__content-table.wysiwyg.mb-32
+                        table
+                          thead
+                            tr
+                              th._left Дата<br> размещения
+                              th._left Срок окончания<br> приёма заявки
+                              th._left._description Описание лота
+                              th._left Контактные данные<br> ответственного лица
+                          tbody
+                            tr
+                              td._left 24.09.2019
+                              td._left 02.10.2019
+                              td._left
+                                b Поставка производственной мебели
+                              td._left
+                                | Бешкарев Василий Геннадьевич <br/>+ 7 913 830-09-78

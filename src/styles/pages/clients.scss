@@ -1,0 +1,43 @@
+.clients{
+  &__title{
+    @include h3;
+    margin-bottom: 40px;
+  }
+  &__content{
+    padding: 72px 0 116px;
+  }
+  &__links{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &-item{
+      @include p2;
+      color: $colorBlue;
+      margin: 0 28px;
+      position: relative;
+      &:after{
+        content: "";
+        height: 12px;
+        width: 1px;
+        background-color: rgba(51,51,51,.2);
+        position: absolute;
+        right: -28px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:first-child{
+        margin-left: 0;
+      }
+      &:last-child{
+        margin-right: 0;
+        &:after{
+          display: none;
+        }
+      }
+    }
+  }
+  &__card{
+    height: 100%;
+    padding-bottom: 32px;
+  }
+}

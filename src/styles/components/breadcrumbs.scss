@@ -1,0 +1,47 @@
+.breadcrumbs{
+  &__list{
+    display: flex;
+    align-items: center;
+    &._dark{
+      .breadcrumbs__link {
+        color: $colorBlack;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      svg{
+        path{
+          stroke: $colorBlack;
+        }
+      }
+    }
+    &._transparent{
+      .breadcrumbs__link {
+        color: $colorBlack;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      svg{
+        path{
+          stroke: $colorBlack;
+        }
+      }
+    }
+  }
+  &__item{
+    &:not(:first-child){
+      margin-left: 9px;
+    }
+  }
+  &__link{
+    @include p3;
+    color: $colorWhite;
+    &:hover{
+      color: $colorWhite;
+      text-decoration: none;
+    }
+  }
+}

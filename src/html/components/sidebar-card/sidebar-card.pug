@@ -1,0 +1,16 @@
+mixin sidebar-card(data)
+  //- data = { title: string, content: string, link: {} }
+  //- data.link = { link: string, linkName: string }
+  .sidebar-card&attributes(attributes)
+    if data.title || data.content
+      .sidebar-card__content
+        if data.title
+          .sidebar-card__title.mb-24
+            span= data.title
+        if data.content
+          .sidebar-card__inner.wysiwyg !{data.content}
+        if block
+          .sidebar-card__custom.mt-32
+            block
+    if data.link
+      a.sidebar-card__bottom(href=data.link.link)= data.link.linkName

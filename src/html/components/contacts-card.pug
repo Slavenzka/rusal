@@ -1,0 +1,33 @@
+mixin contacts-card(options, data)
+  //- options: { style: string ('map-page' or 'signal-page') }
+  //- data = { phones: [], email: [], address: string, link: {} }
+    //- data.phones = [{ number: string, hint: string }]
+    //- data.email = [{ address: string }]
+    //- data.link = { text: string, url: string }
+  .contacts-card(class={'contacts-card__map': options.style === 'map-page', 'contacts-card__signal': options.style === 'signal-page'})
+    if data && data.phones && data.phones.length > 0
+      .contacts-card__section.contacts-card__section--phones
+        .contacts-card__title Телефоны
+        ul.contacts-card__list
+          for phone in data.phones
+            li.contacts-card__item
+              - var formatPhone = phone.number.replace(/[\s-()]/g, '')
+              a.contacts-card__link(href='tel:'+formatPhone)=phone.number
+              if phone.hint
+                span.contacts-card__hint=phone.hint
+    if data && data.email && data.email.length > 0
+      .contacts-card__section.contacts-card__section--emails
+        .contacts-card__title Эл. почта
+        ul.contacts-card__list
+          for mail in data.email
+            li.contacts-card__item
+              a.contacts-card__link(href=`mailto:${mail.address}`)=mail.address
+    if data && data.address
+      .contacts-card__section.contacts-card__section--address
+        .contacts-card__title Адрес
+        p.contacts-card__description=data.address
+    if data && data.link
+      .contacts-card__bottom
+        a.contacts-card__map-link(href=data.link.url)
+          include ../../assets/images/i-pin.svg
+          span=data.link.text

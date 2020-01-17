@@ -1,0 +1,53 @@
+.vacancy-form{
+  background-color: rgba($colorBlack, .05);
+  padding: 40px;
+  box-sizing: border-box;
+  &__title{
+    @include h3;
+    margin-bottom: 32px;
+  }
+  &__input{
+    @include p2;
+    color: $colorNavGrey;
+    padding: 14px 24px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    width: 100%;
+    display: block;
+  }
+  &__fields{
+    margin-bottom: 24px;
+  }
+  &__field{
+    &:not(:last-child){
+      margin-bottom: 24px;
+    }
+  }
+  &__uploader{
+    margin-bottom: 28px;
+  }
+  &__link{
+    color: $colorBlue;
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  &__bottom{
+    display: flex;
+  }
+  &__personal{
+    @include p3;
+    @include fontNormal;
+    color: $colorNavGrey;
+    line-height: 16px;
+    margin-left: 23px;
+  }
+  &__file{
+    &._hidden{
+      display: none;
+    }
+  }
+}

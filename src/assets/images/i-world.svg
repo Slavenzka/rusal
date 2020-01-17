@@ -1,0 +1,9 @@
+<svg class="i-world" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle class="i-world__circle" cx="12" cy="12" r="10.4" stroke="#333333" stroke-width="1.2"/>
+    <path class="i-world__path" d="M2.38696 12L21.9001 12" stroke="#333333" stroke-width="1.2" stroke-linecap="round"/>
+    <path class="i-world__path" d="M19.7001 5.40002C19.7001 5.40002 15.6468 7.60002 12.0001 7.60002C8.35345 7.60002 4.30011 5.40002 4.30011 5.40002" stroke="#333333" stroke-width="1.2"/>
+    <path class="i-world__path" d="M19.7001 18.6C19.7001 18.6 15.6468 16.4 12.0001 16.4C8.35345 16.4 4.30011 18.6 4.30011 18.6" stroke="#333333" stroke-width="1.2"/>
+    <path class="i-world__path" d="M12 21.8193L12 2.10004" stroke="#333333" stroke-width="1.2" stroke-linecap="round"/>
+    <path class="i-world__path" d="M12.55 2.09995C12.55 2.09995 17.5 5.39995 17.5 12C17.5 19.7 12.55 22.45 12.55 22.45" stroke="#333333" stroke-width="1.2"/>
+    <path class="i-world__path" d="M11.45 22.45C11.45 22.45 6.50001 19.15 6.50001 12.55C6.50001 4.84998 11.45 2.09998 11.45 2.09998" stroke="#333333" stroke-width="1.2"/>
+</svg>

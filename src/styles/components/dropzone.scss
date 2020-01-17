@@ -1,0 +1,53 @@
+.dropzone{
+  &__content{
+    border: 1px dashed rgba($colorBlack, .2);
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: transparent;
+    position: relative;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  &__input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+  &__files{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__file{
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    &:hover{
+      cursor: pointer;
+    }
+    &:not(:last-child){
+      margin-right: 16px;
+    }
+    &-name{
+      @include p2;
+    }
+    &-close{
+      width: 11px;
+      height: 11px;
+      margin-left: 10px;
+      background-image: url('../images/i-delete-file.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}

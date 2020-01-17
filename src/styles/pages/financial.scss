@@ -1,0 +1,141 @@
+.financial{
+  &__wrapper{
+    box-sizing: border-box;
+    padding-top: 72px;
+    padding-bottom: 96px;
+  }
+  &__sidebar{
+    background-color: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+    &-content{
+      margin-bottom: 72px;
+    }
+    &-row{
+      &:not(:last-child){
+        margin-bottom: 32px;
+      }
+    }
+    &-title{
+      @include h4;
+      margin-bottom: 8px;
+    }
+    &-link{
+      @include p2;
+      transition: $transitionSpeed;
+      color: $colorBlack;
+      &:hover{
+        color: $colorBlue;
+        text-decoration: none;
+      }
+    }
+    &-subtitle{
+      @include p2;
+      color: $colorBlack;
+    }
+    &-text{
+      @include p3;
+      margin-top: 4px;
+      color: $colorNavGrey;
+    }
+    &-message{
+      @include p2;
+      color: $colorNavGrey;
+    }
+  }
+  &__content{
+    background-color: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+    &-top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    &-title{
+      @include h3;
+    }
+    &-doc{
+      color: $colorBlack;
+      display: flex;
+      padding-bottom: 30px;
+      margin-bottom: 32px;
+      &:not(:last-child){
+        border-bottom: 1px solid rgba($colorBlack, .1);
+      }
+      &-left{
+        width: 138px;
+        min-width: 138px;
+        margin-right: 34px;
+      }
+      &-date{
+        @include p2;
+        margin-left: 44px;
+      }
+      &-name{
+        @include p2;
+        margin-bottom: 12px;
+        transition: $transitionSpeed;
+      }
+      &-details{
+        padding-right: 56px;
+        box-sizing: border-box;
+        width: 499px;
+        &:hover{
+          text-decoration: none;
+          .financial__content-doc-name{
+            color: $colorBlue;
+          }
+          .document__name{
+            color: $colorBlue;
+          }
+        }
+      }
+    }
+    &-docs{
+      margin-bottom: 63px;
+    }
+    &-button{
+      text-align: center;
+    }
+  }
+  //- Inner
+  &-inner{
+    background-color: #f7f7f7;
+    &__content{
+      padding-top: 41px;
+      padding-bottom: 72px;
+      border-top: 1px solid rgba($colorBlack, .1);
+      border-bottom: 1px solid rgba($colorBlack, .1);
+    }
+    &__bottom{
+      &-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        box-sizing: border-box;
+        &._step-2,
+        &._step-3{
+          justify-content: flex-start;
+        }
+      }
+      &-select{
+        display: flex;
+      }
+      &-text{
+        @include p2;
+      }
+      &-link{
+        color: $colorBlack;
+        transition: $transitionSpeed;
+        &:hover{
+          color: $colorBlue;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  //- end Inner
+}

@@ -1,0 +1,271 @@
+-
+  var navList = [
+    {
+      title: 'О компании',
+      link: '#',
+      nav: [
+        {
+          name: 'Миссия и ценность связь',
+          link: '#'
+        },
+        {
+          name: 'Корпоративное управление',
+          link: '#'
+        },
+        {
+          name: 'География',
+          link: '#'
+        }
+      ]
+    },
+    {
+      title: 'Клиентам',
+      link: '#',
+      nav: [
+        {
+          name: 'Продукция',
+          link: '#'
+        },
+        {
+          name: 'Качество продукции',
+          link: '#'
+        },
+        {
+          name: 'Система поддержки клиентов',
+          link: '#'
+        },
+        {
+          name: 'Торговая политика',
+          link: '#'
+        },
+        {
+          name: 'Торговые представительства',
+          link: '#'
+        }
+      ]
+    },
+    {
+      title: 'Поставщикам',
+      link: '#',
+      nav: [
+        {
+          name: 'Продукция',
+          link: '#'
+        },
+        {
+          name: 'Качество продукции',
+          link: '#'
+        },
+        {
+          name: 'Система поддержки клиентов',
+          link: '#'
+        },
+        {
+          name: 'Торговая политика',
+          link: '#'
+        },
+        {
+          name: 'Торговые представительства',
+          link: '#'
+        }
+      ]
+    },
+    {
+      title: 'Устойчивое развитие',
+      link: '#',
+      nav: [
+        {
+          name: 'Охрана окружающей среды',
+          link: '#'
+        },
+        {
+          name: 'Здоровье и охрана труда',
+          link: '#'
+        },
+        {
+          name: 'Социальное инвестирование',
+          link: '#'
+        },
+        {
+          name: 'Подходы и политики',
+          link: '#'
+        },
+        {
+          name: 'Отчёт об устойчивом развитии',
+          link: '#'
+        }
+      ]
+    },
+    {
+      title: 'Карьера',
+      link: '#',
+      nav: [
+        {
+          name: 'Вакансии',
+          link: '#'
+        },
+        {
+          name: 'Контакты для соискателей',
+          link: '#'
+        },
+        {
+          name: 'Работа в компании',
+          link: '#'
+        },
+        {
+          name: 'Кадровым агентствам',
+          link: '#'
+        },
+        {
+          name: 'Работа с молодёжью',
+          link: '#'
+        }
+      ]
+    },
+  ]
+  var navBottomList = [
+    {
+      nav: [
+        {
+          name: 'Проекты развития',
+          link: '#'
+        },
+        {
+          name: 'Инновации',
+          link: '#'
+        },
+        {
+          name: 'История',
+          link: '#'
+        },
+        {
+          name: 'Инвесторам',
+          link: '#'
+        }
+      ]
+    },
+    {
+      nav: [
+        {
+          name: 'Пресс-центр',
+          link: '#'
+        },
+        {
+          name: 'Обратная связь',
+          link: '#'
+        },
+        {
+          name: 'Карта сайта',
+          link: '#'
+        }
+      ]
+    }
+  ]
+footer.footer#footer
+  .d-none.d-md-block
+    .container
+      .footer__top.row
+        .col-5
+          .footer__wrap
+            each col, index in navList
+              if index+1 <= 2
+                .footer__col
+                  a.footer__title.mb-16(href=col.link)= col.title
+                  ul.footer__nav
+                    each nav in col.nav
+                      li.footer__nav-item
+                        a.footer__nav-link(href=nav.link)= nav.name
+        .col-5
+          .footer__wrap
+            each col, index in navList
+              if index+1 > 2 && index+1 <= 4
+                .footer__col
+                  a.footer__title.mb-16(href=col.link)= col.title
+                  ul.footer__nav
+                    each nav in col.nav
+                      li.footer__nav-item
+                        a.footer__nav-link(href=nav.link)= nav.name
+        .col-2
+          .footer__wrap
+            each col, index in navList
+              if index+1 === 5
+                .footer__col
+                  a.footer__title.mb-16(href=col.link)= col.title
+                  ul.footer__nav
+                    each nav in col.nav
+                      li.footer__nav-item
+                        a.footer__nav-link(href=nav.link)= nav.name
+      .row.mb-32
+        .col-12
+          .footer__divider
+      .row
+        .col-5
+          .footer__copyright
+            .footer__privacy
+              p Страница информационного агентства, аккредитованного ЦБ РФ <br>на раскрытие информации, на которой раскрывается информация эмитента
+            .footer__company
+              p © 2019 РУСАЛ Все права защищены
+        .col-4.col-lg-5
+          .footer__wrap
+            each col, index in navBottomList
+              .footer__col
+                ul.footer__nav
+                  each nav in col.nav
+                    li.footer__nav-item
+                      a.footer__nav-link(href=nav.link)= nav.name
+        .col-3.col-lg-2
+          a.footer__title.mb-4(href='#') Контакты
+          .footer__privacy.mb-24
+            a.footer__nav-link(href='#') Служба «СИГНАЛ»
+          ul.footer__social
+            li.footer__social-item
+              a.footer__social-link(href='#')
+                include ../../assets/images/i-social-twitter.svg
+            li.footer__social-item
+              a.footer__social-link(href='#')
+                include ../../assets/images/i-social-facebook.svg
+            li.footer__social-item
+              a.footer__social-link(href='#')
+                include ../../assets/images/i-social-youtube.svg
+  .d-md-none
+    .footer-mobile
+      .container
+        .row
+          .col-12
+            .footer-mobile__menu
+              each block in navList
+                .footer-mobile__block(data-collapse)
+                  .footer-mobile__top(data-collapse-top)
+                    .footer-mobile__title
+                      span= block.title
+                    .footer-mobile__arrow(data-collapse-icon)
+                      img(src='common/images/i-arrow-footer-top.svg' alt='alt')&attributes({'alt': 'alt'})
+                  ul.footer-mobile__nav(data-collapse-content)
+                    each nav in block.nav
+                      li.footer-mobile__nav-item
+                        a.footer-mobile__nav-link(href=nav.link)= nav.name
+            ul.footer-mobile__submenu
+              each subnav in navBottomList
+                each item in subnav.nav
+                  li.footer-mobile__subitem
+                    a.footer-mobile__sublink(href=item.link)= item.name
+            .footer-mobile__privacy(data-splitty)
+              p Страница информационного агентства, аккредитованного ЦБ РФ на раскрытие информации, на которой раскрывается информация эмитента
+            .footer-mobile__social
+              ul.footer__social
+                li.footer__social-item
+                  a.footer__social-link(href='#')
+                    include ../../assets/images/i-social-twitter.svg
+                li.footer__social-item
+                  a.footer__social-link(href='#')
+                    include ../../assets/images/i-social-facebook.svg
+                li.footer__social-item
+                  a.footer__social-link(href='#')
+                    include ../../assets/images/i-social-youtube.svg
+            .footer-mobile__copyright(data-splitty)
+              p © 2019 РУСАЛ Все права защищены
+            ul.footer-mobile__submenu
+              li.footer-mobile__subitem
+                a.footer-mobile__sublink(href='#') Обратная связь
+              li.footer-mobile__subitem
+                a.footer-mobile__sublink(href='#') Карта сайта

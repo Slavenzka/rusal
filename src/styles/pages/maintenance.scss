@@ -1,0 +1,22 @@
+.maintenance {
+  background-size: cover;
+  background-position: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  &__title {
+    padding-right: 50%;
+    @include h1(white);
+  }
+
+  &__descriptor {
+    margin-top: 20px;
+    padding-right: 60%;
+    @include p1(white);
+  }
+}

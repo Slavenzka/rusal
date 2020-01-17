@@ -1,0 +1,386 @@
+extends components/layout-inner
+include elements/button
+include components/banner
+include components/invest-card
+include components/menu
+include components/backlink
+include components/dropdown
+include components/document
+include components/collapse
+
+block title
+  | Инвесторам
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '#',
+          linkName: 'Главная'
+        },
+        {
+          link: '#',
+          linkName: 'Инвесторам'
+        }
+      ],
+      image: 'common/images/banner__bg-invest.jpg',
+      title: 'Инвесторам'
+    }
+    var bannerButton = {
+      name: 'Смотреть обзор результатов',
+      link: '#',
+      style: 'white-grey'
+    }
+    var investData = [
+      {
+        title: 'Зачем инвестировать в РУСАЛ',
+        type: 'metric',
+        content: [
+          {
+            rows: [
+              {
+                value: '7,774',
+                text: 'производство алюминия'
+              }
+            ]
+          },
+          {
+            rows: [
+              {
+                value: '10,28',
+                text: 'выручка (млн $)'
+              },
+              {
+                value: '1,698',
+                text: 'чистая прибыль (млн $)'
+              }
+            ]
+          }
+        ],
+        link: '#'
+      },
+      {
+        title: 'Календарь',
+        type: 'post',
+        content: {
+          date: '09.11.2019',
+          title: 'Публикация результатов деятельности компании за 3 квартал 2019 года',
+          link: '#'
+        },
+        link: '#'
+      },
+      {
+        title: 'Котировки акций',
+        type: 'stock',
+        content: [
+          {
+            name: 'Изменение',
+            yield: '+0,02 (0,34%)'
+          },
+          {
+            name: 'Стоимость акции',
+            yield: '29,17 руб.'
+          },
+          {
+            name: 'Капитализация',
+            yield: '443,18 млрд. руб.',
+            negative: true
+          }
+        ],
+        link: '#'
+      },
+      {
+        title: 'Ежегодные отчёты',
+        type: 'text',
+        content: 'Активы ОК РУСАЛ включают в себя весь комплекс предприятий, задействованныхв цепочке производства конечного продукта.',
+        link: '#'
+      },
+      {
+        title: 'План развития',
+        type: 'text',
+        content: 'РУСАЛ, один из лидеров мировой алюминиевой отрасли, обладает рядом уникальных конкурентных преимуществ.',
+        link: '#'
+      },
+      {
+        title: 'Дивиденды',
+        type: 'text',
+        content: 'Дивиденды — это доля прибыли, которую компания распределяет между акционерами.',
+        link: '#'
+      },
+      {
+        title: 'Ключевые данные',
+        type: 'metric',
+        content: [
+          {
+            rows: [
+              {
+                value: '5,8%',
+                text: 'мирового производства алюминия'
+              }
+            ]
+          },
+          {
+            rows: [
+              {
+                value: '7,77',
+                text: 'млн тонн гилнозёма'
+              },
+              {
+                value: '44',
+                text: 'заводы по стране'
+              }
+            ]
+          }
+        ],
+        link: '#'
+      },
+      {
+        title: 'Контакты для инвесторов',
+        type: 'contacts',
+        content: {
+          rows: [
+            {
+              name: 'Эл.почта',
+              value: 'investorRelations@rusal.com',
+              type: 'email'
+            },
+            {
+              name: 'Телефон',
+              value: '+7(495)728-49-18',
+              type: 'phone'
+            }
+          ],
+          text: 'Рассматриваются только сообщения, которые имеют отношение к аналитикам и инвесторам.'
+        }
+      },
+      {
+        title: 'Важные ссылки',
+        type: 'links',
+        content: [
+          {
+            name: 'FAQ',
+            link: '#'
+          },
+          {
+            name: 'Subscription',
+            link: '#'
+          },
+          {
+            name: 'Information disclosure',
+            link: '#'
+          },
+          {
+            name: 'Presentations',
+            link: '#'
+          },
+          {
+            name: 'Board of Directors',
+            link: '#'
+          },
+        ]
+      }
+    ]
+    var investReviewDropdown = {
+      current: {
+        name: '2019'
+      },
+      list: [
+        {
+          name: '2018',
+          link: '#'
+        },
+        {
+          name: '2017',
+          link: '#'
+        }
+      ]
+    }
+    var investReviewContent = [
+      {
+        title: 'Презентации',
+        rows: [
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          }
+        ]
+      },
+      {
+        title: 'Пресс-релизы',
+        rows: [
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          }
+        ]
+      },
+      {
+        title: 'Трейдинг',
+        rows: [
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          }
+        ]
+      },
+      {
+        title: 'IFRS',
+        rows: [
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          },
+          {
+            link: '#',
+            name: 'Interim and Second Quarter 2019 Results (.pdf 0,50mb)',
+            date: '09.08.2019',
+            type: 'pdf'
+          }
+        ]
+      }
+    ]
+block content
+  +menu
+  .inner.invest
+    +banner(bannerData)
+      //- Invest review button
+      +button(bannerButton)&attributes({'data-fade-button': 'invest-review-results'})
+      //- end Invest review button
+      //- Invest review result (hidden sidebar)
+      .invest__layout.animated(
+        data-fade-layout='invest-review-results'
+        data-fade-in-effect='fadeIn'
+        data-fade-out-effect='fadeOut'
+        data-fade-speed='faster'
+      )
+      .invest__review.animated(
+        data-fade-block='invest-review-results'
+        data-fade-in-effect='showInRight'
+        data-fade-out-effect='showOutRight'
+        data-fade-speed='faster'
+      )
+          .invest__review-backlink(data-fade-close='invest-review-results')
+            +backlink('#', 'Назад', 'dark')
+          .invest__review-results
+            .invest__review-title
+              span Результаты тестирования
+            .invest__review-dropdown
+              +dropdown(investReviewDropdown, {style: 'dark'})
+          .invest__review-content
+            each item, index in investReviewContent
+              .invest__review-block.mb-32
+                +collapse({title: item.title+' ('+item.rows.length+')', isActive: index === 0})
+                  each doc in item.rows
+                    .invest__review-doc.mb-32
+                      +document(doc)
+      //- end Invest review result (hidden sidebar)
+    .invest__cards.pt-64
+      .container
+        .row
+          each card in investData
+            .col-4.mb-32
+              +invest-card(card, false, true)

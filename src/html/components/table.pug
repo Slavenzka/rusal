@@ -1,0 +1,7 @@
+mixin table(data)
+  //- data = [{ key: string, value: string }]
+  table.table
+    each row in data
+      tr.table__row
+        td.table__key=row.key
+        td.table__value=row.value

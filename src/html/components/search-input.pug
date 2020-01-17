@@ -1,0 +1,9 @@
+mixin search-input(data)
+  //- data = { placeholder: string }
+  .search-input(data-search)
+    .search-input__wrapper
+      input.search-input__field(placeholder=data.placeholder value=data.value data-search-input)
+      .search-input__predict
+        span(data-search-predict)
+    .search-input__clear(data-search-clear)
+      span Очистить

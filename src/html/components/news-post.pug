@@ -1,0 +1,18 @@
+mixin news-post(data, isSplit)
+  //- data = { date: string, title: string, text: string, link: string }
+  //- isSplit = boolean
+  a.news-post(href=data.link)
+    .news-post__date(data-splitty=isSplit)
+      span.wow(
+        data-wow-animation=isSplit && 'fadeIn'
+        data-wow-duration='0.7s'
+      )= data.date
+    .news-post__title(data-splitty-title=isSplit data-animate-delayed=isSplit)
+      p.wow(
+        data-wow-animation=isSplit && 'titleSlideIn'
+        data-wow-duration='0.7s'
+      )= data.title
+    .news-post__content
+      p.wow(
+        data-wow-animation='textFadeIn'
+      )= data.text

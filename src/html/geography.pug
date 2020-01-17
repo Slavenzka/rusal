@@ -1,0 +1,390 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/tab
+include components/geo-map
+include components/geo-legend
+include components/invest-card
+include elements/button
+
+block title
+  | География РУСАЛ
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          link: '#',
+          linkName: 'О нас'
+        },
+        {
+          linkName: 'География'
+        }
+      ],
+      image: 'common/images/banner__bg-geography.jpg',
+      title: 'География РУСАЛа',
+      counters: [
+        {
+          text: 'стран',
+          qty: 13
+        },
+        {
+          text: 'предприятие',
+          qty: 41
+        }
+      ]
+    }
+    var geoData = [
+      {
+        tab: 'На карте',
+        options: {
+          style: 'geo-map'
+        }
+      },
+      {
+        tab: 'Плиткой',
+        options: {
+          style: 'geo-cards'
+        }
+      }
+    ]
+    // Страны с размещенными предприятиями: ukraine, cuba, guyana, sweden, australia, nigeria,
+    // russia, kazakhstan, ireland, italy, guinea-bissay, guinea, liberia
+    var geoMapWidth = 1400;
+    var geoMapHeight = 650;
+    var pins = [
+      {
+        x: 1258 / geoMapWidth * 100,
+        y: 479 / geoMapHeight * 100,
+        type: 'clay',
+        country: 'australia',
+        card: {
+          factoryName: 'Предприятие в Австралии',
+          factoryType: 'Глиноземный завод',
+          factoryLocation: 'Где-то а Австралии',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 375 / geoMapWidth * 100,
+        y: 344 / geoMapHeight * 100,
+        type: 'bauxites',
+        country: 'guyana',
+        card: {
+          factoryName: 'Компания бокситов Гайаны',
+          factoryType: 'Бокситы',
+          factoryLocation: 'Джорджтаун, Кооперативная Республика Гайана, Южная Америка',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 992 / geoMapWidth * 100,
+        y: 97 / geoMapHeight * 100,
+        type: 'aluminium',
+        country: 'russia',
+        card: {
+          factoryName: 'Eurallumina',
+          factoryType: 'Алюминиевый завод',
+          factoryLocation: 'Остров Сардиния, Италия',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 985 / geoMapWidth * 100,
+        y: 72 / geoMapHeight * 100,
+        type: 'aluminium',
+        country: 'russia',
+        card: {
+          factoryName: 'Завод 2',
+          factoryType: 'Алюминиевый завод',
+          factoryLocation: 'Адрес предприятия',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 971 / geoMapWidth * 100,
+        y: 90 / geoMapHeight * 100,
+        type: 'clay',
+        country: 'russia',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Глиноземный завод',
+          factoryLocation: 'Адрес предприятия',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 800 / geoMapWidth * 100,
+        y: 180 / geoMapHeight * 100,
+        type: 'downstream',
+        country: 'armenia',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Downstream',
+          factoryLocation: 'Адрес предприятия',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 1002 / geoMapWidth * 100,
+        y: 85 / geoMapHeight * 100,
+        type: 'hpp',
+        country: 'russia',
+        card: {
+          factoryName: 'Богучанская ГЭС',
+          factoryType: 'ГЭС',
+          factoryLocation: 'Адрес предприятия',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 302 / geoMapWidth * 100,
+        y: 286 / geoMapHeight * 100,
+        type: 'clay',
+        country: 'jamaica',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Глиноземный завод',
+          factoryLocation: 'Джорджтаун, Кооперативная Республика Гайана, Южная Америка Джорджтаун, Кооперативная Республика Гайана, Южная Америка',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 555 / geoMapWidth * 100,
+        y: 310 / geoMapHeight * 100,
+        type: 'bauxites',
+        country: 'guinea-bissau',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Бокситы',
+          factoryLocation: 'Адрес предприятия в Гвинее-Бисау',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 580 / geoMapWidth * 100,
+        y: 320 / geoMapHeight * 100,
+        type: 'clay',
+        country: 'guinea',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Глиноземный завод',
+          factoryLocation: 'Адрес предприятия в Гвинее',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 585 / geoMapWidth * 100,
+        y: 339 / geoMapHeight * 100,
+        type: 'bauxites',
+        country: 'liberia',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Бокситы',
+          factoryLocation: 'Адрес предприятия в Либерии',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 660 / geoMapWidth * 100,
+        y: 320 / geoMapHeight * 100,
+        type: 'aluminium',
+        country: 'nigeria',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Алюминиевый завод',
+          factoryLocation: 'Адрес предприятия в Нигерии',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 875 / geoMapWidth * 100,
+        y: 140 / geoMapHeight * 100,
+        type: 'other',
+        country: 'kazakhstan',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Прочие',
+          factoryLocation: 'Адрес предприятия в Казахстане',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 666 / geoMapWidth * 100,
+        y: 165 / geoMapHeight * 100,
+        type: 'clay',
+        country: 'italy',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Глиноземный завод',
+          factoryLocation: 'Адрес предприятия в Италии',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 687 / geoMapWidth * 100,
+        y: 80 / geoMapHeight * 100,
+        type: 'clay',
+        country: 'sweden',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Глиноземный завод',
+          factoryLocation: 'Адрес предприятия в Швеции',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 537 / geoMapWidth * 100,
+        y: 130 / geoMapHeight * 100,
+        type: 'clay',
+        country: 'ireland',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Глиноземный завод',
+          factoryLocation: 'Адрес предприятия в Ирландии',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      },
+      {
+        x: 759 / geoMapWidth * 100,
+        y: 158 / geoMapHeight * 100,
+        type: 'clay',
+        country: 'ukraine',
+        card: {
+          factoryName: 'Название предприятия',
+          factoryType: 'Глиноземный завод',
+          factoryLocation: 'Адрес предприятия в Украине',
+          link: {
+            text: 'Узнать подробнее',
+            url: '#'
+          }
+        }
+      }
+    ]
+    var legend = [
+      {
+        type: 'aluminium',
+        text: 'Алюминиевые заводы'
+      },
+      {
+        type: 'clay',
+        text: 'Глиноземные заводы'
+      },
+      {
+        type: 'bauxites',
+        text: 'Бокситы'
+      },
+      {
+        type: 'downstream',
+        text: 'Downstream'
+      },
+      {
+        type: 'other',
+        text: 'Прочие'
+      },
+      {
+        type: 'hpp',
+        text: 'ГЭС'
+      },
+      {
+        type: 'tech',
+        text: 'Технологии'
+      }
+    ]
+
+block content
+  +menu
+  .inner.geography
+    +banner(bannerData)
+    .geography__wrapper(data-tabs)
+      .geography__content
+        .container
+          .row
+            .col-12
+              .geography__top
+                .geography__tabs
+                  each tab, index in geoData
+                    .geography__tab
+                      +tab({name: tab.tab, isActive: index === 0})&attributes({'data-tab-id': index+1})
+                .geography__filter
+                  .filter-select
+                    select.filter-select-native(data-chosen-select-content-fit)
+                      option(value='Все предприятия' selected) Все предприятия
+                      each item in legend
+                        option(value=item.type)=item.text
+      .geography__blocks
+        each block, index in geoData
+          .geography__block(class=index === 0 && '_active')&attributes({'data-tab-block': index + 1})
+            if block.options.style === 'geo-map'
+              +geo-map(pins)
+              .container
+                .row
+                  .col-12
+                    +geo-legend(legend)
+            if block.options.style === 'geo-cards'
+              .container
+                .row
+                  each card in pins
+                    .col-4
+                      .geography__card
+                        +invest-card(card.card, card.type, true)
+                .row
+                  .col-12
+                    .geography__controls
+                      +button({
+                        name: 'Показать еще',
+                        style: 'secondary',
+                        tag: 'button'
+                      })&attributes({type: 'button'}).geography__btn

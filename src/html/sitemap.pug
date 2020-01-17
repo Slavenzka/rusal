@@ -1,0 +1,183 @@
+extends components/layout-inner
+include components/banner
+include elements/button
+include components/invest-card
+include components/menu
+
+block title
+  | Инвесторам
+block vars
+  -
+    var pages = [
+      {
+        name: 'Главная страница',
+        link: '/'
+      },
+      {
+        name: 'Инвесторам',
+        link: '/invest.html'
+      },
+      {
+        name: 'Корпоративное управление (Инвесторам)',
+        link: '/corporate.html'
+      },
+      {
+        name: 'Финансовая отчетность',
+        link: '/financial.html',
+        sublist: [
+          {
+            name: 'Шаг 1',
+            link: '/financial-step-1.html'
+          },
+          {
+            name: 'Шаг 2',
+            link: '/financial-step-2.html'
+          },
+          {
+            name: 'Шаг 3',
+            link: '/financial-step-3.html'
+          }
+        ]
+      },
+      {
+        name: 'Поставщикам',
+        link: '/provider.html'
+      },
+      {
+        name: 'Пресс-релизы',
+        link: '/press.html'
+      },
+      {
+        name: 'Пресс-релизы - деталка',
+        link: '/press-detail.html'
+      },
+      {
+        name: 'Конкурсные отборы',
+        link: '/competitive.html'
+      },
+      {
+        name: 'Устойчивое развитие',
+        link: '/growth.html'
+      },
+      {
+        name: '404',
+        link: '/page404.html'
+      },
+      {
+        name: 'Контакты',
+        link: '/contacts.html'
+      },
+      {
+        name: 'О заводе',
+        link: '/factory.html'
+      },
+      {
+        name: 'География',
+        link: '/geography.html'
+      },
+      {
+        name: 'История',
+        link: '/history.html'
+      },
+      {
+        name: 'Галерея',
+        link: '/gallery.html'
+      },
+      {
+        name: 'Клиентам',
+        link: '/clients.html'
+      },
+      {
+        name: 'Карьера в РУСАЛе',
+        link: '/career.html'
+      },
+      {
+        name: 'Вакансии',
+        link: '/vacancy.html',
+        sublist: [
+          {
+            name: 'Вакансия (внутренняя)',
+            link: '/vacancy-inner.html'
+          }
+        ]
+      },
+      {
+        name: 'GUI',
+        link: '/gui.html'
+      },
+      {
+        name: 'Галерея',
+        link: '/gallery.html'
+      },
+      {
+        name: 'Пресс-центр разводящая',
+        link: '/press-center.html'
+      },
+      {
+        name: 'Технические работы',
+        link: '/maintenance.html'
+      },
+      {
+        name: 'О компании',
+        link: '/about.html'
+      },
+      {
+        name: 'Обратная связь (попап)',
+        link: '/feedback-modal.html'
+      },
+      {
+        name: 'Календарь инвестора',
+        link: '/calendar.html'
+      },
+      {
+        name: 'Сертификаты',
+        link: '/certificates.html'
+      },
+      {
+        name: 'Торговые представительства',
+        link: '/representative.html'
+      },
+      {
+        name: 'Страница продукта',
+        link: '/product.html'
+      },
+      {
+        name: 'Внутренняя типовая страница',
+        link: '/common.html'
+      },
+      {
+        name: 'Галерея (разводящая страница)',
+        link: '/gallery-outer.html'
+      },
+      {
+        name: 'Поиск',
+        link: '/search.html'
+      },
+      {
+        name: 'Поиск (результаты)',
+        link: '/search-results.html'
+      },
+      {
+        name: 'Поиск (пусто)',
+        link: '/search-empty.html'
+      },
+      {
+        name: 'Медиатека',
+        link: '/media.html'
+      }
+    ]
+block content
+  +menu
+  .inner.pt-120.pb-40
+    .container
+      .row
+        .col-12
+          ul.pl-32
+            each page in pages
+              li.mb-16
+                a(href=page.link target='_blank')= page.name
+                if page.sublist
+                  ul.pl-32.mt-16
+                    each subPage in page.sublist
+                      li.mb-16
+                        a(href=subPage.link target='_blank')= subPage.name

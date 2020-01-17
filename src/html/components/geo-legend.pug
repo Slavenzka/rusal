@@ -1,0 +1,5 @@
+mixin geo-legend(legend)
+  // legend = [{ type: string, text: string}]
+  .geo-legend
+    each item in legend
+      p.geo-legend__item(class='geo-legend__item--' + item.type)=item.text

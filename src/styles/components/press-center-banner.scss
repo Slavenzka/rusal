@@ -1,0 +1,53 @@
+.press-center-banner {
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    padding: 52px 52px 80px 40px;
+    background-color: white;
+  }
+
+  &__headline {
+    width: 540px;
+    flex-grow: 1;
+  }
+
+  &__date {
+    @include p2($colorNavGrey);
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__title {
+    margin-top: 16px;
+    @include h3;
+  }
+
+  &__description {
+    margin-top: 16px;
+    @include p2($colorBlack);
+  }
+
+  &__timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: calc(100% - 540px);
+    padding-left: 72px;
+  }
+
+  &__card {
+    width: 292px;
+
+    &:not(:first-of-type):not(:nth-of-type(2)) {
+      margin-top: 32px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 16px;
+    @include h4;
+  }
+}

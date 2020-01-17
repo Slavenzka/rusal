@@ -1,0 +1,86 @@
+.competitive{
+  &__tabs{
+    display: flex;
+    margin-bottom: 44px;
+  }
+  &__wrapper{
+    padding-top: 60px;
+    padding-bottom: 116px;
+    box-sizing: border-box;
+  }
+  &__content{
+    background-color: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+    &-top{
+      margin-bottom: 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    &-tabs{
+      display: flex;
+      align-items: center;
+    }
+    &-title{
+      @include h3;
+      max-width: 399px;
+    }
+    &-table{
+      table{
+        th{
+          @include p3;
+          line-height: 16px;
+          white-space: nowrap;
+          font-weight: 600;
+          &._description{
+            width: 320px;
+          }
+        }
+        td{
+          padding-top: 32px;
+          padding-bottom: 32px;
+        }
+        td,
+        th{
+          vertical-align: top;
+          border-bottom: 1px solid rgba($colorBlack, .1);
+          box-sizing: border-box;
+          &:not(:first-child){
+            padding-left: 40px;
+          }
+        }
+        tbody{
+          tr{
+            &:last-child{
+              td,
+              th{
+                border-bottom: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-link{
+      @include p2;
+      @include fontBold;
+      transition: $transitionSpeed;
+      display: block;
+      &:hover{
+        color: $colorBlue;
+        text-decoration: none;
+      }
+    }
+    &-button{
+      text-align: center;
+    }
+  }
+  &__sidebar{
+    &-text{
+      @include p2;
+      @include fontBold;
+      margin-bottom: 20px;
+    }
+  }
+}

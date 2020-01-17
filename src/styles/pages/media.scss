@@ -1,0 +1,118 @@
+.media{
+  &__wrapper{
+    padding-top: 72px;
+    padding-bottom: 116px;
+    box-sizing: border-box;
+  }
+  &__sidebar{
+    background-color: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+    &-title{
+      @include h3;
+      margin-bottom: 28px;
+    }
+    &-subtitle{
+      @include h4;
+      margin-bottom: 8px;
+    }
+    &-link{
+      @include p2;
+      text-decoration: none;
+    }
+    &-text{
+      @include p3(rgba($colorBlack, .5));
+      @include fontBold;
+    }
+    &-block{
+      &:not(:last-child){
+        margin-bottom: 32px;
+      }
+    }
+    &-blocks{
+      margin-bottom: 36px;
+    }
+  }
+  &__content{
+    background-color: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+    &-tabs{
+      display: flex;
+      margin-bottom: 48px;
+    }
+    &-block{
+      &._active{
+        display: block;
+      }
+      display: none;
+    }
+  }
+  &__card{
+    padding-bottom: 28px;
+    box-sizing: border-box;
+    &:not(:last-child){
+      margin-bottom: 28px;
+      border-bottom: 1px solid $colorGrey;
+    }
+  }
+  &__more{
+    margin-top: 16px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  &__docs{
+    margin-bottom: 48px;
+  }
+  &__doc{
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 16px 28px 6px;
+    box-sizing: border-box;
+    &:first-child{
+      padding-top: 0;
+    }
+    &:last-child{
+      padding-bottom: 0;
+    }
+    &:not(:last-child){
+      border-bottom: 1px solid rgba($colorBlack, .1);
+    }
+    &-body{
+      max-width: 560px;
+    }
+    &-date{
+      margin-left: 8px;
+    }
+  }
+  &__kits{
+    &-inner{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &-item{
+      width: 232px;
+      margin-bottom: 62px;
+      &:not(:nth-child(odd)){
+        margin-left: 102px;
+      }
+    }
+    &-title{
+      @include h4;
+      margin-bottom: 24px;
+    }
+  }
+  &__text{
+    @include p2;
+    margin-bottom: 56px;
+  }
+  &__magazine{
+    padding-bottom: 48px;
+    &:not(:first-child){
+      padding-top: 48px;
+    }
+    &:not(:last-child){
+      border-bottom: 1px solid rgba($colorBlack, .1);
+    }
+  }
+}

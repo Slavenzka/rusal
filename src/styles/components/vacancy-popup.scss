@@ -1,0 +1,23 @@
+.vacancy-popup{
+  &__content{
+    background-color: #fff;
+    position: relative;
+  }
+  &__close{
+    top: 20px;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    background-image: url('../images/i-popup-close.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+    &:hover{
+      cursor: pointer;
+    }
+    &:active{
+      top: 20px;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.incut{
+  background: $colorWhite;
+  padding: 28px 112px 36px 40px;
+  position: relative;
+  &__content{
+    z-index: 5;
+    position: relative;
+    &._white{
+      .incut__title{
+        color: $colorLightGrey
+      }
+      .incut__text{
+        color: $colorLightGrey
+      }
+    }
+  }
+  &__title{
+    @include h3;
+  }
+  &__text{
+    @include p2($colorNavGrey);
+  }
+  &__bg{
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    &:after{
+      content: '';
+      background: linear-gradient(90deg, #000000 0%, rgba(255, 255, 255, 0) 100%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.6;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+}

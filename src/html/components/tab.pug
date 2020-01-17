@@ -1,0 +1,5 @@
+mixin tab(data)
+  //- data = { name: string, isActive: bool }
+  .tab(class=data.isActive && '_active')&attributes(attributes)
+    .tab__name
+      span= data.name

@@ -1,0 +1,128 @@
+extends components/layout-inner
+include components/banner
+include components/menu
+include components/client-card
+
+block title
+  | Клиентам
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          linkName: 'Клиентам'
+        }
+      ],
+      title: 'Клиентам',
+      style: 'dark'
+    }
+    var bannerLinks = [
+      {
+        link: '#',
+        linkName: 'Сертификаты качества'
+      },
+      {
+        link: '#',
+        linkName: 'Торговые представительства в мире'
+      },
+      {
+        link: '#',
+        linkName: 'Контакты продаж'
+      }
+    ]
+    var clientCards = [
+      {
+        image: 'common/images/clients__card-1.jpg',
+        name: 'Первичный алюминий',
+        text: 'Первичный алюминий используется в транспортной, строительной, электротехнической и упаковочной отраслях промышленности.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-2.jpg',
+        name: 'Алюминиевые сплавы',
+        text: 'РУСАЛ обладает современным литейным комплексом и выпускает широкий ассортимент высококачественных сплавов на основе алюминия.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-3.jpg',
+        name: 'Алюминий высокой и супер чистоты',
+        text: 'Алюминий высокой и супер чистоты используется в производстве компьютерных винчестеров (жестких дисков) и конденсаторной фольги.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-4.jpg',
+        name: 'Катанка',
+        text: 'Катанка широко используется в кабельной промышленности и в черной металлургии.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-5.jpg',
+        name: 'Фольга и упаковка',
+        text: 'Предприятия РУСАЛа выпускают фольгу толщиной от 5 до 240 микрон, гибкую упаковку на ее основе, алюминиевую ленту и фольгу для бытовых и технических целей.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-6.jpg',
+        name: 'Алюминиевые порошки',
+        text: 'Благодаря своим уникальным свойствам алюминиевые порошки, пудры и гранулы рассчитаны на широчайший спектр применения.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-7.jpg',
+        name: 'Глинозем и бокситы',
+        text: 'Первичный алюминий используется в транспортной, строительной, электротехнической и упаковочной отраслях промышленности.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-8.jpg',
+        name: 'Кремний',
+        text: 'РУСАЛ выпускает металлургический кремний для производства сплавов системы AlSi, а также рафинированный кремний для химической и электротехнической промышленности.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-9.jpg',
+        name: 'Галлий',
+        text: 'РУСАЛ производит металлургический галлий чистоты 99, 99% и 99, 999%.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-10.jpg',
+        name: 'Корунд',
+        text: 'РУСАЛ — крупнейший в России и один из крупнейших в мире производителей белого электрокорунда.',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-11.jpg',
+        name: 'Алюминиевые колесные диски',
+        text: 'Литые диски SKAD, изготавливаемые на импортном оборудовании, проходят жесткие испытания в аккредитованной лаборатории завода. Часть моделей сертифицирована немецкой компанией TUV. ',
+        link: '#'
+      },
+      {
+        image: 'common/images/clients__card-12.jpg',
+        name: 'Микрокремнезем',
+        text: 'Микрокремнезем является продуктом кремниевого производства РУСАЛа. Благодаря пуццоланов.',
+        link: '#'
+      },
+    ]
+block content
+  +menu
+  .inner.clients
+    +banner(bannerData)
+      .clients__links
+        each item in bannerLinks
+          a.clients__links-item(href=item.link)= item.linkName
+    .clients__content
+      .container
+        .row
+          .col-12
+            .clients__title
+              p Категории продукции
+        .row
+          each card in clientCards
+            .col-4
+              .clients__card
+                +client-card(card)

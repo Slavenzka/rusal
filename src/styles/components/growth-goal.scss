@@ -1,0 +1,46 @@
+.growth-goal {
+  padding: 72px 72px 72px 40px;
+  @extend .p2;
+
+  &__image-wrap {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 1px solid rgba(#333, .1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  &__image {
+    width: 48px;
+    height: 48px;
+    background: no-repeat center / contain;
+  }
+
+  &__title {
+    @extend .h4;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    margin-bottom: 24px;
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  &__goals {
+    list-style: decimal;
+    font: inherit;
+    padding-left: 0;
+
+    li {
+      margin: 16px 0;
+    }
+  }
+}

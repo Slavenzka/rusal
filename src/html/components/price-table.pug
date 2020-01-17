@@ -1,0 +1,25 @@
+mixin price-table(data, isSplit)
+  //- data = [{ name, value, yield }]
+  //- isSplit = bool
+  .price-table
+    each item, index in data
+      .price-table__row
+        .price-table__left
+          .price-table__name.wow(
+            data-wow-animation='titleSlideIn'
+            data-wow-delay=index * 0.2 + 's'
+          )
+            span= item.name
+        .price-table__right
+          if item.value
+            .price-table__value.wow(
+              data-wow-animation='titleSlideIn'
+              data-wow-delay=index * 0.2 + 's'
+            )
+              span= item.value
+          .price-table__yield.wow(
+            data-wow-animation='titleSlideIn'
+            data-wow-delay=index * 0.2 + 's'
+            class=(item.yieldNegative ? '_negative' : '_positive')
+          )
+            span= item.yield

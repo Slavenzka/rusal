@@ -1,0 +1,12 @@
+mixin filter-select(data, options)
+  //- data = [{ name: string, value: string, isSelected: true, isDisabled: bool }]
+  //- options = { style: string, lang: string }
+  .filter-select(class=(options && options.style) && '_'+options.style class=(options && options.lang) && '_lang')
+    if options && options.lang
+      select.filter-select-native(data-chosen-select-lang)
+        each option in data
+          option(value=option.name selected=option.isSelected disabled=option.isDisabled)= option.name
+    else
+      select.filter-select-native(data-chosen-select)
+        each option in data
+          option(value= option.value selected=option.isSelected disabled=option.isDisabled)= option.name

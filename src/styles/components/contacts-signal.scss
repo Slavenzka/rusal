@@ -1,0 +1,29 @@
+.contacts__signal {
+  margin-left: 32px;
+  padding: 40px 224px 48px 40px;
+  background-color: white;
+  &.wysiwyg{
+    p,
+    li {
+      @include p2;
+    }
+    p {
+      margin-top: 32px;
+    }
+    b {
+      display: block;
+      margin-top: 40px;
+      @include p2;
+      @include fontBold;
+    }
+    ul {
+      margin-top: 24px;
+    }
+    li{
+      margin: 16px 0;
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+  }
+}

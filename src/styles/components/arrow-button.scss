@@ -1,0 +1,11 @@
+.arrow-button{
+  background-color: transparent;
+  border: none;
+  svg{
+    display: block;
+    transition: $transitionSpeed;
+    *{
+      transition: $transitionSpeed;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+.profile-card{
+  box-sizing: border-box;
+  background-color: #fff;
+  height: 100%;
+  &__wrapper-link {
+    display: flex;
+    padding: 40px;
+
+    &:hover {
+      .profile-card__more {
+        color: $colorBlue;
+      }
+    }
+  }
+  &__image{
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+    overflow: hidden;
+    margin-right: 40px;
+    img{
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+    }
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__title{
+    @include h3;
+    margin-bottom: 4px;
+  }
+  &__description{
+    @include p2;
+    color: $colorNavGrey;
+  }
+  &__more{
+    @include p2;
+    margin-top: 4px;
+    transition: $transitionSpeed;
+    &:hover{
+      text-decoration: none;
+      color: $colorBlue;
+    }
+  }
+  &__popup{
+    background-color: #fff;
+    width: 864px;
+    height: 564px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    &-left{
+      background-color: $colorGrey;
+      padding: 40px;
+      box-sizing: border-box;
+      width: 328px;
+      min-width: 328px;
+      margin-right: auto;
+    }
+    &-photo{
+      width: 248px;
+      height: 248px;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-title{
+      @include h3;
+    }
+    &-subtitle{
+      @include p2;
+      color: $colorNavGrey;
+    }
+    &-content{
+      padding: 40px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .mfp-close{
+      display: none;
+    }
+    &-close{
+      &.mfp-close{
+        display: block;
+        background-image: url("../images/close.svg");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 24px;
+        height: 24px;
+        top: 16px;
+        right: 16px;
+        transition: all $transitionSpeed;
+      }
+    }
+    &-inside{
+      @include p2;
+      overflow-y: auto;
+      max-height: 100%;
+      p{
+        &:not(:last-child){
+          margin-bottom: 28px;
+        }
+      }
+    }
+  }
+}

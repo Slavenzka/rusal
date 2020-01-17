@@ -1,0 +1,25 @@
+.contacts{
+  margin: 0;
+  &__content{
+    padding: 60px 0 116px;
+    box-sizing: border-box;
+  }
+  &__tabs{
+    display: flex;
+    margin-bottom: 44px;
+  }
+  &__block{
+    display: none;
+    &._active{
+      display: flex;
+      align-items: flex-start;
+    }
+    &._activeMap {
+      align-items: stretch;
+    }
+  }
+
+  &__right {
+    width: calc(100% - 416px);
+  }
+}

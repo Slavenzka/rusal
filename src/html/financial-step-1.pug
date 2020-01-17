@@ -1,0 +1,58 @@
+extends components/layout-inner
+include components/menu
+include components/backlink
+include components/dropdown
+include elements/button
+
+block title
+  | Финансовая отчетность
+block vars
+  - var lang = 'en'
+  -
+    var financialStepOneDropdown = [
+      {
+        text: 'USA',
+        value: 'USA'
+      },
+      {
+        text: 'France',
+        value: 'France'
+      },
+      {
+        text: 'Belgium',
+        value: 'Belgiun'
+      }
+    ]
+block content
+  +menu
+  .inner.financial-inner
+    .financial-inner__content
+      .container
+        .row
+          .col-2
+            +backlink('#', 'Go Back', 'dark')
+          .col-6.wysiwyg
+            h4 Important
+            p Due to&nbsp;restrictions under applicable securities laws, the information herein is&nbsp;not for release, publication or&nbsp;distribution, directly or&nbsp;indirectly, in&nbsp;whole or&nbsp;in&nbsp;part, in&nbsp;certain jurisdictions, including, among others, the United States of&nbsp;America, Australia, Canada and Japan.
+            p The information herein and on&nbsp;the pages accessible from this section is&nbsp;for information purposes only and does not constitute or&nbsp;form a&nbsp;part of&nbsp;an&nbsp;advertisement, offer, solicitation or&nbsp;an&nbsp;invitation to&nbsp;make offers to&nbsp;acquire, purchase or&nbsp;subscribe for securities or&nbsp;an&nbsp;invitation to&nbsp;enter into an&nbsp;agreement to&nbsp;do&nbsp;any such things, nor is&nbsp;it&nbsp;calculated to&nbsp;invite any offer to&nbsp;acquire, purchase or&nbsp;subscribe for any securities in&nbsp;any jurisdiction in&nbsp;which such offer, solicitation or&nbsp;sale, with certain exceptions, would be&nbsp;unlawful. United Company Rusal Plc or&nbsp;any of&nbsp;its subsidiaries (the &laquo;Company&raquo;) does not accept any responsibility for any contravention of&nbsp;applicable securities laws and regulations by&nbsp;individuals or&nbsp;entities accessing the following web pages as&nbsp;a&nbsp;result of&nbsp;false information provided by&nbsp;such individuals or&nbsp;entities.
+            p You may not access the information on&nbsp;the following web pages if&nbsp;you are a&nbsp;resident&nbsp;of, or&nbsp;physically present&nbsp;in, any jurisdiction where such access is&nbsp;prohibited by&nbsp;law or&nbsp;regulation or&nbsp;would require regulatory permits or&nbsp;filings, including, among others, the United States, Australia, Canada and Japan. The information contained on&nbsp;this website does not constitute an&nbsp;offer&nbsp;of, or&nbsp;the solicitation of&nbsp;an&nbsp;offer to&nbsp;subscribe for or&nbsp;buy, any securities of&nbsp;the Company in&nbsp;the United States or&nbsp;to&nbsp;any person in&nbsp;any other jurisdiction to&nbsp;whom or&nbsp;in&nbsp;which such offer or&nbsp;solicitation is&nbsp;unlawful and, in&nbsp;particular, is&nbsp;not for retransmission or&nbsp;other distribution in&nbsp;the United States, Australia, Canada, or&nbsp;Japan or&nbsp;to&nbsp;any resident thereof or&nbsp;any jurisdiction where such retransmission or&nbsp;other distribution is&nbsp;prohibited by&nbsp;law or&nbsp;regulation or&nbsp;would require regulatory permits or&nbsp;filings. Potential users of&nbsp;this information are requested to&nbsp;inform themselves about and to&nbsp;observe any such restrictions.
+            p
+              b By&nbsp;clicking the &laquo;Submit&raquo; button you certify that you are an&nbsp;individual resident in&nbsp;the country stipulated by&nbsp;you above, that you have read and understood this notice.
+    .financial-inner__bottom
+      .container
+        .row
+          .col-6.offset-2
+            .financial-inner__bottom-wrapper
+              .financial-inner__bottom-select
+                .financial-inner__bottom-text
+                  p Please select the country of your residency
+                .financial-inner__bottom-dropdown.ml-16
+                  .filter-select
+                    select.filter-select-native(data-chosen-select-content-fit)
+                      each item, index in financialStepOneDropdown
+                        if index === 0
+                          option(value=item.value selected)=item.text
+                        else
+                          option(value=item.value)=item.text
+              .financial-inner__bottom-button
+                      +button({tag: 'button', name: 'Submit'})

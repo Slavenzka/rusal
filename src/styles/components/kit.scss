@@ -1,0 +1,24 @@
+.kit{
+  &__content{
+    margin-bottom: 16px;
+  }
+  &__title{
+    @include p1;
+    margin-bottom: 12px;
+  }
+  &__item{
+    &-icon{
+      width: 96px;
+      height: 96px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba($colorBlack, .1);
+    }
+  }
+  &__image{
+    width: 376px;
+    height: 236px;
+    margin-bottom: 16px;
+  }
+}

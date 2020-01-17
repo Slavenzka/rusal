@@ -1,0 +1,19 @@
+.tag{
+  padding: 8px 20px;
+  box-sizing: border-box;
+  border-radius: 27px;
+  background-color: rgba($colorBlack, .05);
+  color: $colorBlack;
+  transition: $transitionSpeed;
+  border: none;
+  font-size: 15px;
+  line-height: 20px;
+  &:hover,
+  &._active{
+    color: $colorWhite;
+    background-color: $colorBlue;
+  }
+  &:focus{
+    outline: none;
+  }
+}

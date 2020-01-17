@@ -1,0 +1,15 @@
+mixin geo-map(pins)
+  //- pins = [{ x: 'string, y: string, type: string, card: {} }]
+    //- pins.card = { factoryName: string, factoryType: string, factoryLocation: string, link: {} }
+      //- pins.card.link = { text: string, url: string }
+  .geo-map
+    include ../../assets/images/geo-map.svg
+    .geo-map__pins
+      for pin in pins
+        .geo-map__pin(class='geo-map__pin--' + pin.type style='left: ' + pin.x + '%; top: ' + pin
+          .y + '%;' data-country=pin.country data-geo-map-pin)
+          .geo-map__card.geo-card(class='geo-card--' + pin.type data-geo-card)
+            p.geo-card__title=pin.card.factoryName
+            p.geo-card__type=pin.card.factoryType
+            p.geo-card__location=pin.card.factoryLocation
+            a.geo-card__link(href=pin.card.link.url)=pin.card.link.text

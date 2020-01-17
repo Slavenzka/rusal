@@ -1,0 +1,85 @@
+.wysiwyg{
+  @include p2;
+  p{
+    margin: 16px 0;
+  }
+  b, strong{
+    font-weight: bold;
+  }
+  figure{
+    margin: 52px 0 60px;
+    img{
+      display: block;
+      margin-bottom: 24px;
+      margin-left: calc((100% + #{$grid-gutter-width/2})/-6);
+      margin-right: calc((100% + #{$grid-gutter-width/2})/-6);
+      max-width: 200%;
+    }
+    figcaption{
+      text-align: center;
+      @include p2($colorNavGrey);
+    }
+  }
+  h4{
+    @include h4;
+    margin-top: 68px;
+    margin-bottom: 32px;
+  }
+  ul{
+    list-style: disc;
+    li{
+      margin: 24px 0;
+    }
+  }
+  ol{
+    list-style: decimal;
+    padding-left: 15px;
+    li{
+      margin: 24px 0;
+    }
+  }
+  img{
+    margin: 0 32px 20px 0;
+    &.wysiwyg__img-right{
+      margin: 0 0 20px 32px;
+    }
+  }
+  table{
+    width: 100%;
+    th{
+      @include p2;
+      font-weight: 700;
+      text-align: right;
+      border-bottom: 1px solid rgba(51, 51, 51, 0.4);
+      padding: 12px 0 24px;
+      &:first-child{
+        text-align: left;
+      }
+    }
+    tr{
+      &:first-child{
+        td{
+          padding-top: 24px;
+        }
+      }
+    }
+    td{
+      @include p2;
+      text-align: right;
+      padding: 12px 0;
+      vertical-align: top;
+      &:first-child{
+        text-align: left;
+      }
+    }
+    th,
+    td{
+      &._left{
+        text-align: left;
+      }
+      &._right{
+        text-align: right;
+      }
+    }
+  }
+}

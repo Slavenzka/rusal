@@ -1,0 +1,38 @@
+.news-post{
+  display: block;
+  &._white{
+    .news-post__date{
+      color: $colorWhite;
+    }
+  }
+  &:hover{
+    color: inherit;
+    text-decoration: none;
+  }
+  &__date{
+    @include p2-date;
+    color: $colorNavGrey;
+    margin-bottom: 16px;
+    @include media-breakpoint-down('xs'){
+      margin-bottom: 12px;
+    }
+  }
+  &__title{
+    @include h3;
+    overflow: hidden;
+    margin-bottom: 16px;
+    @include media-breakpoint-down('xs'){
+      @include h4-m;
+      margin-bottom: 12px;
+    }
+  }
+  &__content{
+    @include p2;
+    overflow: hidden;
+  }
+  &._tiny{
+    .news-post__title{
+      @include h4;
+    }
+  }
+}

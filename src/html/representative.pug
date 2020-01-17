@@ -1,0 +1,119 @@
+extends components/layout-inner
+include components/menu
+include components/banner
+include components/share-button
+
+block title
+  | Торговые представительства
+block vars
+  -
+    var bannerData = {
+      breadcrumbs: [
+        {
+          link: '/',
+          linkName: 'Главная'
+        },
+        {
+          link: '/',
+          linkName: 'Клиентам'
+        },
+        {
+          linkName: 'Торговые представительства'
+        }
+      ],
+      title: 'Торговые представительства',
+      image: 'common/images/banner__bg-representative.jpg',
+    }
+    var officeData = {
+      headings: ['Страна', 'Адрес', 'Телефон', 'Факс'],
+      items: [
+        {
+          country: 'Switzerland',
+          flag: 'common/images/representative__flag--switzerland.jpg',
+          address: 'RUSAL Marketing GmbH, Metalli Center Baarerstrasse 22 6300 Zug Switzerland',
+          phone: ['+41 41 560 98 00'],
+          fax: '+41 41 560 98 01'
+        },
+        {
+          country: 'Russia',
+          flag: 'common/images/representative__flag--russia.jpg',
+          address: '1, Vasilisy Kozhinoy str., Moscow, 121096, Russia',
+          phone: ['+7 495 720-51-70'],
+          fax: '+7 495 745-70-46'
+        },
+        {
+          country: 'Japan',
+          flag: 'common/images/representative__flag--japan.jpg',
+          address: '26th Floor, ARK Hills Sengokuyama Mori Tower, 1-9-10 Roppongi, Minato-ku, Tokyo 106-0032',
+          phone: ['+81 3 5561 9215'],
+          fax: '+81 3 5561 9216'
+        },
+        {
+          country: 'USA',
+          flag: 'common/images/representative__flag--usa.jpg',
+          address: '800 Westchester Ave, Suite S-308 Rye Brook, NY 10573, USA',
+          phone: ['+1 914 670 5771'],
+          fax: '+1 914 670 5786'
+        },
+        {
+          country: 'China',
+          flag: 'common/images/representative__flag--china.jpg',
+          address: 'Suite 2505, 25/F, Tower D, Central International Trade Center, 6A Jianguomenwai Av., Chaoyang distr., Beijing, 100022 PRC.',
+          phone: ['+86 10 85679811', '+86 10 85679120'],
+          fax: '+86 10 85679081'
+        },
+        {
+          country: 'Hong Kong',
+          flag: 'common/images/representative__flag--hongkong.jpg',
+          address: 'Suites 3301 & 3320, 33/F, Jardine House, 1 Connaught Place, Central, Hong Kong',
+          phone: ['+852 39158701'],
+          fax: '+852 39158777'
+        },
+        {
+          country: 'Singapore',
+          flag: 'common/images/representative__flag--singapore.jpg',
+          address: 'One Temasek Avenue #24-01A, Millenia Tower, Singapore 039192',
+          phone: ['+65 6816 2915'],
+          fax: '+7 (495) 720-51-70'
+        },
+        {
+          country: 'Turkey',
+          flag: 'common/images/representative__flag--turkey.jpg',
+          address: 'Spine Tower, Buyukdere, Cad. No:243, 34398 Maslak Istanbul',
+          phone: ['+90 212 2850090'],
+          fax: '+90 212 2850090'
+        },
+        {
+          country: 'South Korea',
+          flag: 'common/images/representative__flag--korea.jpg',
+          address: '#1514, Seocho World Bldg. 19, Seoun-ro, Seocho-gu, Seoul',
+          phone: ['+82-2-597-0880'],
+          fax: '+82-2-597-1880'
+        }
+      ]
+    }
+    var tableRowsQty = officeData.headings.length
+block content
+  +menu
+  .inner.representative
+    +banner(bannerData)
+      +share-button
+    .representative__wrapper
+      .container
+        .row
+          .col-12
+            .representative__content
+              table.representative__table
+                tr.representative__headings
+                  each heading in officeData.headings
+                    th.representative__heading=heading
+                each row in officeData.items
+                  tr.representative__row
+                    td.representative__item.representative__item--country
+                      span.representative__flag(style='background-image: url("' + row.flag +'")')
+                      span.representative__name=row.country
+                    td.representative__item.representative__item--address=row.address
+                    td.representative__item.representative__item--phones
+                      each phone in row.phone
+                        p.representative__phone=phone
+                    td.representative__item.representative__item--fax=row.fax

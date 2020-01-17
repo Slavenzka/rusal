@@ -1,0 +1,6 @@
+mixin timeline(data)
+  //- data = [{ preview: {} }]
+    //- data.preview = { text: string, anchor: string }
+  .timeline
+    each item in data
+      button.timeline__item(data-timeline=item.preview.anchor)=item.preview.text

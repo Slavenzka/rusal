@@ -1,0 +1,23 @@
+include ../elements/button
+
+mixin press-center-banner(data)
+  //- data = [{ date: string, title: string, description: string, link: string }]
+  .press-center-banner__wrapper
+    .press-center-banner__headline
+      a.press-center-banner__link(href=data.items[0].link)
+        p.press-center-banner__date=data.items[0].date
+        p.press-center-banner__title=data.items[0].title
+        p.press-center-banner__description=data.items[0].description
+      +button({
+        name: data.button.text,
+        style: 'secondary',
+        tag: 'link',
+        link: data.button.url
+      })&attributes({style: 'margin-top: 48px'})
+    .press-center-banner__timeline
+      each item, index in data.items
+        if index !== 0
+          .press-center-banner__card
+            a.press-center-banner__card-link(href=item.link)
+              p.press-center-banner__date=item.date
+              p.press-center-banner__subtitle=item.title

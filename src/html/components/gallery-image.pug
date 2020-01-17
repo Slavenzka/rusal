@@ -1,0 +1,4 @@
+mixin gallery-image(data)
+  //- data = { background: string, url: string, caption: string }
+  a.gallery-image(href=data.url data-image-lightbox title=data.caption)
+    img.gallery-image(src=data.background alt=data.caption || 'image')

@@ -1,0 +1,14 @@
+mixin price-table-tiny(data)
+  //- data = [{ name, value, yield }]
+  .price-table._tiny
+    each item, index in data
+      .price-table__row( class=(index + 1 !== data.length && 'mb-16') )
+        .price-table__left
+          .price-table__name._tiny
+            span= item.name
+        .price-table__right._tiny
+          if item.value
+            .price-table__value._tiny
+              span= item.value
+          .price-table__yield._tiny( class=(item.yieldNegative ? '_negative' : '_positive') )
+            span= item.yield

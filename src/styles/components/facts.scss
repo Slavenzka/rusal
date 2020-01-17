@@ -1,0 +1,39 @@
+.facts {
+  &__links {
+    padding-top: 180px;
+  }
+
+  &__subtitle {
+    @include h4;
+  }
+
+  &__list {
+    margin-top: 16px;
+  }
+
+  &__item:not(:first-of-type) {
+    margin-top: 4px;
+  }
+
+  &__link {
+    @include p2($colorBlue);
+  }
+
+  &__wyziwig {
+    h3 {
+      @include h2;
+    }
+
+    p {
+      @include p2($colorNavGrey);
+
+      &:first-of-type {
+        margin-top: 68px;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 25px;
+      }
+    }
+  }
+}
